@@ -311,7 +311,7 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuStrip1_Opening);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // offsetNum
             // 
@@ -353,7 +353,7 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "Firerate";
             this.toolTip1.SetToolTip(this.label5, "Firerate of your Weapon in Triggerbotmode");
-            this.label5.Click += new System.EventHandler(this.Label5_Click);
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // FireRateNum
             // 
@@ -782,7 +782,7 @@
             this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip2.Name = "contextMenuStrip1";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
-            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuStrip2_Opening);
+            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
             // 
             // Form1
             // 
@@ -844,7 +844,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "iBaseult";
+            this.Text = "iBaseult - Valorant Cheat";
             this.Load += new System.EventHandler(this.Main_load);
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FovXNum)).EndInit();

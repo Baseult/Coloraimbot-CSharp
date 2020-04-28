@@ -11,8 +11,6 @@
 //Some Information stuff..
 //Recode of https://www.unknowncheats.me/forum/valorant/389766-valorant-color-aimbot-ui-source.html
 
-//Website https://baseult.com - Discord: https://baseult.com/twitchbot/redirect.php
-
 using System;
 using System.Windows.Forms;
 

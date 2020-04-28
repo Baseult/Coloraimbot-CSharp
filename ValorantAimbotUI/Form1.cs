@@ -8,7 +8,7 @@
 //   \______) \___/  \____||_____) \____|  |____/  \__  |  |______/ \_____|(___/ |_____)|____/  \_)   \__)
 //                                                 (____/                                                  
 
-
+//Some Information stuff..
 //Recode of https://www.unknowncheats.me/forum/valorant/389766-valorant-color-aimbot-ui-source.html
 
 
@@ -33,6 +33,7 @@ namespace ValorantAimbotUI
 		public Form1()
 		{
 			this.InitializeComponent();
+			this.Text = "iBaseult";
 			this.isTriggerbot = this.GetKey<bool>("isTriggerbot");
 			this.isAimbot = this.GetKey<bool>("isAimbot");
 			this.speed = this.GetKey<decimal>("speed");
@@ -108,7 +109,7 @@ namespace ValorantAimbotUI
 		[DllImport("gdi32.dll")]
 		private static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
 
-		private static float GetScalingFactor()
+		private float GetScalingFactor()
 		{
 			IntPtr hdc = Graphics.FromHwnd(IntPtr.Zero).GetHdc();
 			int deviceCaps = Form1.GetDeviceCaps(hdc, 10);
@@ -122,15 +123,19 @@ namespace ValorantAimbotUI
 		[DllImport("USER32.dll")]
 		private static extern short GetKeyState(int nVirtKey);
 
-		private async void Update3()
+		 bool norecoil;
+
+
+		private new async void Update3()
 		{
+
 			for (; ; )
 			{
 				News:
 
 				if (!this.isRunning || !this.isBhop)
 				{
-					await Task.Delay(1000).ConfigureAwait(true);
+					await Task.Delay(1000);
 					goto News;
 				}
 				else
@@ -140,7 +145,7 @@ namespace ValorantAimbotUI
 
 					if (keyState >= 0)
 					{
-						await Task.Delay(10).ConfigureAwait(true);
+						await Task.Delay(10);
 						goto News;
 					}
 					else
@@ -157,7 +162,7 @@ namespace ValorantAimbotUI
 
 
 
-		private async void Update2()
+		private new async void Update2()
 		{
 
 			for (; ; )
@@ -167,7 +172,7 @@ namespace ValorantAimbotUI
 
 				if (!this.isRunning)
 				{
-					await Task.Delay(1000).ConfigureAwait(true);
+					await Task.Delay(1000);
 				}
 				else
 				{
@@ -177,7 +182,7 @@ namespace ValorantAimbotUI
 						int keyState2 = (int)Form1.GetKeyState(1);
 						if (keyState >= 0 && keyState2 >= 0)
 						{
-								await Task.Delay(1).ConfigureAwait(true);
+								await Task.Delay(1);
 								goto New;
 							}
 							else
@@ -189,13 +194,13 @@ namespace ValorantAimbotUI
 								int keyStatex2 = (int)Form1.GetKeyState(1);
 								if (keyStatex >= 0 && keyStatex2 >= 0)
 								{
-									await Task.Delay(1).ConfigureAwait(true);
+									await Task.Delay(1);
 									goto New;
 								}
 								else
 								{
 
-									await Task.Delay(15).ConfigureAwait(true);
+									await Task.Delay(15);
 									Move(0, 1);
 								}
 							}
@@ -209,7 +214,7 @@ namespace ValorantAimbotUI
 						int keyState2 = (int)Form1.GetKeyState(1);
 						if (keyState >= 0 && keyState2 >= 0)
 						{
-							await Task.Delay(1).ConfigureAwait(true);
+							await Task.Delay(1);
 							goto New;
 						}
 						else
@@ -221,13 +226,13 @@ namespace ValorantAimbotUI
 								int keyStatex2 = (int)Form1.GetKeyState(1);
 								if (keyStatex >= 0 && keyStatex2 >= 0)
 								{
-									await Task.Delay(1).ConfigureAwait(true);
+									await Task.Delay(1);
 									goto New;
 								}
 								else
 								{
 
-									await Task.Delay(20).ConfigureAwait(true);
+									await Task.Delay(20);
 									Move(0, 2);
 								}
 							}
@@ -240,7 +245,7 @@ namespace ValorantAimbotUI
 						int keyState2 = (int)Form1.GetKeyState(1);
 						if (keyState >= 0 && keyState2 >= 0)
 						{
-							await Task.Delay(1).ConfigureAwait(true);
+							await Task.Delay(1);
 							goto New;
 						}
 						else
@@ -251,12 +256,12 @@ namespace ValorantAimbotUI
 								int keyStatex2 = (int)Form1.GetKeyState(1);
 								if (keyStatex >= 0 && keyStatex2 >= 0)
 								{
-									await Task.Delay(1).ConfigureAwait(true);
+									await Task.Delay(1);
 									goto New;
 								}
 								else
 								{
-									await Task.Delay(30).ConfigureAwait(true);
+									await Task.Delay(30);
 									Move(0, 8);
 								}
 							}
@@ -269,7 +274,7 @@ namespace ValorantAimbotUI
 						int keyState2 = (int)Form1.GetKeyState(1);
 						if (keyState >= 0 && keyState2 >= 0)
 						{
-							await Task.Delay(1).ConfigureAwait(true);
+							await Task.Delay(1);
 							goto New;
 						}
 						else
@@ -280,12 +285,12 @@ namespace ValorantAimbotUI
 								int keyStatex2 = (int)Form1.GetKeyState(1);
 								if (keyStatex >= 0 && keyStatex2 >= 0)
 								{
-									await Task.Delay(1).ConfigureAwait(true);
+									await Task.Delay(1);
 									goto New;
 								}
 								else
 								{
-									await Task.Delay(30).ConfigureAwait(true);
+									await Task.Delay(30);
 									Move(0, 9);
 								}
 							}
@@ -298,7 +303,7 @@ namespace ValorantAimbotUI
 						int keyState2 = (int)Form1.GetKeyState(1);
 						if (keyState >= 0 && keyState2 >= 0)
 						{
-							await Task.Delay(1).ConfigureAwait(true);
+							await Task.Delay(1);
 							goto New;
 						}
 						else
@@ -310,12 +315,12 @@ namespace ValorantAimbotUI
 								int keyStatex2 = (int)Form1.GetKeyState(1);
 								if (keyStatex >= 0 && keyStatex2 >= 0)
 								{
-									await Task.Delay(1).ConfigureAwait(true);
+									await Task.Delay(1);
 									goto New;
 								}
 								else
 								{
-									await Task.Delay(25).ConfigureAwait(true);
+									await Task.Delay(25);
 									Move(0, 4);
 								}
 							}
@@ -328,7 +333,7 @@ namespace ValorantAimbotUI
 						int keyState2 = (int)Form1.GetKeyState(1);
 						if (keyState >= 0 && keyState2 >= 0)
 						{
-							await Task.Delay(1).ConfigureAwait(true);
+							await Task.Delay(1);
 							goto New;
 						}
 						else
@@ -339,12 +344,12 @@ namespace ValorantAimbotUI
 								int keyStatex2 = (int)Form1.GetKeyState(1);
 								if (keyStatex >= 0 && keyStatex2 >= 0)
 								{
-									await Task.Delay(1).ConfigureAwait(true);
+									await Task.Delay(1);
 									goto New;
 								}
 								else
 								{
-									await Task.Delay(100).ConfigureAwait(true);
+									await Task.Delay(100);
 								}
 							}
 						}
@@ -357,7 +362,7 @@ namespace ValorantAimbotUI
 						int keyState2 = (int)Form1.GetKeyState(1);
 						if (keyState >= 0 && keyState2 >= 0)
 						{
-							await Task.Delay(1).ConfigureAwait(true);
+							await Task.Delay(1);
 							goto New;
 						}
 						else
@@ -368,7 +373,7 @@ namespace ValorantAimbotUI
 								int keyStatex2 = (int)Form1.GetKeyState(1);
 								if (keyStatex >= 0 && keyStatex2 >= 0)
 								{
-									await Task.Delay(1).ConfigureAwait(true);
+									await Task.Delay(1);
 									goto New;
 								}
 								else
@@ -383,18 +388,20 @@ namespace ValorantAimbotUI
 					
 				}
 			}
+			return;
 		}
 
 
-		private async void Update4()
+		private new async void Update4()
 		{
+
 
 			for (; ; )
 			{
 
 				if (!this.isRunning)
 				{
-					await Task.Delay(1000).ConfigureAwait(true);
+					await Task.Delay(1000);
 				}
 				else
 				{
@@ -405,30 +412,30 @@ namespace ValorantAimbotUI
 						{
 							if (keyState >= 0)
 							{
-								await Task.Delay(1).ConfigureAwait(true);
+								await Task.Delay(1);
 								continue;
 							}
 						}
 						else if (keyState != 0)
 						{
-							await Task.Delay(1).ConfigureAwait(true);
+							await Task.Delay(1);
 							continue;
 						}
 					}
 
 
-					Color PixelColor;
+					Color pixel_Color;
 
 					if (Customcolor.Checked == true)
 					{
 						int r = int.Parse(Redinput.Text);
 						int g = int.Parse(Greeninput.Text);
 						int b = int.Parse(Blueinput.Text);
-						PixelColor = Color.FromArgb(r, g, b);
+						pixel_Color = Color.FromArgb(r, g, b);
 					}
 					else
 					{
-						PixelColor = Color.FromArgb(GetColor(this.color));
+						pixel_Color = Color.FromArgb(this.GetColor(this.color));
 					}
 
 					int pixelx;
@@ -447,7 +454,7 @@ namespace ValorantAimbotUI
 							pixely = 10;
 						}
 
-						if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), PixelColor, this.colorVariation).Length != 0)
+						if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
 						{
 							this.Move(0, 0, true);
 						}
@@ -469,7 +476,7 @@ namespace ValorantAimbotUI
 
 				if (!this.isRunning)
 				{
-					await Task.Delay(1000).ConfigureAwait(true);
+					await Task.Delay(1000);
 				}
 				else
 				{
@@ -480,36 +487,39 @@ namespace ValorantAimbotUI
 						{
 							if (keyState >= 0)
 							{
-								await Task.Delay(1).ConfigureAwait(true);
+								await Task.Delay(1);
 								continue;
 							}
 						}
 						else if (keyState != 0)
 						{
-							await Task.Delay(1).ConfigureAwait(true);
+							await Task.Delay(1);
 							continue;
 						}
 					}
 
 
-					Color PixelColor;
+					Color pixel_Color;
 
 					if (Customcolor.Checked == true)
 					{
 						int r = int.Parse(Redinput.Text);
 						int g = int.Parse(Greeninput.Text);
 						int b = int.Parse(Blueinput.Text);
-						PixelColor = Color.FromArgb(r, g, b);
+						pixel_Color = Color.FromArgb(r, g, b);
 					}
 					else
 					{
-						PixelColor = Color.FromArgb(GetColor(this.color));
+						pixel_Color = Color.FromArgb(this.GetColor(this.color));
 					}
+
+					int pixelx;
+					int pixely;
 
 					
 					if (this.isAimbot)
 					{
-						Point[] array = this.PixelSearch(new Rectangle((this.xSize - this.fovX) / 2, (this.ySize - this.fovY) / 2, this.fovX, this.fovY), PixelColor, this.colorVariation);
+						Point[] array = this.PixelSearch(new Rectangle((this.xSize - this.fovX) / 2, (this.ySize - this.fovY) / 2, this.fovX, this.fovY), pixel_Color, this.colorVariation);
 						if (array.Length != 0)
 						{
 							try
@@ -543,9 +553,10 @@ namespace ValorantAimbotUI
 							}
 							catch (Exception ex)
 							{
-								Console.WriteLine("Main Ex." + ex?.ToString());
+								Console.WriteLine("Main Ex." + ((ex != null) ? ex.ToString() : null));
 								continue;
 							}
+							return;
 						}
 
 					}
@@ -556,7 +567,7 @@ namespace ValorantAimbotUI
 			}
 		}
 
-		private static int GetColor(Form1.ColorType color)
+		private int GetColor(Form1.ColorType color)
 		{
 			if (color == Form1.ColorType.Red)
 			{
@@ -575,7 +586,7 @@ namespace ValorantAimbotUI
 			if (CustomScreen.Checked == true)
 			{
 
-				int x =  int.Parse(ScreenX2.Text);
+				int x = int.Parse(ScreenX2.Text);
 				int y = int.Parse(ScreenY2.Text);
 
 				this.xSize = x;
@@ -583,7 +594,7 @@ namespace ValorantAimbotUI
 			}
 			else
 			{
-				this.zoom = GetScalingFactor();
+				this.zoom = this.GetScalingFactor();
 				Screen screen = this.CurrentScreen();
 				bool primary = screen.Primary;
 				this.xSize = (int)((float)screen.Bounds.Width * (primary ? this.zoom : 1f));
@@ -592,7 +603,7 @@ namespace ValorantAimbotUI
 		}
 
 		[DllImport("user32.dll")]
-		private static extern void Mouse_event(int dwFlags, int dx, int dy, uint dwData, UIntPtr dwExtraInfo);
+		private static extern void mouse_event(int dwFlags, int dx, int dy, uint dwData, UIntPtr dwExtraInfo);
 
 		public new void Move(int xDelta, int yDelta, bool pressDown = false)
 		{
@@ -607,7 +618,7 @@ namespace ValorantAimbotUI
 					this.lastShot = DateTime.Now;
 				}
 			}
-			Form1.Mouse_event(pressDown ? 6:1 , xDelta, yDelta, 0U, UIntPtr.Zero);
+			Form1.mouse_event(pressDown ? 6:1 , xDelta, yDelta, 0U, UIntPtr.Zero);
 			
 		}
 
@@ -616,7 +627,7 @@ namespace ValorantAimbotUI
 			return Screen.AllScreens[this.monitor];
 		}
 
-		public unsafe Point[] PixelSearch(Rectangle rect, Color PixelColor, int ShadeVariation)
+		public unsafe Point[] PixelSearch(Rectangle rect, Color Pixel_Color, int Shade_Variation)
 		{
 			ArrayList arrayList = new ArrayList();
 			Bitmap bitmap = new Bitmap(rect.Width, rect.Height, PixelFormat.Format24bppRgb);
@@ -634,16 +645,16 @@ namespace ValorantAimbotUI
 			BitmapData bitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
 			int[] array = new int[]
 			{
-				(int)PixelColor.B,
-				(int)PixelColor.G,
-				(int)PixelColor.R
+				(int)Pixel_Color.B,
+				(int)Pixel_Color.G,
+				(int)Pixel_Color.R
 			};
 			for (int i = 0; i < bitmapData.Height; i++)
 			{
 				byte* ptr = (byte*)((void*)bitmapData.Scan0) + i * bitmapData.Stride;
 				for (int j = 0; j < bitmapData.Width; j++)
 				{
-					if (((int)ptr[j * 3] >= array[0] - ShadeVariation & (int)ptr[j * 3] <= array[0] + ShadeVariation) && ((int)ptr[j * 3 + 1] >= array[1] - ShadeVariation & (int)ptr[j * 3 + 1] <= array[1] + ShadeVariation) && ((int)ptr[j * 3 + 2] >= array[2] - ShadeVariation & (int)ptr[j * 3 + 2] <= array[2] + ShadeVariation))
+					if (((int)ptr[j * 3] >= array[0] - Shade_Variation & (int)ptr[j * 3] <= array[0] + Shade_Variation) && ((int)ptr[j * 3 + 1] >= array[1] - Shade_Variation & (int)ptr[j * 3 + 1] <= array[1] + Shade_Variation) && ((int)ptr[j * 3 + 2] >= array[2] - Shade_Variation & (int)ptr[j * 3 + 2] <= array[2] + Shade_Variation))
 					{
 						arrayList.Add(new Point(j + rect.X, i + rect.Y));
 					}
@@ -806,12 +817,11 @@ namespace ValorantAimbotUI
 
 		}
 
-
-		private void ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
+		private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
 		{
 		}
 
-		private void ContextMenuStrip2_Opening(object sender, CancelEventArgs e)
+		private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
 		{
 		}
 
@@ -821,7 +831,7 @@ namespace ValorantAimbotUI
 			this.SetKey("offsetY", this.offsetY);
 		}
 
-		private void Label5_Click(object sender, EventArgs e)
+		private void label5_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -864,7 +874,7 @@ namespace ValorantAimbotUI
 
 		private int monitor;
 
-		private readonly int colorVariation = 25;
+		private int colorVariation = 25;
 
 		private Form1.AimKey mainAimKey = Form1.AimKey.Alt;
 
@@ -880,41 +890,67 @@ namespace ValorantAimbotUI
 
 		private enum AimKey
 		{
+			// Token: 0x04000031 RID: 49
 			LeftMouse = 1,
+			// Token: 0x04000032 RID: 50
 			RightMouse,
+			// Token: 0x04000033 RID: 51
 			X1Mouse = 5,
+			// Token: 0x04000034 RID: 52
 			X2Button,
+			// Token: 0x04000035 RID: 53
 			Shift = 160,
+			// Token: 0x04000036 RID: 54
 			Ctrl = 162,
+			// Token: 0x04000037 RID: 55
 			Alt = 164,
+			// Token: 0x04000038 RID: 56
 			Capslock = 20,
+			// Token: 0x04000039 RID: 57
 			Numpad0 = 96,
+			// Token: 0x0400003A RID: 58
 			Numlock = 144
 		}
 
 		private enum Bhopkey
 		{
+			// Token: 0x04000031 RID: 49
 			LeftMouse = 1,
+			// Token: 0x04000032 RID: 50
 			RightMouse,
+			// Token: 0x04000033 RID: 51
 			X1Mouse = 5,
+			// Token: 0x04000034 RID: 52
 			X2Button,
+			// Token: 0x04000035 RID: 53
 			Shift = 160,
+			// Token: 0x04000036 RID: 54
 			Ctrl = 162,
+			// Token: 0x04000037 RID: 55
 			Alt = 164,
+			// Token: 0x04000038 RID: 56
 			Capslock = 20,
+			// Token: 0x04000039 RID: 57
 			Numpad0 = 96,
+			// Token: 0x0400003A RID: 58
 			Numlock = 144
 		}
 
+		// Token: 0x02000007 RID: 7
 		public enum DeviceCap
 		{
+			// Token: 0x0400003C RID: 60
 			VERTRES = 10,
+			// Token: 0x0400003D RID: 61
 			DESKTOPVERTRES = 117
 		}
 
+		// Token: 0x02000008 RID: 8
 		private enum ColorType
 		{
+			// Token: 0x0400003F RID: 63
 			Red,
+			// Token: 0x04000040 RID: 64
 			Purple
 		}
 
