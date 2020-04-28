@@ -71,15 +71,15 @@
             this.label20 = new System.Windows.Forms.Label();
             this.rcs = new System.Windows.Forms.NumericUpDown();
             this.label21 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Delayx = new System.Windows.Forms.NumericUpDown();
             this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.SmoothY = new System.Windows.Forms.NumericUpDown();
             this.label25 = new System.Windows.Forms.Label();
             this.SmoothX = new System.Windows.Forms.NumericUpDown();
+            this.label19 = new System.Windows.Forms.Label();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FovXNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FovYNum)).BeginInit();
@@ -883,25 +883,6 @@
             this.label21.Text = "RCS Amount";
             this.toolTip1.SetToolTip(this.label21, "Firerate of your Weapon in Triggerbotmode");
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label19.Location = new System.Drawing.Point(12, 855);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(157, 18);
-            this.label19.TabIndex = 53;
-            this.label19.Text = "Keybinds Triggerbot:";
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
-            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
-            // 
             // Delayx
             // 
             this.Delayx.Location = new System.Drawing.Point(15, 356);
@@ -933,18 +914,6 @@
             this.label22.TabIndex = 60;
             this.label22.Text = "On Enemy Delay";
             this.toolTip1.SetToolTip(this.label22, resources.GetString("label22.ToolTip"));
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label23.Location = new System.Drawing.Point(12, 312);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(122, 18);
-            this.label23.TabIndex = 61;
-            this.label23.Text = "Smooth Aimbot:";
             // 
             // label24
             // 
@@ -1018,6 +987,37 @@
             0,
             0});
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label19.Location = new System.Drawing.Point(12, 855);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(157, 18);
+            this.label19.TabIndex = 53;
+            this.label19.Text = "Keybinds Triggerbot:";
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Name = "contextMenuStrip1";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label23.Location = new System.Drawing.Point(12, 312);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(122, 18);
+            this.label23.TabIndex = 61;
+            this.label23.Text = "Smooth Aimbot:";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1025,7 +1025,7 @@
             this.AutoScrollMargin = new System.Drawing.Size(1, 1);
             this.AutoScrollMinSize = new System.Drawing.Size(1, 1);
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(226, 1004);
+            this.ClientSize = new System.Drawing.Size(249, 310);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.SmoothY);
             this.Controls.Add(this.label25);
