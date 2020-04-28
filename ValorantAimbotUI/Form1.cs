@@ -1,5 +1,4 @@
-﻿
-//﻿
+﻿//﻿
 //   _______             _             _    _               ______                              _         
 //  (_______)           | |           | |  | |             (____  \                            | |    _   
 //   _         ___    __| | _____   __| |  | |__   _   _    ____)  ) _____   ___  _____  _   _ | |  _| |_ 
@@ -10,6 +9,8 @@
 
 //Some Information stuff..
 //Recode of https://www.unknowncheats.me/forum/valorant/389766-valorant-color-aimbot-ui-source.html
+
+//Copyright(c) 2020 Baseult - https://baseult.com - Discord: https://baseult.com/twitchwatcher
 
 
 using System;
@@ -37,6 +38,8 @@ namespace ValorantAimbotUI
 			this.isTriggerbot = this.GetKey<bool>("isTriggerbot");
 			this.isAimbot = this.GetKey<bool>("isAimbot");
 			this.speed = this.GetKey<decimal>("speed");
+			this.speed3 = this.GetKey<decimal>("speed3");
+			this.delayx = this.GetKey<decimal>("delayx");
 			this.Bhop = this.GetKey<decimal>("Bhop");
 			this.fovX = this.GetKey<int>("fovX");
 			this.fovY = this.GetKey<int>("fovY");
@@ -52,8 +55,6 @@ namespace ValorantAimbotUI
 			this.isRecoil = this.GetKey<bool>("isRecoil");
 			this.isBhop = this.GetKey<bool>("isBhop");
 			Form1.ColorType colorType = this.color;
-
-
 
 			if (colorType != Form1.ColorType.Red)
 			{
@@ -74,6 +75,8 @@ namespace ValorantAimbotUI
 			this.AimKeyToggle.Checked = this.isAimKey;
 			this.AimKeyToggle.Checked = this.isBhop;
 			this.Speed.Value = this.speed;
+			this.Speed3.Value = this.speed3;
+			this.Delayx.Value = this.delayx;
 			this.Bhopinput.Value = this.Bhop;
 			this.FovXNum.Value = this.fovX;
 			this.FovYNum.Value = this.fovY;
@@ -116,14 +119,13 @@ namespace ValorantAimbotUI
 			return (float)Form1.GetDeviceCaps(hdc, 117) / (float)deviceCaps;
 		}
 
-
 		[DllImport("user32.dll")]
 		private static extern short GetAsyncKeyState(int vKey);
 
 		[DllImport("USER32.dll")]
 		private static extern short GetKeyState(int nVirtKey);
 
-		 bool norecoil;
+		bool norecoil;
 
 
 		private new async void Update3()
@@ -160,22 +162,23 @@ namespace ValorantAimbotUI
 		}
 
 
-
-
 		private new async void Update2()
 		{
+
+			
 
 			for (; ; )
 			{
 
 				New:
 
-				if (!this.isRunning)
+				if (!this.isRunning || !this.isRecoil)
 				{
 					await Task.Delay(1000);
 				}
 				else
 				{
+					int af = Convert.ToInt32(rcs.Value);
 					if (this.isRecoil)
 					{
 						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
@@ -201,7 +204,7 @@ namespace ValorantAimbotUI
 								{
 
 									await Task.Delay(15);
-									Move(0, 1);
+									Move(0, 1 + af);
 								}
 							}
 						}
@@ -233,7 +236,7 @@ namespace ValorantAimbotUI
 								{
 
 									await Task.Delay(20);
-									Move(0, 2);
+									Move(0, 2 + af);
 								}
 							}
 						}
@@ -262,7 +265,7 @@ namespace ValorantAimbotUI
 								else
 								{
 									await Task.Delay(30);
-									Move(0, 8);
+									Move(0, 8 + af);
 								}
 							}
 						}
@@ -291,7 +294,7 @@ namespace ValorantAimbotUI
 								else
 								{
 									await Task.Delay(30);
-									Move(0, 9);
+									Move(0, 9 + af);
 								}
 							}
 						}
@@ -321,7 +324,7 @@ namespace ValorantAimbotUI
 								else
 								{
 									await Task.Delay(25);
-									Move(0, 4);
+									Move(0, 4 + af);
 								}
 							}
 						}
@@ -378,7 +381,7 @@ namespace ValorantAimbotUI
 								}
 								else
 								{
-									Move(0, -82);
+									Move(0, -72);
 								}
 							}
 						}
@@ -399,7 +402,7 @@ namespace ValorantAimbotUI
 			for (; ; )
 			{
 
-				if (!this.isRunning)
+				if (!this.isRunning || !this.isTriggerbot)
 				{
 					await Task.Delay(1000);
 				}
@@ -474,7 +477,7 @@ namespace ValorantAimbotUI
 				for (; ; )
 				{
 
-				if (!this.isRunning)
+				if (!this.isRunning || !this.isAimbot)
 				{
 					await Task.Delay(1000);
 				}
@@ -544,12 +547,28 @@ namespace ValorantAimbotUI
 										}
 									}
 								}
+
+								pixelx = Convert.ToInt32(SmoothX.Value);
+								pixely = Convert.ToInt32(SmoothY.Value);
+
 								Vector2 vector = (from t in list
 												  select t - new Vector2((float)(this.xSize / 2), (float)(this.ySize / 2)) into t
 												  orderby t.Length()
 												  select t).ElementAt(0) + new Vector2(1f, (float)this.offsetY);
-								this.Move((int)(vector.X * (float)this.speed), (int)(vector.Y * (float)this.speed), pressDown);
-								continue;
+
+								if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
+								{
+
+									int x = Convert.ToInt32(this.delayx);
+									await Task.Delay(x);
+									this.Move((int)(vector.X * (float)this.speed3), (int)(vector.Y * (float)this.speed3), pressDown);
+									continue;
+								}
+								else
+								{
+									this.Move((int)(vector.X * (float)this.speed), (int)(vector.Y * (float)this.speed), pressDown);
+									continue;
+								}
 							}
 							catch (Exception ex)
 							{
@@ -566,7 +585,6 @@ namespace ValorantAimbotUI
 						
 			}
 		}
-
 		private int GetColor(Form1.ColorType color)
 		{
 			if (color == Form1.ColorType.Red)
@@ -681,7 +699,6 @@ namespace ValorantAimbotUI
 			this.speed = this.Speed.Value;
 			this.SetKey("speed", this.speed);
 		}
-
 		private void FovX_changed(object sender, EventArgs e)
 		{
 			this.fovX = (int)this.FovXNum.Value;
@@ -717,7 +734,6 @@ namespace ValorantAimbotUI
 			});
 			this.mainThread.Start();
 		}
-
 		private void SetKey(string key, bool o)
 		{
 			Settings.Default[key] = o;
@@ -781,7 +797,6 @@ namespace ValorantAimbotUI
 			this.SetKey("monitor", this.monitor);
 			this.UpdateUI();
 		}
-
 		private void IsAimKeyChanged(object sender, EventArgs e)
 		{
 			this.isAimKey = this.AimKeyToggle.Checked;
@@ -841,6 +856,9 @@ namespace ValorantAimbotUI
 			this.SetKey("msShootTime", this.msShootTime);
 		}
 
+
+		private int colorbase;
+
 		private int xSize;
 
 		private int ySize;
@@ -861,14 +879,17 @@ namespace ValorantAimbotUI
 
 		private decimal speed = 1m;
 
+		private decimal speed3 = 1m;
+
 		private decimal Bhop = 4;
+
+		private decimal delayx = 100;
 
 		private int fovX = 100;
 
 		private int fovY = 100;
 
 		private bool isAimKey;
-
 
 		private bool isHold = true;
 
@@ -884,77 +905,58 @@ namespace ValorantAimbotUI
 
 		private float zoom = 1f;
 
+		private const int MOUSEEVENTF_LEFTDOWN = 2;
+
+		private const int MOUSEEVENTF_LEFTUP = 4;
+
+		private const int MOUSEEVENTF_RIGHTDOWN = 8;
+
+		private const int MOUSEEVENTF_RIGHTUP = 16;
+
 		private Thread mainThread;
 
 		private bool isRunning;
 
 		private enum AimKey
 		{
-			// Token: 0x04000031 RID: 49
 			LeftMouse = 1,
-			// Token: 0x04000032 RID: 50
 			RightMouse,
-			// Token: 0x04000033 RID: 51
 			X1Mouse = 5,
-			// Token: 0x04000034 RID: 52
 			X2Button,
-			// Token: 0x04000035 RID: 53
 			Shift = 160,
-			// Token: 0x04000036 RID: 54
 			Ctrl = 162,
-			// Token: 0x04000037 RID: 55
 			Alt = 164,
-			// Token: 0x04000038 RID: 56
 			Capslock = 20,
-			// Token: 0x04000039 RID: 57
 			Numpad0 = 96,
-			// Token: 0x0400003A RID: 58
 			Numlock = 144
 		}
 
 		private enum Bhopkey
 		{
-			// Token: 0x04000031 RID: 49
 			LeftMouse = 1,
-			// Token: 0x04000032 RID: 50
 			RightMouse,
-			// Token: 0x04000033 RID: 51
 			X1Mouse = 5,
-			// Token: 0x04000034 RID: 52
 			X2Button,
-			// Token: 0x04000035 RID: 53
 			Shift = 160,
-			// Token: 0x04000036 RID: 54
 			Ctrl = 162,
-			// Token: 0x04000037 RID: 55
 			Alt = 164,
-			// Token: 0x04000038 RID: 56
 			Capslock = 20,
-			// Token: 0x04000039 RID: 57
 			Numpad0 = 96,
-			// Token: 0x0400003A RID: 58
 			Numlock = 144
 		}
 
-		// Token: 0x02000007 RID: 7
 		public enum DeviceCap
 		{
-			// Token: 0x0400003C RID: 60
 			VERTRES = 10,
-			// Token: 0x0400003D RID: 61
 			DESKTOPVERTRES = 117
 		}
-
-		// Token: 0x02000008 RID: 8
 		private enum ColorType
 		{
-			// Token: 0x0400003F RID: 63
 			Red,
-			// Token: 0x04000040 RID: 64
 			Purple
 		}
 
-		private void Label7_Click(object sender, EventArgs e)
+		private void label7_Click(object sender, EventArgs e)
 		{
 
 		}
@@ -976,7 +978,7 @@ namespace ValorantAimbotUI
 			this.SetKey("isRecoil", this.isRecoil);
 		}
 
-		private void CheckBox2_CheckedChanged(object sender, EventArgs e)
+		private void checkBox2_CheckedChanged(object sender, EventArgs e)
 		{
 			this.isBhop = this.Bhopbox.Checked;
 			this.SetKey("isBhop", this.isBhop);
@@ -1007,5 +1009,27 @@ namespace ValorantAimbotUI
 		{
 
 		}
-	}
+
+        private void NumericUpDown1_ValueChanged_1(object sender, EventArgs e)
+        {
+			this.speed3 = this.Speed3.Value;
+			this.SetKey("speed3", this.speed3);
+		}
+
+        private void numericUpDown1_ValueChanged_2(object sender, EventArgs e)
+        {
+			this.delayx = this.Delayx.Value;
+			this.SetKey("delayx", this.delayx);
+		}
+
+        private void PixelX_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PixelY_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

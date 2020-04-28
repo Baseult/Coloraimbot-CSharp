@@ -18,3 +18,4 @@ using System.Security.Permissions;
 [assembly: ComVisible(false)]
 [assembly: Guid("70852888-5401-47dd-99ed-830a4535e4d3")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]

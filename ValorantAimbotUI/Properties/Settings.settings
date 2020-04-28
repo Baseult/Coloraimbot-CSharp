@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile CurrentProfile="(Default)" GeneratedClassNamespace="ValorantAimbotUI.Properties" GeneratedClassName="Settings" xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ValorantAimbotUI.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="isTriggerbot" Type="System.Boolean" Scope="User">
@@ -15,16 +15,22 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="speed" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">0.2</Value>
+      <Value Profile="(Default)">0.15</Value>
     </Setting>
+    <Setting Name="speed3" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.05</Value>
+    </Setting>
+	  <Setting Name="delayx" Type="System.Decimal" Scope="User">
+		  <Value Profile="(Default)">50</Value>
+	  </Setting>
     <Setting Name="Bhop" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="fovX" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">250</Value>
+      <Value Profile="(Default)">400</Value>
     </Setting>
     <Setting Name="fovY" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">200</Value>
     </Setting>
     <Setting Name="color" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
@@ -45,7 +51,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="offsetY" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">15</Value>
+      <Value Profile="(Default)">25</Value>
     </Setting>
     <Setting Name="msShootTime" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">130</Value>

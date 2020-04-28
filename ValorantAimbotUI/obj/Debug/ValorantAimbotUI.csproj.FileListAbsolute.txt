@@ -7,12 +7,3 @@ D:\Cheat UI Source\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.csproj.GenerateRe
 D:\Cheat UI Source\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.csproj.CoreCompileInputs.cache
 D:\Cheat UI Source\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.exe
 D:\Cheat UI Source\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.pdb
-D:\Cheat UI Source\C--Valorant-Coloraimbot\ValorantAimbotUI\bin\Debug\ValorantAimbotUI.exe.config
-D:\Cheat UI Source\C--Valorant-Coloraimbot\ValorantAimbotUI\bin\Debug\ValorantAimbotUI.exe
-D:\Cheat UI Source\C--Valorant-Coloraimbot\ValorantAimbotUI\bin\Debug\ValorantAimbotUI.pdb
-D:\Cheat UI Source\C--Valorant-Coloraimbot\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.Properties.Resources.resources
-D:\Cheat UI Source\C--Valorant-Coloraimbot\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.Form1.resources
-D:\Cheat UI Source\C--Valorant-Coloraimbot\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.csproj.GenerateResource.cache
-D:\Cheat UI Source\C--Valorant-Coloraimbot\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.csproj.CoreCompileInputs.cache
-D:\Cheat UI Source\C--Valorant-Coloraimbot\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.exe
-D:\Cheat UI Source\C--Valorant-Coloraimbot\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.pdb
