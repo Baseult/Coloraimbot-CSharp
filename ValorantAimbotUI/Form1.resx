@@ -135,9 +135,6 @@
   <metadata name="offsetNum.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
-  <metadata name="RecoilBtt.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
   <metadata name="Speed3.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
@@ -151,6 +148,9 @@
     <value>False</value>
   </metadata>
   <metadata name="AimkeyBtt.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="rcs.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -211,9 +211,6 @@ Also increases the Area which is detected as Enemy by the Triggerbot.
 
 (If your Triggerbot shoots to slow increase this values by 10-30 and decrease the Firerate)</value>
   </data>
-  <metadata name="rcs.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
   <data name="label22.ToolTip" xml:space="preserve">
     <value>If you want to disable your Aimbot while you are aiming at your target you can set a delay.
 For example if you put in 1000 = 1000ms = 1second it will disable the aimbot for 1 second if you aim at your target.
