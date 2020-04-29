@@ -117,12 +117,100 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="AimbotBtt.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>172, 17</value>
+  </metadata>
+  <metadata name="Speed.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="FovXNum.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="FovYNum.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="offsetNum.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="RecoilBtt.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="Speed3.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="Delayx.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SmoothY.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SmoothX.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="AimkeyBtt.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
   </metadata>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="label5.ToolTip" xml:space="preserve">
+    <value>Firerate of your Weapon in Triggerbotmode.
+
+Higher Value = Higher Delay = Slower Shooting
+Lower Value = Lower Delay = Faster Shooting
+
+(If your Triggerbot is still slow increase the Prefire Values)</value>
+  </data>
+  <data name="FireRateNum.ToolTip" xml:space="preserve">
+    <value>Firerate of your Weapon in Triggerbotmode.
+
+Higher Value = Higher Delay = Slower Shooting
+Lower Value = Lower Delay = Faster Shooting
+
+(If your Triggerbot is still slow increase the Prefire Values)</value>
+  </data>
+  <data name="PixelX.ToolTip" xml:space="preserve">
+    <value>Will shoot X Pixels before the crosshair reaches the Target.
+
+Also increases the Area which is detected as Enemy by the Triggerbot.
+
+(If your Triggerbot shoots to slow increase this values by 10-30 and decrease the Firerate)
+</value>
+  </data>
+  <data name="label15.ToolTip" xml:space="preserve">
+    <value>Will shoot X Pixels before the crosshair reaches the Target.
+
+Also increases the Area which is detected as Enemy by the Triggerbot.
+
+(If your Triggerbot shoots to slow increase this values by 10-30 and decrease the Firerate)
+</value>
+  </data>
+  <data name="label16.ToolTip" xml:space="preserve">
+    <value>Will shoot X Pixels before the crosshair reaches the Target.
+
+Also increases the Area which is detected as Enemy by the Triggerbot.
+
+(If your Triggerbot shoots to slow increase this values by 10-30 and decrease the Firerate)
+</value>
+  </data>
+  <data name="PixelY.ToolTip" xml:space="preserve">
+    <value>Will shoot X Pixels before the crosshair reaches the Target.
+
+Also increases the Area which is detected as Enemy by the Triggerbot.
+
+(If your Triggerbot shoots to slow increase this values by 10-30 and decrease the Firerate)
+</value>
+  </data>
+  <data name="checkBox1.ToolTip" xml:space="preserve">
+    <value>Will shoot X Pixels before the crosshair reaches the Target.
+
+Also increases the Area which is detected as Enemy by the Triggerbot.
+
+(If your Triggerbot shoots to slow increase this values by 10-30 and decrease the Firerate)</value>
+  </data>
   <data name="label22.ToolTip" xml:space="preserve">
     <value>If you want to disable your Aimbot while you are aiming at your target you can set a delay.
 For example if you put in 1000 = 1000ms = 1second it will disable the aimbot for 1 second if you aim at your target.

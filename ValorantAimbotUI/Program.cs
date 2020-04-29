@@ -23,8 +23,10 @@ namespace ValorantAimbotUI
 		[STAThread]
 		private static void Main()
 		{
+			Form1.CheckForIllegalCrossThreadCalls = false;
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+			MessageBox.Show("All mouse_event features using mouse movement have been disabled due to the latest valorant patch making them not usable anymore." + "\n" + "\n" + "Despite that I will try to update the Aimbot and NoRecoil asap." +"\n" + "\n" + "Use this Script at your own risk!", "Information - Patch 0.49");
 			Application.Run(new Form1());
 		}
 	}

@@ -69,19 +69,19 @@ namespace ValorantAimbotUI
 			}
 			this.UpdateUI();
 			this.IsHoldToggle.Checked = this.isHold;
-			this.AimbotBtt.Checked = this.isAimbot;
-			this.RecoilBtt.Checked = this.isRecoil;
+			//this.AimbotBtt.Checked = this.isAimbot;
+			//this.RecoilBtt.Checked = this.isRecoil;
 			this.Bhopbox.Checked = this.isBhop;
 			this.AimKeyToggle.Checked = this.isAimKey;
 			this.AimKeyToggle.Checked = this.isBhop;
-			this.Speed.Value = this.speed;
-			this.Speed3.Value = this.speed3;
-			this.Delayx.Value = this.delayx;
+			//this.Speed.Value = this.speed;
+			//this.Speed3.Value = this.speed3;
+			//this.Delayx.Value = this.delayx;
 			this.Bhopinput.Value = this.Bhop;
-			this.FovXNum.Value = this.fovX;
-			this.FovYNum.Value = this.fovY;
+			//this.FovXNum.Value = this.fovX;
+			//this.FovYNum.Value = this.fovY;
 			this.TriggerbotBtt.Checked = this.isTriggerbot;
-			this.offsetNum.Value = this.offsetY;
+			//this.offsetNum.Value = this.offsetY;
 			this.FireRateNum.Value = this.msShootTime;
 			foreach (string text in Enum.GetNames(typeof(Form1.AimKey)))
 			{
@@ -125,10 +125,10 @@ namespace ValorantAimbotUI
 		[DllImport("USER32.dll")]
 		private static extern short GetKeyState(int nVirtKey);
 
-		bool norecoil;
+		//bool norecoil;
 
 
-		private new async void Update3()
+		private async void Update3()
 		{
 
 			for (; ; )
@@ -152,7 +152,7 @@ namespace ValorantAimbotUI
 					}
 					else
 					{
-						Thread.Sleep(25);
+						Thread.Sleep(2);
 						SendKeys.SendWait(" ");
 						Thread.Sleep(25);
 					}
@@ -161,7 +161,8 @@ namespace ValorantAimbotUI
 			}
 		}
 
-
+/* Disabled for now
+ 
 		private new async void Update2()
 		{
 
@@ -394,8 +395,9 @@ namespace ValorantAimbotUI
 			return;
 		}
 
+			*/
 
-		private new async void Update4()
+		private async void Update4()
 		{
 
 
@@ -470,7 +472,7 @@ namespace ValorantAimbotUI
 			}
 		}
 		
-
+		/* Disabled for now
 		private new async void Update()
 		{
 
@@ -548,8 +550,8 @@ namespace ValorantAimbotUI
 									}
 								}
 
-								pixelx = Convert.ToInt32(SmoothX.Value);
-								pixely = Convert.ToInt32(SmoothY.Value);
+								//pixelx = Convert.ToInt32(SmoothX.Value);
+								//pixely = Convert.ToInt32(SmoothY.Value);
 
 								Vector2 vector = (from t in list
 												  select t - new Vector2((float)(this.xSize / 2), (float)(this.ySize / 2)) into t
@@ -585,6 +587,8 @@ namespace ValorantAimbotUI
 						
 			}
 		}
+		*/
+
 		private int GetColor(Form1.ColorType color)
 		{
 			if (color == Form1.ColorType.Red)
@@ -636,8 +640,8 @@ namespace ValorantAimbotUI
 					this.lastShot = DateTime.Now;
 				}
 			}
-			Form1.mouse_event(pressDown ? 6:1 , xDelta, yDelta, 0U, UIntPtr.Zero);
-			
+			Form1.mouse_event(pressDown ? 6 : 1, xDelta, yDelta, 0U, UIntPtr.Zero);
+
 		}
 
 		public Screen CurrentScreen()
@@ -696,25 +700,25 @@ namespace ValorantAimbotUI
 
 		private void Speed_changed(object sender, EventArgs e)
 		{
-			this.speed = this.Speed.Value;
-			this.SetKey("speed", this.speed);
+			//this.speed = this.Speed.Value;
+			//this.SetKey("speed", this.speed);
 		}
 		private void FovX_changed(object sender, EventArgs e)
 		{
-			this.fovX = (int)this.FovXNum.Value;
-			this.SetKey("fovX", this.fovX);
+			//this.fovX = (int)this.FovXNum.Value;
+			//this.SetKey("fovX", this.fovX);
 		}
 
 		private void FovY_changed(object sender, EventArgs e)
 		{
-			this.fovY = (int)this.FovYNum.Value;
-			this.SetKey("fovY", this.fovY);
+			//this.fovY = (int)this.FovYNum.Value;
+			//this.SetKey("fovY", this.fovY);
 		}
 
 		private void IsAimbot_changed(object sender, EventArgs e)
 		{
-			this.isAimbot = this.AimbotBtt.Checked;
-			this.SetKey("isAimbot", this.isAimbot);
+			//this.isAimbot = this.AimbotBtt.Checked;
+			//this.SetKey("isAimbot", this.isAimbot);
 		}
 
 		private void IsTriggerbot_changed(object sender, EventArgs e)
@@ -723,12 +727,13 @@ namespace ValorantAimbotUI
 			this.SetKey("isTriggerbot", this.isTriggerbot);
 		}
 
+
 		private void Main_load(object sender, EventArgs e)
 		{
 			this.mainThread = new Thread(delegate()
 			{
 				this.Update();
-				this.Update2();
+				//this.Update2();
 				this.Update3();
 				this.Update4();
 			});
@@ -768,6 +773,7 @@ namespace ValorantAimbotUI
 		{
 			this.isRunning = !this.isRunning;
 			this.UpdateUI();
+
 		}
 
 		private void UpdateUI()
@@ -783,7 +789,7 @@ namespace ValorantAimbotUI
 				"x",
 				this.ySize.ToString()
 			});
-			this.AimkeyBtt.Text = Enum.GetName(typeof(Form1.AimKey), this.mainAimKey);
+			//this.AimkeyBtt.Text = Enum.GetName(typeof(Form1.AimKey), this.mainAimKey);
 			this.TriggerKeyBtt.Text = Enum.GetName(typeof(Form1.Bhopkey), this.Bhopxkey);
 		}
 
@@ -811,12 +817,12 @@ namespace ValorantAimbotUI
 
 		private void AimKeyDrop(object sender, EventArgs e)
 		{
-			if (this.AimkeyBtt.PointToScreen(new Point(this.AimkeyBtt.Left, this.AimkeyBtt.Bottom)).Y + this.contextMenuStrip1.Size.Height > Screen.PrimaryScreen.WorkingArea.Height)
-			{
-				this.contextMenuStrip1.Show(this.AimkeyBtt, new Point(0, -this.contextMenuStrip1.Size.Height));
-				return;
-			}
-			this.contextMenuStrip1.Show(this.AimkeyBtt, new Point(0, this.AimkeyBtt.Height));
+			//if (this.AimkeyBtt.PointToScreen(new Point(this.AimkeyBtt.Left, this.AimkeyBtt.Bottom)).Y + this.contextMenuStrip1.Size.Height > Screen.PrimaryScreen.WorkingArea.Height)
+			//{
+			//	this.contextMenuStrip1.Show(this.AimkeyBtt, new Point(0, -this.contextMenuStrip1.Size.Height));
+			//	return;
+			//}
+			//this.contextMenuStrip1.Show(this.AimkeyBtt, new Point(0, this.AimkeyBtt.Height));
 
 		}
 
@@ -832,21 +838,21 @@ namespace ValorantAimbotUI
 
 		}
 
-		private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+		private void ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
 		{
 		}
 
-		private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
+		private void ContextMenuStrip2_Opening(object sender, CancelEventArgs e)
 		{
 		}
 
 		private void OffsetY_changed(object sender, EventArgs e)
 		{
-			this.offsetY = (int)this.offsetNum.Value;
-			this.SetKey("offsetY", this.offsetY);
+			//this.offsetY = (int)this.offsetNum.Value;
+			//this.SetKey("offsetY", this.offsetY);
 		}
 
-		private void label5_Click(object sender, EventArgs e)
+		private void Label5_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -855,9 +861,6 @@ namespace ValorantAimbotUI
 			this.msShootTime = (int)this.FireRateNum.Value;
 			this.SetKey("msShootTime", this.msShootTime);
 		}
-
-
-		private int colorbase;
 
 		private int xSize;
 
@@ -956,7 +959,7 @@ namespace ValorantAimbotUI
 			Purple
 		}
 
-		private void label7_Click(object sender, EventArgs e)
+		private void Label7_Click(object sender, EventArgs e)
 		{
 
 		}
@@ -974,11 +977,11 @@ namespace ValorantAimbotUI
 
 		private void Recoilcheckbox_CheckedChanged_1(object sender, EventArgs e)
 		{
-			this.isRecoil = this.RecoilBtt.Checked;
-			this.SetKey("isRecoil", this.isRecoil);
+			//this.isRecoil = this.RecoilBtt.Checked;
+			//this.SetKey("isRecoil", this.isRecoil);
 		}
 
-		private void checkBox2_CheckedChanged(object sender, EventArgs e)
+		private void CheckBox2_CheckedChanged(object sender, EventArgs e)
 		{
 			this.isBhop = this.Bhopbox.Checked;
 			this.SetKey("isBhop", this.isBhop);
@@ -1012,14 +1015,14 @@ namespace ValorantAimbotUI
 
         private void NumericUpDown1_ValueChanged_1(object sender, EventArgs e)
         {
-			this.speed3 = this.Speed3.Value;
-			this.SetKey("speed3", this.speed3);
+			//this.speed3 = this.Speed3.Value;
+			//this.SetKey("speed3", this.speed3);
 		}
 
-        private void numericUpDown1_ValueChanged_2(object sender, EventArgs e)
+        private void NumericUpDown1_ValueChanged_2(object sender, EventArgs e)
         {
-			this.delayx = this.Delayx.Value;
-			this.SetKey("delayx", this.delayx);
+			//this.delayx = this.Delayx.Value;
+			//this.SetKey("delayx", this.delayx);
 		}
 
         private void PixelX_ValueChanged(object sender, EventArgs e)
@@ -1031,5 +1034,6 @@ namespace ValorantAimbotUI
         {
 
         }
-    }
+
+	}
 }
