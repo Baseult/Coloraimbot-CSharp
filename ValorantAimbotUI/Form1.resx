@@ -156,6 +156,9 @@
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>172, 17</value>
+  </metadata>
   <data name="label5.ToolTip" xml:space="preserve">
     <value>Firerate of your Weapon in Triggerbotmode.
 
@@ -172,7 +175,7 @@ Lower Value = Lower Delay = Faster Shooting
 
 (If your Triggerbot is still slow increase the Prefire Values)</value>
   </data>
-  <data name="PixelX.ToolTip" xml:space="preserve">
+  <data name="Pingx.ToolTip" xml:space="preserve">
     <value>Will shoot X Pixels before the crosshair reaches the Target.
 
 Also increases the Area which is detected as Enemy by the Triggerbot.

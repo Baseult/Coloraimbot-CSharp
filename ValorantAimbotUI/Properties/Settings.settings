@@ -5,6 +5,12 @@
     <Setting Name="isTriggerbot" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+	  <Setting Name="isPing" Type="System.Boolean" Scope="User">
+		  <Value Profile="(Default)">False</Value>
+	  </Setting>
+	  <Setting Name="isCall" Type="System.Boolean" Scope="User">
+		  <Value Profile="(Default)">False</Value>
+	  </Setting>
     <Setting Name="isAimbot" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>

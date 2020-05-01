@@ -17,14 +17,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Drawing.Text;
 using System.Linq;
 using System.Numerics;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tesseract;
 using ValorantAimbotUI.Properties;
 
 namespace ValorantAimbotUI
@@ -49,7 +53,8 @@ namespace ValorantAimbotUI
 			this.isAimKey = this.GetKey<bool>("isAimKey");
 			this.isHold = this.GetKey<bool>("isHold");
 			this.monitor = this.GetKey<int>("monitor");
-			this.isTriggerbot = this.GetKey<bool>("isTriggerbot");
+			this.isPing = this.GetKey<bool>("isPing");
+			this.isCall= this.GetKey<bool>("isCall");
 			this.offsetY = this.GetKey<int>("offsetY");
 			this.msShootTime = this.GetKey<int>("msShootTime");
 			this.isRecoil = this.GetKey<bool>("isRecoil");
@@ -81,6 +86,8 @@ namespace ValorantAimbotUI
 			//this.FovXNum.Value = this.fovX;
 			//this.FovYNum.Value = this.fovY;
 			this.TriggerbotBtt.Checked = this.isTriggerbot;
+			this.Ping.Checked = this.isPing;
+			this.Calloutchat.Checked = this.isCall;
 			//this.offsetNum.Value = this.offsetY;
 			this.FireRateNum.Value = this.msShootTime;
 			foreach (string text in Enum.GetNames(typeof(Form1.AimKey)))
@@ -135,6 +142,7 @@ namespace ValorantAimbotUI
 			{
 				News:
 
+
 				if (!this.isRunning || !this.isBhop)
 				{
 					await Task.Delay(1000);
@@ -161,74 +169,188 @@ namespace ValorantAimbotUI
 			}
 		}
 
-/* Disabled for now
- 
-		private new async void Update2()
-		{
+        private async void Update8()        //Text recognitiontest
+        {
+            for (; ; )
+            {
 
-			
+                if (!this.isRunning)
+                {
+                    await Task.Delay(1000);
+                }
+                else
+                {
+                    Rectangle bounds = Screen.GetBounds(Point.Empty);
+using(Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
+{
+    using(Graphics g = Graphics.FromImage(bitmap))
+    {
+         g.CopyFromScreen(Point.Empty, Point.Empty, bounds.Size);
+    }
+                        TesseractEngine engine = new TesseractEngine("./tessdata", "eng", EngineMode.Default);
+                        Page page = engine.Process(bitmap, PageSegMode.Auto);
+                        string result = page.GetText();
 
-			for (; ; )
-			{
 
-				New:
+                        if (result.Contains("iVUTA"))
+                        {
+                            SendKeys.SendWait("{ENTER}");
+                            SendKeys.SendWait("wx");
+                            SendKeys.SendWait("{ENTER}");
+                            await Task.Delay(10000);
+                        }
+                        else
+                        {
+                            await Task.Delay(1000);
+                        }
 
-				if (!this.isRunning || !this.isRecoil)
-				{
-					await Task.Delay(1000);
-				}
-				else
-				{
-					int af = Convert.ToInt32(rcs.Value);
-					if (this.isRecoil)
+                    }
+
+                }
+
+            }
+
+
+        }
+
+        private async void Update9()        //Callout Text in progress
+        {
+            for (; ; )
+            {
+
+                if (!this.isRunning && !this.isCall)
+                {
+                    await Task.Delay(1000);
+                }
+                else
+                {
+					if (this.isCall)
 					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
+						Color pixel_Color;
+
+						if (Customcolor.Checked == true)
 						{
-								await Task.Delay(1);
-								goto New;
+							int r = int.Parse(Redinput.Text);
+							int g = int.Parse(Greeninput.Text);
+							int b = int.Parse(Blueinput.Text);
+							pixel_Color = Color.FromArgb(r, g, b);
+						}
+						else
+						{
+							pixel_Color = Color.FromArgb(this.GetColor(this.color));
+						}
+
+						int pixelx;
+						int pixely;
+
+						if (this.isPing)
+						{
+							if (checkBox1.Checked == true)
+							{
+								pixelx = int.Parse(Pingx.Text);
+								pixely = int.Parse(PixelY.Text);
 							}
 							else
 							{
-
-							for (int o = 0; o < 2; o++)
-							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
-								{
-									await Task.Delay(1);
-									goto New;
-								}
-								else
-								{
-
-									await Task.Delay(15);
-									Move(0, 1 + af);
-								}
+								pixelx = 10;
+								pixely = 10;
 							}
-						}
 
+							if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
+							{
+								Rectangle bounds = Screen.GetBounds(Point.Empty);
+								using (Bitmap bitmap = new Bitmap(330, 45))
+								{
+									using (Graphics g = Graphics.FromImage(bitmap))
+									{
+										g.CopyFromScreen(145, 535, 0, 0, new Size(330, 45));
+									}
+									TesseractEngine engine = new TesseractEngine("./tessdata", "eng", EngineMode.Default);
+									Page page = engine.Process(bitmap, PageSegMode.Auto);
+									string result = page.GetText();
+									myString = result.Replace("\r\n", string.Empty);
+									newString = myString.Replace(".", string.Empty);
+									callout = Regex.Replace(newString, @"\s+", "");
+
+									await Task.Delay(3000);
+
+									SendKeys.SendWait("{ENTER}");
+									SendKeys.SendWait(callout);
+									SendKeys.SendWait("{ENTER}");
+									await Task.Delay(5000);
+								}
+
+							}
+
+							await Task.Delay(50);
+
+						}
 					}
 
-					if (this.isRecoil)
+                }
+
+            }
+
+
+        }
+
+
+        /* Disabled for now
+
+				private new async void Update2()
+				{
+
+
+
+					for (; ; )
 					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
+
+						New:
+
+						if (!this.isRunning || !this.isRecoil)
 						{
-							await Task.Delay(1);
-							goto New;
+							await Task.Delay(1000);
 						}
 						else
 						{
-
-							for (int f = 0; f < 3; f++)
+							int af = Convert.ToInt32(rcs.Value);
+							if (this.isRecoil)
 							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
+								int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
+								int keyState2 = (int)Form1.GetKeyState(1);
+								if (keyState >= 0 && keyState2 >= 0)
+								{
+										await Task.Delay(1);
+										goto New;
+									}
+									else
+									{
+
+									for (int o = 0; o < 2; o++)
+									{
+										int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
+										int keyStatex2 = (int)Form1.GetKeyState(1);
+										if (keyStatex >= 0 && keyStatex2 >= 0)
+										{
+											await Task.Delay(1);
+											goto New;
+										}
+										else
+										{
+
+											await Task.Delay(15);
+											Move(0, 1 + af);
+										}
+									}
+								}
+
+							}
+
+							if (this.isRecoil)
+							{
+								int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
+								int keyState2 = (int)Form1.GetKeyState(1);
+								if (keyState >= 0 && keyState2 >= 0)
 								{
 									await Task.Delay(1);
 									goto New;
@@ -236,168 +358,180 @@ namespace ValorantAimbotUI
 								else
 								{
 
-									await Task.Delay(20);
-									Move(0, 2 + af);
+									for (int f = 0; f < 3; f++)
+									{
+										int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
+										int keyStatex2 = (int)Form1.GetKeyState(1);
+										if (keyStatex >= 0 && keyStatex2 >= 0)
+										{
+											await Task.Delay(1);
+											goto New;
+										}
+										else
+										{
+
+											await Task.Delay(20);
+											Move(0, 2 + af);
+										}
+									}
 								}
 							}
-						}
-					}
 
-					if (this.isRecoil)
-					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
-						{
-							await Task.Delay(1);
-							goto New;
-						}
-						else
-						{
-							for (int f = 0; f < 1; f++)
+							if (this.isRecoil)
 							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
+								int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
+								int keyState2 = (int)Form1.GetKeyState(1);
+								if (keyState >= 0 && keyState2 >= 0)
 								{
 									await Task.Delay(1);
 									goto New;
 								}
 								else
 								{
-									await Task.Delay(30);
-									Move(0, 8 + af);
+									for (int f = 0; f < 1; f++)
+									{
+										int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
+										int keyStatex2 = (int)Form1.GetKeyState(1);
+										if (keyStatex >= 0 && keyStatex2 >= 0)
+										{
+											await Task.Delay(1);
+											goto New;
+										}
+										else
+										{
+											await Task.Delay(30);
+											Move(0, 8 + af);
+										}
+									}
 								}
 							}
-						}
-					}
 
-					if (this.isRecoil)
-					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
-						{
-							await Task.Delay(1);
-							goto New;
-						}
-						else
-						{
-							for (int f = 0; f < 1; f++)
+							if (this.isRecoil)
 							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
+								int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
+								int keyState2 = (int)Form1.GetKeyState(1);
+								if (keyState >= 0 && keyState2 >= 0)
 								{
 									await Task.Delay(1);
 									goto New;
 								}
 								else
 								{
-									await Task.Delay(30);
-									Move(0, 9 + af);
+									for (int f = 0; f < 1; f++)
+									{
+										int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
+										int keyStatex2 = (int)Form1.GetKeyState(1);
+										if (keyStatex >= 0 && keyStatex2 >= 0)
+										{
+											await Task.Delay(1);
+											goto New;
+										}
+										else
+										{
+											await Task.Delay(30);
+											Move(0, 9 + af);
+										}
+									}
 								}
 							}
-						}
-					}
 
-					if (this.isRecoil)
-					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
-						{
-							await Task.Delay(1);
-							goto New;
-						}
-						else
-						{
-
-							for (int f = 0; f < 15; f++)
+							if (this.isRecoil)
 							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
+								int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
+								int keyState2 = (int)Form1.GetKeyState(1);
+								if (keyState >= 0 && keyState2 >= 0)
 								{
 									await Task.Delay(1);
 									goto New;
 								}
 								else
 								{
-									await Task.Delay(25);
-									Move(0, 4 + af);
+
+									for (int f = 0; f < 15; f++)
+									{
+										int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
+										int keyStatex2 = (int)Form1.GetKeyState(1);
+										if (keyStatex >= 0 && keyStatex2 >= 0)
+										{
+											await Task.Delay(1);
+											goto New;
+										}
+										else
+										{
+											await Task.Delay(25);
+											Move(0, 4 + af);
+										}
+									}
 								}
 							}
-						}
-					}
 
-					if (this.isRecoil)
-					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
-						{
-							await Task.Delay(1);
-							goto New;
-						}
-						else
-						{
-							for (int f = 0; f < 22; f++)
+							if (this.isRecoil)
 							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
+								int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
+								int keyState2 = (int)Form1.GetKeyState(1);
+								if (keyState >= 0 && keyState2 >= 0)
 								{
 									await Task.Delay(1);
 									goto New;
 								}
 								else
 								{
-									await Task.Delay(100);
+									for (int f = 0; f < 22; f++)
+									{
+										int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
+										int keyStatex2 = (int)Form1.GetKeyState(1);
+										if (keyStatex >= 0 && keyStatex2 >= 0)
+										{
+											await Task.Delay(1);
+											goto New;
+										}
+										else
+										{
+											await Task.Delay(100);
+										}
+									}
 								}
 							}
-						}
-					}
 
 
-					if (this.isRecoil)
-					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
-						{
-							await Task.Delay(1);
-							goto New;
-						}
-						else
-						{
-							for (int f = 0; f < 2; f++)
+							if (this.isRecoil)
 							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
+								int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
+								int keyState2 = (int)Form1.GetKeyState(1);
+								if (keyState >= 0 && keyState2 >= 0)
 								{
 									await Task.Delay(1);
 									goto New;
 								}
 								else
 								{
-									Move(0, -72);
+									for (int f = 0; f < 2; f++)
+									{
+										int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
+										int keyStatex2 = (int)Form1.GetKeyState(1);
+										if (keyStatex >= 0 && keyStatex2 >= 0)
+										{
+											await Task.Delay(1);
+											goto New;
+										}
+										else
+										{
+											Move(0, -72);
+										}
+									}
 								}
 							}
+
+
+
 						}
 					}
-
-						
-					
+					return;
 				}
-			}
-			return;
-		}
 
-			*/
+					*/
 
-		private async void Update4()
+        private async void Update4()
 		{
 
 
@@ -450,7 +584,7 @@ namespace ValorantAimbotUI
 					{
 						if (checkBox1.Checked == true)
 						{
-							pixelx = int.Parse(PixelX.Text);
+							pixelx = int.Parse(Pingx.Text);
 							pixely = int.Parse(PixelY.Text);
 						}
 						else
@@ -463,6 +597,7 @@ namespace ValorantAimbotUI
 						{
 							this.Move(0, 0, true);
 						}
+
 					}
 					
 				}
@@ -471,7 +606,68 @@ namespace ValorantAimbotUI
 
 			}
 		}
-		
+
+
+		private async void Update10()
+		{
+
+
+			for (; ; )
+			{
+
+				if (!this.isRunning || !this.isPing)
+				{
+					await Task.Delay(1000);
+				}
+				else
+				{
+
+					Color pixel_Color;
+
+					if (Customcolor.Checked == true)
+					{
+						int r = int.Parse(Redinput.Text);
+						int g = int.Parse(Greeninput.Text);
+						int b = int.Parse(Blueinput.Text);
+						pixel_Color = Color.FromArgb(r, g, b);
+					}
+					else
+					{
+						pixel_Color = Color.FromArgb(this.GetColor(this.color));
+					}
+
+					int pixelx;
+					int pixely;
+
+					if (this.isPing)
+					{
+						if (checkBox1.Checked == true)
+						{
+							pixelx = int.Parse(Pingx.Text);
+							pixely = int.Parse(PixelY.Text);
+						}
+						else
+						{
+							pixelx = 10;
+							pixely = 10;
+						}
+
+						if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
+						{
+							SendKeys.SendWait("P");
+							await Task.Delay(1500);
+
+						}
+
+						await Task.Delay(50);
+					}
+
+				}
+
+			}
+		}
+
+
 		/* Disabled for now
 		private new async void Update()
 		{
@@ -732,10 +928,13 @@ namespace ValorantAimbotUI
 		{
 			this.mainThread = new Thread(delegate()
 			{
-				this.Update();
+				//this.Update();
 				//this.Update2();
 				this.Update3();
 				this.Update4();
+				this.Update8();
+				this.Update9();
+				this.Update10();
 			});
 			this.mainThread.Start();
 		}
@@ -771,6 +970,7 @@ namespace ValorantAimbotUI
 
 		private void Start_click(object sender, EventArgs e)
 		{
+
 			this.isRunning = !this.isRunning;
 			this.UpdateUI();
 
@@ -874,6 +1074,10 @@ namespace ValorantAimbotUI
 
 		private bool isTriggerbot;
 
+		private bool isPing;
+
+		private bool isCall;
+
 		private bool isAimbot;
 
 		private bool isRecoil;
@@ -919,8 +1123,11 @@ namespace ValorantAimbotUI
 		private Thread mainThread;
 
 		private bool isRunning;
+        private string myString;
+        private string newString;
+        private string callout;
 
-		private enum AimKey
+        private enum AimKey
 		{
 			LeftMouse = 1,
 			RightMouse,
@@ -1035,5 +1242,18 @@ namespace ValorantAimbotUI
 
         }
 
-	}
+        private void Ping_CheckedChanged(object sender, EventArgs e)
+        {
+			MessageBox.Show("Change your Warning Ping to Keybind 'P' in Communication Settings");
+			this.isPing = this.Ping.Checked;
+			this.SetKey("isPing", this.isPing);
+		}
+
+        private void Calloutchat_CheckedChanged(object sender, EventArgs e)
+        {
+			MessageBox.Show("This is more like a fun feature. Only works for 2560 x 1440 resolution");
+			this.isCall = this.Calloutchat.Checked;
+			this.SetKey("isCall", this.isCall);
+		}
+    }
 }

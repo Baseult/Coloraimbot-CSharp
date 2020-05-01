@@ -38,6 +38,30 @@ namespace ValorantAimbotUI.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isPing {
+            get {
+                return ((bool)(this["isPing"]));
+            }
+            set {
+                this["isPing"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isCall {
+            get {
+                return ((bool)(this["isCall"]));
+            }
+            set {
+                this["isCall"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool isAimbot {
             get {
                 return ((bool)(this["isAimbot"]));
