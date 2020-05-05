@@ -236,7 +236,8 @@ namespace ValorantAimbotUI
 			{
 				using (WebClient client = new WebClient())
 				{
-					string s = client.DownloadString("https://baseult.com/iBaseult/update.txt"); //This reads the text file on this website. If Text file says true cheat will continue. If it says false cheat will close valorant. This is to prevent bans for detection or an outdated cheat.
+					try{
+					string s = client.DownloadString("http://baseult.com/iBaseult/update.txt"); //This reads the text file on this website. If Text file says true cheat will continue. If it says false cheat will close valorant. This is to prevent bans for detection or an outdated cheat.
 
 					if (s.Contains("false"))
 					{
@@ -250,6 +251,10 @@ namespace ValorantAimbotUI
 					}
 
 					await Task.Delay(60000);
+					}
+					catch
+					{
+					}
 				}
 			}
 
