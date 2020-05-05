@@ -18,10 +18,6 @@ D:\Cheat UI Source\C--Valorant-Coloraimbot\ValorantAimbotUI\obj\Release\Valorant
 D:\Cheat UI Source\C--Valorant-Coloraimbot\ValorantAimbotUI\obj\Release\ValorantAimbotUI.exe
 D:\Cheat UI Source\C--Valorant-Coloraimbot\ValorantAimbotUI\obj\Release\ValorantAimbotUI.pdb
 D:\Cheat UI Source\C--Valorant-Coloraimbot\ValorantAimbotUI\obj\Release\ValorantAimbotUI.csprojAssemblyReference.cache
-E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Release\x86\liblept1753.dll
-E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Release\x86\libtesseract3052.dll
-E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Release\x64\liblept1753.dll
-E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Release\x64\libtesseract3052.dll
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Release\tessdata\eng.cube.bigrams
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Release\tessdata\eng.cube.fold
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Release\tessdata\eng.cube.lm
@@ -34,12 +30,12 @@ E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\Valorant
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Release\ValorantAimbotUI.exe.config
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Release\ValorantAimbotUI.exe
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Release\ValorantAimbotUI.pdb
-E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Release\Tesseract.dll
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Release\ValorantAimbotUI.csprojAssemblyReference.cache
+E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Release\ValorantAimbotUI.FormOverlay.resources
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Release\ValorantAimbotUI.Properties.Resources.resources
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Release\ValorantAimbotUI.Form1.resources
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Release\ValorantAimbotUI.csproj.GenerateResource.cache
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Release\ValorantAimbotUI.csproj.CoreCompileInputs.cache
-E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Release\ValorantAimbotUI.csproj.CopyComplete
+E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Release\ValorantAimbotUI.csproj.Fody.CopyLocal.cache
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Release\ValorantAimbotUI.exe
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Release\ValorantAimbotUI.pdb

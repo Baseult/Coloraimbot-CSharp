@@ -74,6 +74,42 @@ namespace ValorantAimbotUI.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isEsp {
+            get {
+                return ((bool)(this["isEsp"]));
+            }
+            set {
+                this["isEsp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isPixel {
+            get {
+                return ((bool)(this["isPixel"]));
+            }
+            set {
+                this["isPixel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isCircle {
+            get {
+                return ((bool)(this["isCircle"]));
+            }
+            set {
+                this["isCircle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool isRecoil {
             get {
                 return ((bool)(this["isRecoil"]));
@@ -145,6 +181,18 @@ namespace ValorantAimbotUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public decimal PingX {
+            get {
+                return ((decimal)(this["PingX"]));
+            }
+            set {
+                this["PingX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("400")]
         public int fovX {
             get {
@@ -152,6 +200,66 @@ namespace ValorantAimbotUI.Properties {
             }
             set {
                 this["fovX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int FovCircleRed {
+            get {
+                return ((int)(this["FovCircleRed"]));
+            }
+            set {
+                this["FovCircleRed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isRunning {
+            get {
+                return ((bool)(this["isRunning"]));
+            }
+            set {
+                this["isRunning"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int FovCircleGreen {
+            get {
+                return ((int)(this["FovCircleGreen"]));
+            }
+            set {
+                this["FovCircleGreen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int FovCircleBlue {
+            get {
+                return ((int)(this["FovCircleBlue"]));
+            }
+            set {
+                this["FovCircleBlue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int FovCircleWidth {
+            get {
+                return ((int)(this["FovCircleWidth"]));
+            }
+            set {
+                this["FovCircleWidth"] = value;
             }
         }
         
