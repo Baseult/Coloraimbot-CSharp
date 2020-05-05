@@ -7,47 +7,36 @@
 //   \______) \___/  \____||_____) \____|  |____/  \__  |  |______/ \_____|(___/ |_____)|____/  \_)   \__)
 //                                                 (____/                                                  
 
-//Some Information stuff..
-//Recode of https://www.unknowncheats.me/forum/valorant/389766-valorant-color-aimbot-ui-source.html
+// Credits to bluefire1337 for the Base Source - Recode of: https://www.unknowncheats.me/forum/valorant/389766-valorant-color-aimbot-ui-source.html
+// Credits to Grizzly222 for the InputInjector Method: https://www.unknowncheats.me/forum/valorant/391878-mouse-movement-bypass.html
 
-//Copyright(c) 2020 Baseult - https://baseult.com - Discord: https://baseult.com/twitchwatcher
+// Copyright(c) 2020 Baseult - https://baseult.com - Discord: https://baseult.com/twitchwatcher
+// You can Donate me some money here: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D5L9KA9D47TTW&source=url
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
-using System.Net;
 using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using InputInjectorNet;
 using ValorantAimbotUI.Properties;
-
-
 
 namespace ValorantAimbotUI
 {
-	public partial class Form1 : Form
+    public partial class Form1 : Form
 	{
-
-		public readonly FormOverlay _formoverlay;
-		public Form1(FormOverlay formOverlay)
-		{
-			_formoverlay = formOverlay;
-
-		}
 
 		public Form1()
 		{
 
 			this.InitializeComponent();
-			this.Text = "iBaseult";
+
 			this.isTriggerbot = this.GetKey<bool>("isTriggerbot");
 			this.isAimbot = this.GetKey<bool>("isAimbot");
 			this.isEsp = this.GetKey<bool>("isEsp");
@@ -105,7 +94,6 @@ namespace ValorantAimbotUI
 			this.Bhopinput.Value = this.Bhop;
 			this.FovXNum.Value = this.fovX;
 			this.CircleRed.Value = this.FovCircleRed;
-			this.isRunning = this.isRunning;
 			this.CircleGreen.Value = this.FovCircleGreen;
 			this.CircleBlue.Value = this.FovCircleBlue;
 			this.CircleWidth.Value = this.FovCircleWidth;
@@ -154,46 +142,53 @@ namespace ValorantAimbotUI
 		[DllImport("USER32.dll")]
 		private static extern short GetKeyState(int nVirtKey);
 
-		bool norecoil;
-
 		private async void xBhop() //Bhop spamming spacebar
 		{
-
 			for (; ; )
 			{
-			News:
-
-				if (!this.isRunning || !this.isBhop)
+				try
 				{
-					await Task.Delay(1000);
-					goto News;
-				}
-				else
-				{
-					int xx = int.Parse(Bhopinput.Text);
-					int keyState = (int)Form1.GetKeyState(xx);
 
-					if (keyState >= 0)
+				News:
+
+					if (!this.isRunning || !this.isBhop)
 					{
-						await Task.Delay(10);
+						await Task.Delay(1000);
 						goto News;
 					}
 					else
 					{
-						int v = int.Parse(Bdelay.Text);
-						SendKeys.SendWait(" ");
-						Thread.Sleep(v);
-					}
+						int xx = int.Parse(Bhopinput.Text);
+						int keyState = (int)Form1.GetKeyState(xx);
 
+						if (keyState >= 0)
+						{
+							await Task.Delay(10);
+							goto News;
+						}
+						else
+						{
+							int v = int.Parse(Bdelay.Text);
+							SendKeys.SendWait(" ");
+							Thread.Sleep(v);
+						}
+
+					}
 				}
+                catch
+                {
+					MessageBox.Show("Failure Code - 1 - There might be an issue with the Bhop");
+                }
 			}
 		}
 
-		private async void xTriggertest() //Triggertest for debugging
+		private static Random random = new Random(); //Randomize for further testing
+		public static string Dice(int length){const string chars = "qwerasdfyxcv"; return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray()); } //Randomize for further autostrafe testing
+
+		private async void xDice() //Minigame incoming still debugging
 		{
 			for (; ; )
 			{
-
 				if (!this.isRunning)
 				{
 					await Task.Delay(1000);
@@ -212,47 +207,24 @@ namespace ValorantAimbotUI
 					{
 						pixel_Color = Color.FromArgb(this.GetColor(this.color));
 					}
-
+					Random rnd = new Random();
+					int dx = rnd.Next(2000000, 2700000);
+					int df = rnd.Next(200000, 270000);
 					int pixelx = 10;
 					int pixely = 10;
 
 					if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
 					{
-						await Task.Delay(400000);
+						await Task.Delay(df);
 						SendKeys.SendWait("+{ENTER}");
-						await Task.Delay(10);
-						SendKeys.SendWait("www");
-						await Task.Delay(10);
+						await Task.Delay(5);
+						SendKeys.SendWait(Dice(2));
+						await Task.Delay(5);
 						SendKeys.SendWait("{ENTER}");
-						await Task.Delay(400000);
+						await Task.Delay(dx);
 					}
 				}
 			}
-		}
-
-		private async void xUpdate()
-		{
-			for (; ; )
-			{
-				using (WebClient client = new WebClient())
-				{
-					string s = client.DownloadString("https://baseult.com/iBaseult/update.txt"); //This reads the text file on this website. If Text file says true cheat will continue. If it says false cheat will close valorant. This is to prevent bans for detection or an outdated cheat.
-
-					if (s.Contains("false"))
-					{
-						_ = !isRunning;
-						foreach (var process in Process.GetProcessesByName("VALORANT-Win64-Shipping"))
-						{
-							process.Kill();
-						}
-						MessageBox.Show("Your Game closed for your safety. This Cheat is tagged by Baseult as 'detected' or 'outdated'. Restart the Cheat it might have been an issue, otherwise check his thread.");
-						Close();
-					}
-
-					await Task.Delay(60000);
-				}
-			}
-
 		}
 
 		private new async void xNoRecoil()
@@ -261,224 +233,223 @@ namespace ValorantAimbotUI
 			for (; ; )
 			{
 			New:
-
-				if (!this.isRunning || !this.isRecoil)
+				try
 				{
-					await Task.Delay(1000);
-				}
-				else
-				{
-					int af = Convert.ToInt32(rcs.Value);
-					if (this.isRecoil)
+
+					if (!this.isRunning || !this.isRecoil)
 					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
+						await Task.Delay(1000);
+					}
+					else
+					{
+						int af = Convert.ToInt32(rcs.Value);
+						if (this.isRecoil)
 						{
-							await Task.Delay(1);
-							goto New;
-						}
-						else
-						{
-
-							for (int o = 0; o < 2; o++)
+							int keyState2 = (int)Form1.GetKeyState(1);
+							if (keyState2 >= 0)
 							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
-								{
-									await Task.Delay(1);
-									goto New;
-								}
-								else
-								{
+								await Task.Delay(1);
+								goto New;
+							}
+							else
+							{
 
-									await Task.Delay(15);
-									Move(0, 1 + af);
+								for (int o = 0; o < 2; o++)
+								{
+									int keyStatex2 = (int)Form1.GetKeyState(1);
+									if (keyStatex2 >= 0)
+									{
+										await Task.Delay(1);
+										goto New;
+									}
+									else
+									{
+
+										await Task.Delay(15);
+										Move(0, 1 + af);
+									}
 								}
 							}
+
 						}
 
-					}
-
-					if (this.isRecoil)
-					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
+						if (this.isRecoil)
 						{
-							await Task.Delay(1);
-							goto New;
-						}
-						else
-						{
-
-							for (int f = 0; f < 3; f++)
+							int keyState2 = (int)Form1.GetKeyState(1);
+							if (keyState2 >= 0)
 							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
-								{
-									await Task.Delay(1);
-									goto New;
-								}
-								else
-								{
-
-									await Task.Delay(20);
-									Move(0, 2 + af);
-								}
+								await Task.Delay(1);
+								goto New;
 							}
-						}
-					}
-
-					if (this.isRecoil)
-					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
-						{
-							await Task.Delay(1);
-							goto New;
-						}
-						else
-						{
-							for (int f = 0; f < 1; f++)
+							else
 							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
-								{
-									await Task.Delay(1);
-									goto New;
-								}
-								else
-								{
-									await Task.Delay(30);
-									Move(0, 8 + af);
-								}
-							}
-						}
-					}
 
-					if (this.isRecoil)
-					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
-						{
-							await Task.Delay(1);
-							goto New;
-						}
-						else
-						{
-							for (int f = 0; f < 1; f++)
-							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
-								{
-									await Task.Delay(1);
-									goto New;
-								}
-								else
-								{
-									await Task.Delay(30);
-									Move(0, 9 + af);
-								}
-							}
-						}
-					}
-
-					if (this.isRecoil)
-					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
-						{
-							await Task.Delay(1);
-							goto New;
-						}
-						else
-						{
-
-							for (int f = 0; f < 15; f++)
-							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
-								{
-									await Task.Delay(1);
-									goto New;
-								}
-								else
-								{
-									await Task.Delay(25);
-									Move(0, 4 + af);
-								}
-							}
-						}
-					}
-
-					if (this.isRecoil)
-					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
-						{
-							await Task.Delay(1);
-							goto New;
-						}
-						else
-						{
-							for (int f = 0; f < 22; f++)
-							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
-								{
-									await Task.Delay(1);
-									goto New;
-								}
-								else
-								{
-									await Task.Delay(100);
-								}
-							}
-						}
-					}
-
-					if (this.isRecoil)
-					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						int keyState2 = (int)Form1.GetKeyState(1);
-						if (keyState >= 0 && keyState2 >= 0)
-						{
-							await Task.Delay(1);
-							goto New;
-						}
-						else
-						{
-							for (int f = 0; f < 2; f++)
-							{
-								int keyStatex = (int)Form1.GetKeyState((int)this.mainAimKey);
-								int keyStatex2 = (int)Form1.GetKeyState(1);
-								if (keyStatex >= 0 && keyStatex2 >= 0)
-								{
-									await Task.Delay(1);
-									goto New;
-								}
-								else
+								for (int f = 0; f < 3; f++)
 								{
 									
+									int keyStatex2 = (int)Form1.GetKeyState(1);
+									if (keyStatex2 >= 0)
+									{
+										await Task.Delay(1);
+										goto New;
+									}
+									else
+									{
+
+										await Task.Delay(20);
+										Move(0, 2 + af);
+									}
 								}
 							}
 						}
+
+						if (this.isRecoil)
+						{
+							int keyState2 = (int)Form1.GetKeyState(1);
+							if (keyState2 >= 0)
+							{
+								await Task.Delay(1);
+								goto New;
+							}
+							else
+							{
+								for (int f = 0; f < 1; f++)
+								{
+									
+									int keyStatex2 = (int)Form1.GetKeyState(1);
+									if (keyStatex2 >= 0)
+									{
+										await Task.Delay(1);
+										goto New;
+									}
+									else
+									{
+										await Task.Delay(30);
+										Move(0, 8 + af);
+									}
+								}
+							}
+						}
+
+						if (this.isRecoil)
+						{
+							int keyState2 = (int)Form1.GetKeyState(1);
+							if (keyState2 >= 0)
+							{
+								await Task.Delay(1);
+								goto New;
+							}
+							else
+							{
+								for (int f = 0; f < 1; f++)
+								{
+									
+									int keyStatex2 = (int)Form1.GetKeyState(1);
+									if (keyStatex2 >= 0)
+									{
+										await Task.Delay(1);
+										goto New;
+									}
+									else
+									{
+										await Task.Delay(30);
+										Move(0, 9 + af);
+									}
+								}
+							}
+						}
+
+						if (this.isRecoil)
+						{
+							int keyState2 = (int)Form1.GetKeyState(1);
+							if (keyState2 >= 0)
+							{
+								await Task.Delay(1);
+								goto New;
+							}
+							else
+							{
+
+								for (int f = 0; f < 15; f++)
+								{
+									
+									int keyStatex2 = (int)Form1.GetKeyState(1);
+									if (keyStatex2 >= 0)
+									{
+										await Task.Delay(1);
+										goto New;
+									}
+									else
+									{
+										await Task.Delay(25);
+										Move(0, 4 + af);
+									}
+								}
+							}
+						}
+
+						if (this.isRecoil)
+						{
+							int keyState2 = (int)Form1.GetKeyState(1);
+							if (keyState2 >= 0)
+							{
+								await Task.Delay(1);
+								goto New;
+							}
+							else
+							{
+								for (int f = 0; f < 22; f++)
+								{
+									
+									int keyStatex2 = (int)Form1.GetKeyState(1);
+									if (keyStatex2 >= 0)
+									{
+										await Task.Delay(1);
+										goto New;
+									}
+									else
+									{
+										await Task.Delay(100);
+									}
+								}
+							}
+						}
+
+						if (this.isRecoil)
+						{
+							int keyState2 = (int)Form1.GetKeyState(1);
+							if (keyState2 >= 0)
+							{
+								await Task.Delay(1);
+								goto New;
+							}
+							else
+							{
+								for (int f = 0; f < 2; f++)
+								{
+									
+									int keyStatex2 = (int)Form1.GetKeyState(1);
+									if (keyStatex2 >= 0)
+									{
+										await Task.Delay(1);
+										goto New;
+									}
+									else
+									{
+
+									}
+								}
+							}
+						}
+
 					}
+				}
+				catch
+				{
+					MessageBox.Show("Failure Code - 2 - There might be an issue with the NoRecoil!");
 
 				}
 			}
-			return;
 		}
 
 
@@ -487,62 +458,70 @@ namespace ValorantAimbotUI
 
 			for (; ; )
 			{
-
-				if (!this.isRunning || !this.isEsp)
+				try
 				{
-					await Task.Delay(1000);
-				}
-				else
-				{
-					Color pixel_Color;
 
-					if (Customcolor.Checked == true)
+					if (!this.isRunning || !this.isEsp)
 					{
-						int r = int.Parse(Redinput.Text);
-						int g = int.Parse(Greeninput.Text);
-						int b = int.Parse(Blueinput.Text);
-						pixel_Color = Color.FromArgb(r, g, b);
+						await Task.Delay(1000);
 					}
 					else
 					{
-						pixel_Color = Color.FromArgb(this.GetColor(this.color));
-					}
+						Color pixel_Color;
 
-					int wi = int.Parse(ColWidth.Text);
-					int u = int.Parse(ColR.Text);
-					int l = int.Parse(ColG.Text);
-					int m = int.Parse(ColB.Text);
-					int sx = int.Parse(ColX.Text);
-					int sy = int.Parse(ColY.Text);
-					Color pol = Color.FromArgb(u, l, m);
-
-					Pen Red = new Pen(pol)
-							{
-								Width = wi
-							};
-
-					Point[] array = this.PixelSearch(new Rectangle((this.xSize - 350) / 2, (this.ySize - 800) / 2, 350, 800), pixel_Color, this.colorVariation);
-					Point[] array2 = (from t in array orderby t.Y select t).ToArray<Point>();
-					List<Vector2> list = new List<Vector2>();
-
-					for (int j = 0; j < array2.Length; j++)
-					{
-						try
+						if (Customcolor.Checked == true)
 						{
+							int r = int.Parse(Redinput.Text);
+							int g = int.Parse(Greeninput.Text);
+							int b = int.Parse(Blueinput.Text);
+							pixel_Color = Color.FromArgb(r, g, b);
+						}
+						else
+						{
+							pixel_Color = Color.FromArgb(this.GetColor(this.color));
+						}
 
-							using (Graphics g = Graphics.FromHwnd(IntPtr.Zero))
+						int wi = int.Parse(ColWidth.Text);
+						int u = int.Parse(ColR.Text);
+						int l = int.Parse(ColG.Text);
+						int m = int.Parse(ColB.Text);
+						int sx = int.Parse(ColX.Text);
+						int sy = int.Parse(ColY.Text);
+						Color pol = Color.FromArgb(u, l, m);
+
+						Pen Red = new Pen(pol)
+						{
+							Width = wi
+						};
+
+						Point[] array = this.PixelSearch(new Rectangle((this.xSize - 350) / 2, (this.ySize - 800) / 2, 350, 800), pixel_Color, this.colorVariation);
+						Point[] array2 = (from t in array orderby t.Y select t).ToArray<Point>();
+						List<Vector2> list = new List<Vector2>();
+
+						for (int j = 0; j < array2.Length; j++)
+						{
+							try
 							{
-								g.DrawRectangle(Red, array2[j].X - (sx / 2), array2[j].Y - 10, sx, sy);			//I know this is shitty drawing stop looking at it thanks xD
+
+								using (Graphics g = Graphics.FromHwnd(IntPtr.Zero))
+								{
+									g.DrawRectangle(Red, array2[j].X - (sx / 2), array2[j].Y - 10, sx, sy);         //I know this is shitty drawing stop looking at it thanks xD
+								}
+
+								break;
+
 							}
-
-							break;
-						
-						}
-						catch
-						{
-							break;
+							catch
+							{
+								break;
+							}
 						}
 					}
+				}
+				catch
+				{
+					MessageBox.Show("Failure Code - 3 - There might be an issue with the ColorESP!");
+
 				}
 
 			}
@@ -554,64 +533,71 @@ namespace ValorantAimbotUI
 
 			for (; ; )
 			{
-
-				if (!this.isRunning || !this.isPixel)
+				try
 				{
-					await Task.Delay(1000);
-				}
-				else
-				{
-					Color pixel_Color;
 
-					if (Customcolor.Checked == true)
+					if (!this.isRunning || !this.isPixel)
 					{
-						int r = int.Parse(Redinput.Text);
-						int g = int.Parse(Greeninput.Text);
-						int b = int.Parse(Blueinput.Text);
-						pixel_Color = Color.FromArgb(r, g, b);
+						await Task.Delay(1000);
 					}
 					else
 					{
-						pixel_Color = Color.FromArgb(this.GetColor(this.color));
-					}
+						Color pixel_Color;
 
-					Point[] array3 = this.PixelSearch(new Rectangle((this.xSize - 20) / 2, (this.ySize) / 2, 350, 350), pixel_Color, this.colorVariation);     
-					Point[] array4 = (from t in array3 orderby t.Y select t).ToArray<Point>();
-					List<Vector2> list = new List<Vector2>();
+						if (Customcolor.Checked == true)
+						{
+							int r = int.Parse(Redinput.Text);
+							int g = int.Parse(Greeninput.Text);
+							int b = int.Parse(Blueinput.Text);
+							pixel_Color = Color.FromArgb(r, g, b);
+						}
+						else
+						{
+							pixel_Color = Color.FromArgb(this.GetColor(this.color));
+						}
 
-					for (int o = 0; o < array4.Length; o++)
-					{
+						Point[] array3 = this.PixelSearch(new Rectangle((this.xSize - 20) / 2, (this.ySize) / 2, 350, 350), pixel_Color, this.colorVariation);
+						Point[] array4 = (from t in array3 orderby t.Y select t).ToArray<Point>();
+						List<Vector2> list = new List<Vector2>();
 
-						try
+						for (int o = 0; o < array4.Length; o++)
 						{
 
-							int wi = int.Parse(PixWidth.Text);
-							int u = int.Parse(PixRed.Text);
-							int l = int.Parse(PixGreen.Text);
-							int m = int.Parse(PixBlue.Text);
-							int sx = int.Parse(PixX.Text);
-							int sy = int.Parse(PixY.Text);
-							Color pol = Color.FromArgb(u, l, m);
-								
-							Pen Red = new Pen(pol)
+							try
 							{
-								Width = wi
-							};
 
-							using (Graphics g = Graphics.FromHwnd(IntPtr.Zero))   
-							{
-								g.DrawEllipse(Red, array4[o].X - (sx / 2), array4[o].Y - (sy / 2), sx, sy);          //I know this is shitty drawing stop looking at it thanks xD
+								int wi = int.Parse(PixWidth.Text);
+								int u = int.Parse(PixRed.Text);
+								int l = int.Parse(PixGreen.Text);
+								int m = int.Parse(PixBlue.Text);
+								int sx = int.Parse(PixX.Text);
+								int sy = int.Parse(PixY.Text);
+								Color pol = Color.FromArgb(u, l, m);
+
+								Pen Red = new Pen(pol)
+								{
+									Width = wi
+								};
+
+								using (Graphics g = Graphics.FromHwnd(IntPtr.Zero))
+								{
+									g.DrawEllipse(Red, array4[o].X - (sx / 2), array4[o].Y - (sy / 2), sx, sy);          //I know this is shitty drawing stop looking at it thanks xD
+								}
+
+								break;
+
 							}
+							catch
+							{
+								break;
+							}
+						}
 
-							break;
-						
-						}
-						catch
-						{
-							break;
-						}
 					}
-
+				}
+				catch
+				{
+					MessageBox.Show("Failure Code - 4 - There might be an issue with the PixelESP!");
 				}
 
 			}
@@ -622,67 +608,74 @@ namespace ValorantAimbotUI
 
 			for (; ; )
 			{
+				try
+				{
 
-				if (!this.isRunning || !this.isTriggerbot)
-				{
-					await Task.Delay(1000);
-				}
-				else
-				{
-					if (this.isAimKey)
+					if (!this.isRunning || !this.isTriggerbot)
 					{
-						int keyState = (int)Form1.GetKeyState((int)this.Bhopxkey);
-						if (this.isHold)
+						await Task.Delay(1000);
+					}
+					else
+					{
+						if (this.isAimKey)
 						{
-							if (keyState >= 0)
+							int keyState = (int)Form1.GetKeyState((int)this.Bhopxkey);
+							if (this.isHold)
+							{
+								if (keyState >= 0)
+								{
+									await Task.Delay(1);
+									continue;
+								}
+							}
+							else if (keyState != 0)
 							{
 								await Task.Delay(1);
 								continue;
 							}
 						}
-						else if (keyState != 0)
+
+						Color pixel_Color;
+
+						if (Customcolor.Checked == true)
 						{
-							await Task.Delay(1);
-							continue;
+							int r = int.Parse(Redinput.Text);
+							int g = int.Parse(Greeninput.Text);
+							int b = int.Parse(Blueinput.Text);
+							pixel_Color = Color.FromArgb(r, g, b);
 						}
-					}
+						else
+						{
+							pixel_Color = Color.FromArgb(this.GetColor(this.color));
+						}
 
-					Color pixel_Color;
+						int pixelx;
+						int pixely;
 
-					if (Customcolor.Checked == true)
-					{
-						int r = int.Parse(Redinput.Text);
-						int g = int.Parse(Greeninput.Text);
-						int b = int.Parse(Blueinput.Text);
-						pixel_Color = Color.FromArgb(r, g, b);
-					}
-					else
-					{
-						pixel_Color = Color.FromArgb(this.GetColor(this.color));
-					}
 
-					int pixelx;
-					int pixely;
+						Point[] array = this.PixelSearch(new Rectangle((this.xSize - 100) / 2, (this.ySize - 100) / 2, 300, 300), pixel_Color, this.colorVariation);
+						Point[] array2 = (from t in array orderby t.Y select t).ToArray<Point>();
+						List<Vector2> list = new List<Vector2>();
 
-					
-					Point[] array = this.PixelSearch(new Rectangle((this.xSize - 100) / 2, (this.ySize - 100) / 2, 300, 300), pixel_Color, this.colorVariation);
-					Point[] array2 = (from t in array orderby t.Y select t).ToArray<Point>();
-					List<Vector2> list = new List<Vector2>();
-					
 
-					if (this.isTriggerbot)
-					{
-						
+						if (this.isTriggerbot)
+						{
+
 							pixelx = int.Parse(Pingx.Text);
 							pixely = int.Parse(PixelY.Text);
 
-						if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
-						{
-							this.Move(0, 0, true);
+							if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
+							{
+								this.Move(0, 0, true);
+							}
+
 						}
 
 					}
-
+				}
+				catch
+				{
+					MessageBox.Show("Failure Code - 5 - There might be an issue with the Triggerbot!");
 				}
 
 			}
@@ -693,46 +686,54 @@ namespace ValorantAimbotUI
 
 			for (; ; )
 			{
-
-				if (!this.isRunning || !this.isPing)
-				{
-					await Task.Delay(1000);
-				}
-				else
+				try
 				{
 
-					Color pixel_Color;
-
-					if (Customcolor.Checked == true)
+					if (!this.isRunning || !this.isPing)
 					{
-						int r = int.Parse(Redinput.Text);
-						int g = int.Parse(Greeninput.Text);
-						int b = int.Parse(Blueinput.Text);
-						pixel_Color = Color.FromArgb(r, g, b);
+						await Task.Delay(1000);
 					}
 					else
 					{
-						pixel_Color = Color.FromArgb(this.GetColor(this.color));
-					}
-					
-					int del = int.Parse(PingDelay.Text);
-					int pixelx;
-					int pixely;
 
-					pixelx = int.Parse(Pingx.Text);
-					pixely = int.Parse(PixelY.Text);
+						Color pixel_Color;
 
-					if (this.isPing)
-					{
-
-						if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
+						if (Customcolor.Checked == true)
 						{
-							SendKeys.SendWait(PingBind.Text);
-							await Task.Delay(del);
+							int r = int.Parse(Redinput.Text);
+							int g = int.Parse(Greeninput.Text);
+							int b = int.Parse(Blueinput.Text);
+							pixel_Color = Color.FromArgb(r, g, b);
+						}
+						else
+						{
+							pixel_Color = Color.FromArgb(this.GetColor(this.color));
 						}
 
-						await Task.Delay(50);
+						int del = int.Parse(PingDelay.Text);
+						int pixelx;
+						int pixely;
+
+						pixelx = int.Parse(Pingx.Text);
+						pixely = int.Parse(PixelY.Text);
+
+						if (this.isPing)
+						{
+
+							if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
+							{
+								SendKeys.SendWait(PingBind.Text);
+								await Task.Delay(del);
+							}
+
+							await Task.Delay(50);
+						}
+
 					}
+				}
+				catch
+				{
+					MessageBox.Show("Failure Code - 6 - There might be an issue with the Ping Enemy!");
 
 				}
 
@@ -745,105 +746,119 @@ namespace ValorantAimbotUI
 
 			for (; ; )
 			{
+				try
+				{
 
-				if (!this.isRunning || !this.isAimbot)
-				{
-					await Task.Delay(1000);
-				}
-				else
-				{
-					if (this.isAimKey)
+					if (!this.isRunning || !this.isAimbot)
 					{
-						int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-						if (this.isHold)
+						await Task.Delay(1000);
+					}
+					else
+					{
+						if (this.isAimKey)
 						{
-							if (keyState >= 0)
+							int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
+							if (this.isHold)
+							{
+								if (keyState >= 0)
+								{
+									await Task.Delay(1);
+									continue;
+								}
+							}
+							else if (keyState != 0)
 							{
 								await Task.Delay(1);
 								continue;
 							}
 						}
-						else if (keyState != 0)
+
+						Color pixel_Color;
+
+						if (Customcolor.Checked == true)
 						{
-							await Task.Delay(1);
-							continue;
+							int r = int.Parse(Redinput.Text);
+							int g = int.Parse(Greeninput.Text);
+							int b = int.Parse(Blueinput.Text);
+							pixel_Color = Color.FromArgb(r, g, b);
 						}
-					}
-
-					Color pixel_Color;
-
-					if (Customcolor.Checked == true)
-					{
-						int r = int.Parse(Redinput.Text);
-						int g = int.Parse(Greeninput.Text);
-						int b = int.Parse(Blueinput.Text);
-						pixel_Color = Color.FromArgb(r, g, b);
-					}
-					else
-					{
-						pixel_Color = Color.FromArgb(this.GetColor(this.color));
-					}
-
-					int pixelx;
-					int pixely;
-
-					if (this.isAimbot)
-					{
-						Point[] array = this.PixelSearch(new Rectangle((this.xSize - this.fovX) / 2, (this.ySize - this.fovY) / 2, this.fovX, this.fovY), pixel_Color, this.colorVariation);
-						if (array.Length != 0)
+						else
 						{
-							try
-							{
-								bool pressDown = false;
+							pixel_Color = Color.FromArgb(this.GetColor(this.color));
+						}
 
-								Point[] array2 = (from t in array
-												  orderby t.Y
-												  select t).ToArray<Point>();
-								List<Vector2> list = new List<Vector2>();
-								for (int j = 0; j < array2.Length; j++)
+						int pixelx;
+						int pixely;
+
+						if (this.isAimbot)
+						{
+							Point[] array = this.PixelSearch(new Rectangle((this.xSize - this.fovX) / 2, (this.ySize - this.fovY) / 2, this.fovX, this.fovY), pixel_Color, this.colorVariation);
+							if (array.Length != 0)
+							{
+								try
 								{
-									Vector2 current = new Vector2((float)array2[j].X, (float)array2[j].Y);
-									if (!(from t in list where (t - current).Length() < 60f || Math.Abs(t.X - current.X) < 60f select t).Any())
+									bool pressDown = false;
+
+									Point[] array2 = (from t in array
+													  orderby t.Y
+													  select t).ToArray<Point>();
+									List<Vector2> list = new List<Vector2>();
+									for (int j = 0; j < array2.Length; j++)
 									{
-										list.Add(current);
-										if (list.Count > 0)
+										Vector2 current = new Vector2((float)array2[j].X, (float)array2[j].Y);
+										if (!(from t in list where (t - current).Length() < 60f || Math.Abs(t.X - current.X) < 60f select t).Any())
 										{
-											break;
+											list.Add(current);
+											if (list.Count > 0)
+											{
+												break;
+											}
 										}
 									}
+
+									pixelx = Convert.ToInt32(SmoothX.Value);
+									pixely = Convert.ToInt32(SmoothY.Value);
+
+									Vector2 vector = (from t in list
+													  select t - new Vector2((float)(this.xSize / 2), (float)(this.ySize / 2)) into t
+													  orderby t.Length()
+													  select t).ElementAt(0) + new Vector2(1f, (float)this.offsetY);
+
+									if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
+									{
+										if (TargetCheck.Checked == true)
+										{
+											int x = Convert.ToInt32(this.delayx);
+											await Task.Delay(x);
+											this.Move((int)(vector.X * (float)this.speed3), (int)(vector.Y * (float)this.speed3), pressDown);
+										}
+										else
+                                        {
+											this.Move((int)(vector.X * (float)this.speed), (int)(vector.Y * (float)this.speed), pressDown);
+										}
+										continue;
+									}
+								
+									else
+									{
+											this.Move((int)(vector.X * (float)this.speed), (int)(vector.Y * (float)this.speed), pressDown);
+											continue;
+									}
 								}
-
-								pixelx = Convert.ToInt32(SmoothX.Value);
-								pixely = Convert.ToInt32(SmoothY.Value);
-
-								Vector2 vector = (from t in list
-												  select t - new Vector2((float)(this.xSize / 2), (float)(this.ySize / 2)) into t
-												  orderby t.Length()
-												  select t).ElementAt(0) + new Vector2(1f, (float)this.offsetY);
-
-								if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
+								catch (Exception ex)
 								{
-
-									int x = Convert.ToInt32(this.delayx);
-									await Task.Delay(x);
-									this.Move((int)(vector.X * (float)this.speed3), (int)(vector.Y * (float)this.speed3), pressDown);
-									continue;
-								}
-								else
-								{
-									this.Move((int)(vector.X * (float)this.speed), (int)(vector.Y * (float)this.speed), pressDown);
+									Console.WriteLine("Main Ex." + ((ex != null) ? ex.ToString() : null));
 									continue;
 								}
 							}
-							catch (Exception ex)
-							{
-								Console.WriteLine("Main Ex." + ((ex != null) ? ex.ToString() : null));
-								continue;
-							}
-							return;
+
 						}
-
 					}
+				}
+				catch
+				{
+					MessageBox.Show("Failure Code - 7 - There might be an issue with the Aimbot!");
+
 				}
 
 			}
@@ -865,50 +880,67 @@ namespace ValorantAimbotUI
 
 		private void UpdateDisplayInformation()
 		{
-			if (CustomScreen.Checked == true)
+			try
 			{
-				int x = int.Parse(ScreenX2.Text);
-				int y = int.Parse(ScreenY2.Text);
+				if (CustomScreen.Checked == true)
+				{
+					int x = int.Parse(ScreenX2.Text);
+					int y = int.Parse(ScreenY2.Text);
 
-				this.xSize = x;
-				this.ySize = y;
+					this.xSize = x;
+					this.ySize = y;
+				}
+				else
+				{
+					this.zoom = this.GetScalingFactor();
+					Screen screen = this.CurrentScreen();
+					bool primary = screen.Primary;
+					this.xSize = (int)((float)screen.Bounds.Width * (primary ? this.zoom : 1f));
+					this.ySize = (int)((float)screen.Bounds.Height * (primary ? this.zoom : 1f));
+				}
 			}
-			else
+			catch
 			{
-				this.zoom = this.GetScalingFactor();
-				Screen screen = this.CurrentScreen();
-				bool primary = screen.Primary;
-				this.xSize = (int)((float)screen.Bounds.Width * (primary ? this.zoom : 1f));
-				this.ySize = (int)((float)screen.Bounds.Height * (primary ? this.zoom : 1f));
+				MessageBox.Show("Failure Code - 8 - There might be an issue with the Scren Detection!");
+
 			}
 		}
 
 		[DllImport("user32.dll")]
 		private static extern void mouse_event(int dwFlags, int dx, int dy, uint dwData, UIntPtr dwExtraInfo);
 
-		public new void Move(int xDelta, int yDelta, bool pressDown = false)
+		private MInfo _mevent;
+
+		public new void Move(int x, int y, bool lm = false)
 		{
-			if (pressDown)
+
+			if (lm)
 			{
-                if (DateTime.Now.Subtract(this.lastShot).TotalMilliseconds < (double)this.msShootTime)
-                {
-                    pressDown = false;
-                }
-                else
-                {
-                    this.lastShot = DateTime.Now;
-                }
-            }
-			InjectedInputMouseInfo input =
-		default(InjectedInputMouseInfo);
-			input.DeltaX = xDelta;
-			input.DeltaY = yDelta;
-			input.MouseOptions = (InjectedInputMouseOptions)8196;
-			if (pressDown)
-			{
-				input.MouseOptions = (InjectedInputMouseOptions)8194;
+				if (DateTime.Now.Subtract(this.lastShot).TotalMilliseconds < (double)this.msShootTime)
+				{
+					lm = false;
+				}
+				else
+				{
+					this.lastShot = DateTime.Now;
+				}
 			}
-			InputInjector.InjectMouseInput(input);
+			_mevent = new MInfo
+			{
+				MouseOptions = (IMOptions)8196,
+				MoveX = (int)x,
+				MoveY = (int)y,
+			};
+
+			if (lm)
+			{
+				_mevent = new MInfo
+				{
+					MouseOptions = (IMOptions)8194,
+				};
+			}
+
+			IInject.IMInput(_mevent);
 		}
 
 		public Screen CurrentScreen()
@@ -963,8 +995,9 @@ namespace ValorantAimbotUI
 
 		public unsafe Point[] PixelSearch(Rectangle rect, Color Pixel_Color, int Shade_Variation)
 		{
+
 			ArrayList arrayList = new ArrayList();
-			using (var tile = new Bitmap(rect.Width, rect.Height, PixelFormat.Format16bppRgb555))
+			using (var tile = new Bitmap(rect.Width, rect.Height, PixelFormat.Format24bppRgb))
 			{
 				if (this.monitor >= Screen.AllScreens.Length)
 				{
@@ -1048,11 +1081,10 @@ namespace ValorantAimbotUI
 		private void Main_load(object sender, EventArgs e)
 		{
 			this.mainThread = new Thread(delegate () {
-				this.xUpdate();
 				this.xNoRecoil();
 				this.xBhop();
 				this.xPing();
-				this.xTriggertest();
+				this.xDice();
 				this.xAimbot();
 				this.xTriggerbot();
 				this.xColorEsp();
@@ -1102,6 +1134,7 @@ namespace ValorantAimbotUI
 					formoverlay.Close();
 					FormOverlay obj = (FormOverlay)Application.OpenForms["FormOverlay"];
 					obj.Close();
+					this.CircleBtt.Checked = false;
 				}
                 catch { }
 			}
@@ -1264,16 +1297,8 @@ namespace ValorantAimbotUI
 
 		public float zoom = 1f;
 
-		public const int MOUSEEVENTF_LEFTDOWN = 2;
-
-		public const int MOUSEEVENTF_LEFTUP = 4;
-
-		public const int MOUSEEVENTF_RIGHTDOWN = 8;
-
-		public const int MOUSEEVENTF_RIGHTUP = 16;
 
 		public Thread mainThread;
-
 		public bool isRunning;
 		public string myString;
 		public string newString;
@@ -1395,8 +1420,6 @@ namespace ValorantAimbotUI
 
 		private void Ping_CheckedChanged(object sender, EventArgs e)
 		{
-			if(Ping.Checked == true)
-			{MessageBox.Show("Change your Warning Ping to Keybind the Keybind you choosed in Communication Settings"); }
 			
 			this.isPing = this.Ping.Checked;
 			this.SetKey("isPing", this.isPing);
@@ -1410,12 +1433,7 @@ namespace ValorantAimbotUI
         private void checkBox2_CheckedChanged_2(object sender, EventArgs e)
         {
 
-			if(EspBtt.Checked == true)
-            {
 			
-				MessageBox.Show("This feature might slow down your Bot, especially if you use more than 2 Visuals at the same time. If you experience lags or stuttering Aimbot please disable this!");
-				
-			}
 
 			this.isEsp = this.EspBtt.Checked;
 			this.SetKey("isEsp", this.isEsp);
@@ -1423,10 +1441,7 @@ namespace ValorantAimbotUI
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-			if(PixelBtt.Checked == true)
-            {
-				MessageBox.Show("This feature might slow down your Bot, especially if you use more than 2 Visuals at the same time. If you experience lags or stuttering Aimbot please disable this!");
-			}
+			
 
 			this.isPixel = this.PixelBtt.Checked;
 			this.SetKey("isPixel", this.isPixel);
@@ -1438,7 +1453,7 @@ namespace ValorantAimbotUI
 			{
 				if (this.isRunning)
 				{
-					MessageBox.Show("Please Stop and Start the Cheat agine for the Fov Circle!");
+					MessageBox.Show("Please Stop and Start the Cheat again for the Fov Circle!");
 				}
 			}
 				this.isCircle = this.CircleBtt.Checked;
@@ -1493,5 +1508,58 @@ namespace ValorantAimbotUI
         {
 
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+			try
+			{
+				Environment.Exit(0);
+				this.Close();
+			}
+            catch { }
+        }
     }
+
+	public struct MInfo
+	{
+		public int MoveX;
+		public int MoveY;
+		public IMOptions MouseOptions;
+	}
+
+	public enum IMOptions
+	{
+		LeftDown = 2,
+		LeftUp = 4,
+		Move = 1,
+		MoveNoCoalesce = 8192,
+		None = 0,
+	}
+
+	public class IInject
+	{
+		public static void IMInput(MInfo input)
+		{
+			IInject.IMInput(new MInfo[]
+			{
+				input
+			});
+		}
+
+		public static void IMInput(MInfo[] inputs)
+		{
+			if (!UNMethod.IMInput(inputs, inputs.Length))
+			{
+				throw new Win32Exception();
+			}
+		}
+	}
+
+	public static class UNMethod
+	{
+
+		[DllImport("User32.dll")]
+		[return: MarshalAs(UnmanagedType.Bool)]
+		public static extern bool IMInput([MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)] MInfo[] inputs, int count);
+	}
 }

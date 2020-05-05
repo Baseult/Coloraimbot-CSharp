@@ -18,9 +18,6 @@ namespace ValorantAimbotUI
 	{
 
 		Graphics g;
-		Pen myPen = new Pen(Color.Red);
-
-
 
 		public static IntPtr SetWindowLongPtr(HandleRef hWnd, int nIndex, IntPtr dwNewLong)
 		{
@@ -46,19 +43,25 @@ namespace ValorantAimbotUI
 
 		private void FormOverlay_Load(object sender, EventArgs e)
 		{
-			this.BackColor = Color.Wheat;
-			this.TransparencyKey = Color.Wheat;
-			this.TopMost = true;
-			this.MaximizeBox = true;
-			this.FormBorderStyle = FormBorderStyle.None;
+			try
+			{
+				this.BackColor = Color.Wheat;
+				this.TransparencyKey = Color.Wheat;
+				this.TopMost = true;
+				this.MaximizeBox = true;
+				this.FormBorderStyle = FormBorderStyle.None;
 
 
-			HandleRef handleRef = new HandleRef(this, this.Handle);
-			IntPtr initialStyle = GetWindowLongPtr(this.Handle, -20);
-			int test = (int)initialStyle | 0x80000 | 0x20;
-			SetWindowLongPtr(handleRef, -20, new IntPtr(test));
-			Form1 form1 = new Form1();
-			
+				HandleRef handleRef = new HandleRef(this, this.Handle);
+				IntPtr initialStyle = GetWindowLongPtr(this.Handle, -20);
+				int test = (int)initialStyle | 0x80000 | 0x20;
+				SetWindowLongPtr(handleRef, -20, new IntPtr(test));
+				Form1 form1 = new Form1();
+			}
+			catch
+			{
+				MessageBox.Show("Failure Code - 10 - There might be an issue with the FovCircle!");
+			}
 		}
 
 
@@ -78,42 +81,51 @@ namespace ValorantAimbotUI
 
 			for (; ; )
 			{
-				Form1 form1 = new Form1();
-				Top = (form1.ySize - form1.fovY) / 2; Left = (form1.xSize - form1.fovX) / 2;
-				Size = new System.Drawing.Size(form1.fovX + 50, form1.fovY + 50);
+				try
+				{
 
-				if (form1.isCircle == false)
-				{
-					this.Invalidate();
-					this.Close();
-				}
-				else
-				{
-					for (; ; )
+					Form1 form1 = new Form1();
+					Top = (form1.ySize - form1.fovY) / 2; Left = (form1.xSize - form1.fovX) / 2;
+					Size = new System.Drawing.Size(form1.fovX + 50, form1.fovY + 50);
+
+					if (form1.isCircle == false)
 					{
-						try
+						this.Invalidate();
+						this.Close();
+					}
+					else
+					{
+						for (; ; )
 						{
-							Form1 form2 = new Form1();
-							g = e.Graphics;
-							Color col = Color.FromArgb(form2.FovCircleRed, form2.FovCircleGreen, form2.FovCircleBlue);			//yes it is shit but it works do it better lel
-                            Pen New = new Pen(col)
-                            {
-                                Width = form1.FovCircleWidth
-                            };
-							e.Graphics.Clear(Color.Wheat);
-							g.DrawEllipse(New, 0, 0, form2.fovX, form2.fovY);
-							WaitNSeconds(5);
-							goto Now;
-						}
-						catch
-						{
-							goto Now;
-						}
+							try
+							{
+								Form1 form2 = new Form1();
+								g = e.Graphics;
+								Color col = Color.FromArgb(form2.FovCircleRed, form2.FovCircleGreen, form2.FovCircleBlue);          //yes it is shit but it works do it better lel
+								Pen New = new Pen(col)
+								{
+									Width = form1.FovCircleWidth
+								};
+								e.Graphics.Clear(Color.Wheat);
+								g.DrawEllipse(New, 0, 0, form2.fovX, form2.fovY);
+								WaitNSeconds(5);
+								goto Now;
+							}
+							catch
+							{
+								MessageBox.Show("Failure Code - 12 - There might be an issue with the FovCircle!");
+								this.Close();
+							}
 
+						}
 					}
 				}
+				catch
+				{
+					MessageBox.Show("Failure Code - 13 - There might be an issue with the FovCircle!");
+				}
 
-				break;
+			break;
 			}
 
 		}

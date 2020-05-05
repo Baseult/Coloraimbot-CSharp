@@ -27,7 +27,8 @@ namespace ValorantAimbotUI
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			MessageBox.Show("Detection Status: Unknown (No reported Ban so far)." + "\n" + "Use this Cheat at your own risk!" + "\n" + "\n" + "This Update has some Visual Features in it." + "\n" + "Most of these Visuals are bad coded and slow." + "\n" + "I will improve them in the next Update." + "\n" + "Please disable them if your Aimbot stutters because of it." +"\n" + "\n" + "Default Settings are adjusted for:" + "\n" + "Screen Resolution: 2560 x 1440." + "\n" + "Ingame Mouse Sensitivity: 1", "Information - Patch 0.49");
-			Application.Run(new Form1());
+
+		   Application.Run(new Form1());
 			Application.Run(new FormOverlay());
 
 		}

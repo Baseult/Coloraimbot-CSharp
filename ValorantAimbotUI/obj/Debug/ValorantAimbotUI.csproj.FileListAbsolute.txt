@@ -28,13 +28,11 @@ E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\Valorant
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Debug\ValorantAimbotUI.exe.config
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Debug\ValorantAimbotUI.exe
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Debug\ValorantAimbotUI.pdb
+E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.FormOverlay.resources
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.Properties.Resources.resources
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.Form1.resources
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.csproj.GenerateResource.cache
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.csproj.CoreCompileInputs.cache
+E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.csproj.Fody.CopyLocal.cache
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.exe
 E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.pdb
-E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.csprojAssemblyReference.cache
-E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Debug\InputInjectorNet.dll
-E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.FormOverlay.resources
-E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.csproj.CopyComplete
