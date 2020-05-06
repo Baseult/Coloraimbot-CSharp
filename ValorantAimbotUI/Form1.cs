@@ -8,7 +8,7 @@
 //                                                 (____/                                                  
 
 // Credits to bluefire1337 for the Base Source - Recode of: https://www.unknowncheats.me/forum/valorant/389766-valorant-color-aimbot-ui-source.html
-// Credits to Grizzly222 for the InputInjector Method: https://www.unknowncheats.me/forum/valorant/391878-mouse-movement-bypass.html
+// Credits to Grizzly222 for the CaseExecute Method: https://www.unknowncheats.me/forum/valorant/391878-mouse-movement-bypass.html
 
 // Copyright(c) 2020 Baseult - https://baseult.com - Discord: https://baseult.com/twitchwatcher
 // You can Donate me some money here: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D5L9KA9D47TTW&source=url
@@ -17,9 +17,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Net;
 using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -225,6 +228,37 @@ namespace ValorantAimbotUI
 					}
 				}
 			}
+		}
+		
+		private async void xUpdate()
+		{
+			for (; ; )
+			{
+				using (WebClient client = new WebClient())
+				{
+					try{
+					string s = client.DownloadString("http://baseult.com/iBaseult/update.txt"); //This reads the text file on this website. If Text file says true cheat will continue. If it says false cheat will close valorant. This is to prevent bans for detection or an outdated cheat.
+
+					if (s.Contains("false"))
+					{
+						_ = !isRunning;
+						foreach (var process in Process.GetProcessesByName("VALORANT-Win64-Shipping"))
+						{
+							process.Kill();
+						}
+						MessageBox.Show("Your Game closed for your safety. This Cheat is tagged by Baseult as 'detected' or 'outdated'. Restart the Cheat it might have been an issue, otherwise check his thread.");
+						Close();
+					}
+
+					await Task.Delay(60000);
+					}
+					catch
+					{
+
+					}
+				}
+			}
+
 		}
 
 		private new async void xNoRecoil()
@@ -608,8 +642,7 @@ namespace ValorantAimbotUI
 
 			for (; ; )
 			{
-				try
-				{
+                try {
 
 					if (!this.isRunning || !this.isTriggerbot)
 					{
@@ -658,23 +691,21 @@ namespace ValorantAimbotUI
 						List<Vector2> list = new List<Vector2>();
 
 
-						if (this.isTriggerbot)
+						pixelx = int.Parse(Pingx.Text);
+						pixely = int.Parse(PixelY.Text);
+
+						if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
 						{
-
-							pixelx = int.Parse(Pingx.Text);
-							pixely = int.Parse(PixelY.Text);
-
-							if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
-							{
-								this.Move(0, 0, true);
-							}
-
+							this.Move(0, 0, true);
 						}
 
+
 					}
+                   
+					
 				}
 				catch
-				{
+                {
 					MessageBox.Show("Failure Code - 5 - There might be an issue with the Triggerbot!");
 				}
 
@@ -907,9 +938,9 @@ namespace ValorantAimbotUI
 		}
 
 		[DllImport("user32.dll")]
-		private static extern void mouse_event(int dwFlags, int dx, int dy, uint dwData, UIntPtr dwExtraInfo);
+		private static extern void mouse_event(int dwFlags, int dx, int dy, uint dwData, UIntPtr dwInformation);
 
-		private MInfo _mevent;
+		private MoveInfo _mevent;
 
 		public new void Move(int x, int y, bool lm = false)
 		{
@@ -925,22 +956,22 @@ namespace ValorantAimbotUI
 					this.lastShot = DateTime.Now;
 				}
 			}
-			_mevent = new MInfo
+			_mevent = new MoveInfo
 			{
-				MouseOptions = (IMOptions)8196,
-				MoveX = (int)x,
-				MoveY = (int)y,
+				MovementSettings = (InternCaseMoveSettings)8196,
+				xAmount = (int)x,
+				yAmount = (int)y,
 			};
 
 			if (lm)
 			{
-				_mevent = new MInfo
+				_mevent = new MoveInfo
 				{
-					MouseOptions = (IMOptions)8194,
+					MovementSettings = (InternCaseMoveSettings)8194,
 				};
 			}
 
-			IInject.IMInput(_mevent);
+			CaseExecute.ExecuteMovementCase(_mevent);
 		}
 
 		public Screen CurrentScreen()
@@ -1088,6 +1119,7 @@ namespace ValorantAimbotUI
 				this.xAimbot();
 				this.xTriggerbot();
 				this.xColorEsp();
+				this.xPixelEsp();
 				this.xPixelEsp();
 			});
 			this.mainThread.Start();
@@ -1520,46 +1552,46 @@ namespace ValorantAimbotUI
         }
     }
 
-	public struct MInfo
+	public struct MoveInfo
 	{
-		public int MoveX;
-		public int MoveY;
-		public IMOptions MouseOptions;
+		public int xAmount;
+		public int yAmount;
+		public uint MovePack;
+		public InternCaseMoveSettings MovementSettings;
+		public uint Waittimems;
+		public IntPtr Information;
 	}
 
-	public enum IMOptions
+	public enum InternCaseMoveSettings
 	{
 		LeftDown = 2,
 		LeftUp = 4,
 		Move = 1,
-		MoveNoCoalesce = 8192,
-		None = 0,
+		MoveNoCoalesce = 8192
 	}
 
-	public class IInject
+	public class CaseExecute
 	{
-		public static void IMInput(MInfo input)
+		public static void ExecuteMovementCase(MoveInfo input)
 		{
-			IInject.IMInput(new MInfo[]
+			CaseExecute.ExecuteMovementCase(new MoveInfo[]
 			{
 				input
 			});
 		}
 
-		public static void IMInput(MInfo[] inputs)
+		public static void ExecuteMovementCase(MoveInfo[] inputs)
 		{
-			if (!UNMethod.IMInput(inputs, inputs.Length))
+			if (!Execute.InjectMouseInput(inputs, inputs.Length))
 			{
 				throw new Win32Exception();
 			}
 		}
 	}
-
-	public static class UNMethod
+	public static class Execute
 	{
-
 		[DllImport("User32.dll")]
 		[return: MarshalAs(UnmanagedType.Bool)]
-		public static extern bool IMInput([MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)] MInfo[] inputs, int count);
+		public static extern bool InjectMouseInput([MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)] MoveInfo[] inputs, int count);
 	}
 }
