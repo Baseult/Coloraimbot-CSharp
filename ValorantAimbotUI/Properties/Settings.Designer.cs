@@ -98,6 +98,18 @@ namespace ValorantAimbotUI.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool TriggerRage {
+            get {
+                return ((bool)(this["TriggerRage"]));
+            }
+            set {
+                this["TriggerRage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool isCircle {
             get {
                 return ((bool)(this["isCircle"]));

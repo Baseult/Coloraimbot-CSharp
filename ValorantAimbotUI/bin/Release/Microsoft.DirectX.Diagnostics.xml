@@ -1,0 +1,141 @@
+<doc>
+  <assembly>
+    <name>Microsoft.DirectX.Diagnostics</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.DirectX.Diagnostics.Container">
+      <summary>A diagnostics container. Contains properties and other containers.</summary>
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.Container.#ctor(System.Boolean)">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.DirectX.Diagnostics.Container" /> class.</summary>
+      <param name="allowWhqlChecks">Set to true if Windows Hardware Quality Labs (WHQL) checks are allowed; otherwise, false.</param>
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.Container.Dispose">
+      <summary>Immediately releases the unmanaged resources used by an object.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.Container.Finalize">
+      <summary>Called during garbage collection. If implemented, allows an object to free resources before it is destroyed by the garbage collector.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.Container.GetContainer(System.String)">
+      <summary>Container with the specified name.</summary>
+      <param name="name">String that represents the name of the container to retrieve.</param>
+      <returns>Requested <see cref="T:Microsoft.DirectX.Diagnostics.ContainerData" /> object.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.Container.GetContainer(System.Int32)">
+      <summary>Container with the specified index.</summary>
+      <param name="index">Integer that represents the index of the container to retrieve.</param>
+      <returns>Requested <see cref="T:Microsoft.DirectX.Diagnostics.ContainerData" /> object.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.Container.GetProperty(System.String)">
+      <summary>Property with the specified name.</summary>
+      <param name="name">String that represents the name of the property to retrieve.</param>
+      <returns>Requested <see cref="T:Microsoft.DirectX.Diagnostics.PropertyData" /> object.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.Container.GetProperty(System.Int32)">
+      <summary>Property with the specified index.</summary>
+      <param name="index">Integer that represents the index of the property to retrieve.</param>
+      <returns>Requested <see cref="T:Microsoft.DirectX.Diagnostics.PropertyData" /> object.</returns>
+    </member>
+    <member name="P:Microsoft.DirectX.Diagnostics.Container.Containers">
+      <summary>Retrieves a <see cref="T:Microsoft.DirectX.Diagnostics.ContainerList" /> object that holds the containers for the current container object.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.Diagnostics.Container.NumberContainers">
+      <summary>Retrieves the number of containers stored in the <see cref="T:Microsoft.DirectX.Diagnostics.ContainerList" />.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.Diagnostics.Container.NumberProperties">
+      <summary>Retrieves the number of properties stored in the <see cref="T:Microsoft.DirectX.Diagnostics.PropertyList" />.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.Diagnostics.Container.Properties">
+      <summary>Retrieves a <see cref="T:Microsoft.DirectX.Diagnostics.PropertyList" /> object that holds the properties for the current container object.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.Diagnostics.ContainerList">
+      <summary>Maintains a list of containers.</summary>
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.ContainerList.GetEnumerator">
+      <summary>Returns an enumerator that can iterate through the <see cref="T:Microsoft.DirectX.Diagnostics.ContainerList" />.</summary>
+      <returns>Enumerator that can iterate through the <see cref="T:Microsoft.DirectX.Diagnostics.ContainerList" />.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.ContainerList.MoveNext">
+      <summary>Advances the enumerator to the next item in the list.</summary>
+      <returns>Value that is true if the move to the next item was successful, or false if it was not.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.ContainerList.Reset">
+      <summary>Resets the current enumerator to point to the beginning of the list.</summary>
+      <returns />
+    </member>
+    <member name="P:Microsoft.DirectX.Diagnostics.ContainerList.Count">
+      <summary>Retrieves the number of <see cref="T:System.Object" /> in the <see cref="T:Microsoft.DirectX.Diagnostics.ContainerList" />.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.Diagnostics.ContainerList.Current">
+      <summary>Retrieves the current <see cref="T:System.Object" /> in the list.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.Diagnostics.PropertyList">
+      <summary>Maintains a list of properties.</summary>
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.PropertyList.GetEnumerator">
+      <summary>Returns an enumerator that can iterate through the <see cref="T:Microsoft.DirectX.Diagnostics.PropertyList" />.</summary>
+      <returns>Enumerator that can iterate through the <see cref="T:Microsoft.DirectX.Diagnostics.PropertyList" />.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.PropertyList.MoveNext">
+      <summary>Advances the enumerator to the next item in the list.</summary>
+      <returns>Value that is true if the move to the next item was successful, or false if it was not.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.PropertyList.Reset">
+      <summary>Resets the current enumerator to point to the beginning of the list.</summary>
+      <returns />
+    </member>
+    <member name="P:Microsoft.DirectX.Diagnostics.PropertyList.Count">
+      <summary>Retrieves the number of <see cref="T:System.Object" /> in the <see cref="T:Microsoft.DirectX.Diagnostics.PropertyList" />.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.Diagnostics.PropertyList.Current">
+      <summary>Retrieves the current <see cref="T:System.Object" /> in the list.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.Diagnostics.ContainerData">
+      <summary>Holds the <see cref="T:Microsoft.DirectX.Diagnostics.Container" /> and its name.</summary>
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.ContainerData.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.DirectX.Diagnostics.ContainerData" /> class.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.Diagnostics.ContainerData.Container">
+      <summary>Retrieves the <see cref="T:Microsoft.DirectX.Diagnostics.Container" /> associated with the current object.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.Diagnostics.ContainerData.Name">
+      <summary>Retrieves the name of the <see cref="T:Microsoft.DirectX.Diagnostics.Container" /> associated with the current object.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.Diagnostics.PropertyData">
+      <summary>Contains the property name and value.</summary>
+    </member>
+    <member name="M:Microsoft.DirectX.Diagnostics.PropertyData.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.DirectX.Diagnostics.PropertyData" /> class.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.Diagnostics.PropertyData.Data">
+      <summary>Retrieves the property's value in the form of an <see cref="T:System.Object" />.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.Diagnostics.PropertyData.Name">
+      <summary>Retrieves the name of the <see cref="P:Microsoft.DirectX.Diagnostics.PropertyData.Data" /> associated with the current object.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.PrivateImplementationDetails.IDxDiagContainer">
+      <summary>Allows the managed application programming interface (API) to have access to the unmanaged portions of the Microsoft DirectXapplication programming interface (API). This is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.PrivateImplementationDetails.IDxDiagProvider">
+      <summary>Allows the managed application programming interface (API) to have access to the unmanaged portions of the Microsoft DirectXapplication programming interface (API). This is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.PrivateImplementationDetails.IUnknown">
+      <summary>Allows the managed application programming interface (API) to have access to the unmanaged portions of the Microsoft DirectXapplication programming interface (API). This is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.PrivateImplementationDetails.tagPROPVARIANT">
+      <summary>Allows the managed application programming interface (API) to have access to the unmanaged portions of the Microsoft DirectXapplication programming interface (API). This is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.PrivateImplementationDetails.tagVARIANT">
+      <summary>Allows the managed application programming interface (API) to have access to the unmanaged portions of the Microsoft DirectXapplication programming interface (API). This is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.PrivateImplementationDetails._DXDIAG_INIT_PARAMS">
+      <summary>Allows the managed application programming interface (API) to have access to the unmanaged portions of the Microsoft DirectXapplication programming interface (API). This is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.PrivateImplementationDetails._GUID">
+      <summary>Allows the managed application programming interface (API) to have access to the unmanaged portions of the Microsoft DirectXapplication programming interface (API). This is not intended to be used directly from your code.</summary>
+    </member>
+  </members>
+</doc>

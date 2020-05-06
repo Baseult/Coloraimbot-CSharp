@@ -20,6 +20,9 @@
 	  <Setting Name="isPixel" Type="System.Boolean" Scope="User">
 		  <Value Profile="(Default)">False</Value>
 	  </Setting>
+	  <Setting Name="TriggerRage" Type="System.Boolean" Scope="User">
+		  <Value Profile="(Default)">False</Value>
+	  </Setting>
 	  <Setting Name="isCircle" Type="System.Boolean" Scope="User">
 		  <Value Profile="(Default)">False</Value>
 	  </Setting>

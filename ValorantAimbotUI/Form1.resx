@@ -235,6 +235,15 @@ Use this if you want to be able to move your crosshair freely on the Enemy as so
   <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>424, 17</value>
   </metadata>
+  <data name="RageBtt.ToolTip" xml:space="preserve">
+    <value>This will first Aim at your Target and then automatically shoot (more like a rage option).
+
+It should be smoother than using Aimbot and Triggerbot together on the same keybind.
+
+Enable Aimbot and Disable Triggerbot for this to work! - Use the Aimbot Keybind for this.
+
+Increase or Decrease the Shootingspeed with the Firerate from the Triggerbot Settings!</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>68</value>
   </metadata>

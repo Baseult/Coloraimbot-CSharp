@@ -1,0 +1,467 @@
+<doc>
+  <assembly>
+    <name>Microsoft.DirectX.AudioVideoPlayback</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.DirectX.AudioVideoPlayback.Audio">
+      <summary>The Audio class is primarily designed for very simple playback scenarios, or for use with the Video class.</summary>
+    </member>
+    <member name="E:Microsoft.DirectX.AudioVideoPlayback.Audio.Disposing">
+      <summary>Occurs when the <see cref="M:Microsoft.DirectX.AudioVideoPlayback.Audio.Dispose" /> method is called or when the object is finalized and collected by the garbage collector of the Microsoft .NETcommon language runtime.</summary>
+    </member>
+    <member name="E:Microsoft.DirectX.AudioVideoPlayback.Audio.Ending">
+      <summary>Occurs when the playback is ending.</summary>
+    </member>
+    <member name="E:Microsoft.DirectX.AudioVideoPlayback.Audio.Pausing">
+      <summary>Occurs when the playback is pausing.</summary>
+    </member>
+    <member name="E:Microsoft.DirectX.AudioVideoPlayback.Audio.Starting">
+      <summary>Occurs when the playback is starting.</summary>
+    </member>
+    <member name="E:Microsoft.DirectX.AudioVideoPlayback.Audio.Stopping">
+      <summary>Occurs when the playback is stopping.</summary>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.#ctor(System.String)">
+      <summary>Initializes a new instance of the object and opens an audio file for playback, but does not start playback.</summary>
+      <param name="fileName">Specifies the name of the file.</param>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.#ctor(System.String,System.Boolean)">
+      <summary>Initializes a new instance of the object and opens an audio file for playback, and optionally starts playback.</summary>
+      <param name="fileName">Specifies the name of the file.</param>
+      <param name="autoRun">Set to true to automatically start playback. Set to false to open the file but not play it.</param>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.Dispose">
+      <summary>Immediately releases the unmanaged resources used by an object.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.Finalize">
+      <summary>Called during garbage collection. If implemented, allows an object to free resources before it is destroyed by the garbage collector.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.FromFile(System.String)">
+      <summary>Creates an <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object from a file.</summary>
+      <param name="filename">The path to the audio file.</param>
+      <returns>Returns the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object from <see cref="M:Microsoft.DirectX.AudioVideoPlayback.Audio.FromFile" />.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.FromFile(System.String,System.Boolean)">
+      <summary>Creates an <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object from a file.</summary>
+      <param name="filename">The path to the audio file.</param>
+      <param name="autorun">Set to true to automatically start playback. Set to false to open the file but not play it.</param>
+      <returns>Returns the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object from <see cref="M:Microsoft.DirectX.AudioVideoPlayback.Audio.FromFile" />.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.FromUrl(System.Uri)">
+      <summary>Creates an <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object from a <see cref="T:System.Uri" /> object.</summary>
+      <param name="address">A <see cref="T:System.Uri" /> that points to an audio file to create the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object.</param>
+      <returns>Returns the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object from <see cref="M:Microsoft.DirectX.AudioVideoPlayback.Audio.FromUrl" />.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.FromUrl(System.Uri,System.Boolean)">
+      <summary>Creates an <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object from a <see cref="T:System.Uri" /> object.</summary>
+      <param name="address">A <see cref="T:System.Uri" /> that points to an audio file to create the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object.</param>
+      <param name="autorun">Set to true to automatically start playback. Set to false to open the file but not play it.</param>
+      <returns>Returns the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object from <see cref="M:Microsoft.DirectX.AudioVideoPlayback.Audio.FromUrl" />.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.Open(System.Uri)">
+      <summary>Loads a new file into the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object.</summary>
+      <param name="address">The <see cref="T:System.Uri" /> to open a file from.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.Open(System.Uri,System.Boolean)">
+      <summary>Loads a new file into the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object.</summary>
+      <param name="address">The <see cref="T:System.Uri" /> to open a file from.</param>
+      <param name="autoRun">Set to true to automatically start playback. Set to false to open the file but not play it.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.Open(System.String)">
+      <summary>Loads a new file into the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object.</summary>
+      <param name="fileName">The path to the audio file.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.Open(System.String,System.Boolean)">
+      <summary>Loads a new file into the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object.</summary>
+      <param name="fileName">The path to the audio file.</param>
+      <param name="autoRun">Set to true to automatically start playback. Set to false to open the file but not play it.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.Pause">
+      <summary>Pauses playback.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.Play">
+      <summary>Starts playback.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.raise_Disposing(System.Object,System.EventArgs)">
+      <summary>Raises the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Audio.Disposing" /> event when called from within a derived class.</summary>
+      <param name="i1">Invoking object reference; should be this object.</param>
+      <param name="i2">Arguments to pass to the event handler.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.raise_Ending(System.Object,System.EventArgs)">
+      <summary>Raises the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Audio.Ending" /> event when called from within a derived class.</summary>
+      <param name="i1">Invoking object reference; should be this object.</param>
+      <param name="i2">Arguments to pass to the event handler.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.raise_Pausing(System.Object,System.EventArgs)">
+      <summary>Raises the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Audio.Pausing" /> event when called from within a derived class.</summary>
+      <param name="i1">Invoking object reference; should be this object.</param>
+      <param name="i2">Arguments to pass to the event handler.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.raise_Starting(System.Object,System.EventArgs)">
+      <summary>Raises the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Audio.Starting" /> event when called from within a derived class.</summary>
+      <param name="i1">Invoking object reference; should be this object.</param>
+      <param name="i2">Arguments to pass to the event handler.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.raise_Stopping(System.Object,System.EventArgs)">
+      <summary>Raises the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Audio.Stopping" /> event when called from within a derived class.</summary>
+      <param name="i1">Invoking object reference; should be this object.</param>
+      <param name="i2">Arguments to pass to the event handler.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.SeekCurrentPosition(System.Double,Microsoft.DirectX.AudioVideoPlayback.SeekPositionFlags)">
+      <summary>Seeks to a specific playback position.</summary>
+      <param name="time">Position to seek.</param>
+      <param name="flags">The position seek type to use.</param>
+      <returns>Returns the position after the seek.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.SeekStopPosition(System.Double,Microsoft.DirectX.AudioVideoPlayback.SeekPositionFlags)">
+      <summary>Sets a new stop position in playback.</summary>
+      <param name="time">Position that is the new stop time for playback.</param>
+      <param name="flags">The position seek type to use to set the new stop position.</param>
+      <returns>Returns the new stop position.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.Stop">
+      <summary>Stops playback.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Audio.StopWhenReady">
+      <summary>Stops playback when the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object is ready.</summary>
+      <returns />
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Audio.Balance">
+      <summary>Retrieves and sets the playback position in the stereo field.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Audio.CurrentPosition">
+      <summary>Retrieves and sets the current position of playback.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Audio.Disposed">
+      <summary>Retrieves a value that is true if the object is disposed; otherwise the value is false.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Audio.Duration">
+      <summary>Retrieves the length, in seconds, of the audio file.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Audio.Paused">
+      <summary>Retrieves the current playback state, whether playback is currently paused.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Audio.Playing">
+      <summary>Retrieves the current playback state, whether playback is currently playing.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Audio.SeekingCaps">
+      <summary>Retrieves the seeking capabilities of playback.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Audio.State">
+      <summary>Retrieves the current state of playback.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Audio.Stopped">
+      <summary>Retrieves the current playback state, whether playback is currently stopped.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Audio.StopPosition">
+      <summary>Retrieves the position where playback stopped.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Audio.Volume">
+      <summary>Retrieves and sets the amount to attenuate the volume of audio playback.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.AudioVideoPlayback.TextureRenderEventArgs">
+      <summary>Contains properties for retrieving arguments from a called <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Video.TextureReadyToRender" /> event.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.TextureRenderEventArgs.Texture">
+      <summary>Retrieves a <see cref="T:Microsoft.DirectX.Direct3D.Texture" /> from the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object when the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Video.TextureReadyToRender" /> event is triggered.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.AudioVideoPlayback.Video">
+      <summary>Contains the properties and methods to play video files, including those that contain audio.</summary>
+    </member>
+    <member name="E:Microsoft.DirectX.AudioVideoPlayback.Video.Disposing">
+      <summary>Occurs when the <see cref="M:Microsoft.DirectX.AudioVideoPlayback.Video.Dispose" /> method is called or when the object is finalized and collected by the garbage collector of the Microsoft .NETcommon language runtime.</summary>
+    </member>
+    <member name="E:Microsoft.DirectX.AudioVideoPlayback.Video.Ending">
+      <summary>Occurs when the playback is ending.</summary>
+    </member>
+    <member name="E:Microsoft.DirectX.AudioVideoPlayback.Video.Pausing">
+      <summary>Occurs when the playback is pausing.</summary>
+    </member>
+    <member name="E:Microsoft.DirectX.AudioVideoPlayback.Video.Starting">
+      <summary>Occurs when the playback is starting.</summary>
+    </member>
+    <member name="E:Microsoft.DirectX.AudioVideoPlayback.Video.Stopping">
+      <summary>Occurs when the playback is stopping.</summary>
+    </member>
+    <member name="E:Microsoft.DirectX.AudioVideoPlayback.Video.TextureReadyToRender">
+      <summary>Occurs when target texture is ready to render video playback.</summary>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.#ctor(System.String)">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> class.</summary>
+      <param name="fileName">Path to the video file this object will play.</param>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.#ctor(System.String,System.Boolean)">
+      <summary>Initializes a new instance of the object.</summary>
+      <param name="fileName">Path to the video file this object will play.</param>
+      <param name="autoRun">Set to true to automatically start playback. Set to false to open the file but not play it.</param>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.Dispose">
+      <summary>Immediately releases the unmanaged resources used by an object.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.Finalize">
+      <summary>Called during garbage collection. If implemented, allows an object to free resources before it is destroyed by the garbage collector.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.FromFile(System.String)">
+      <summary>Creates a <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object from a file.</summary>
+      <param name="filename">The path to the video file.</param>
+      <returns>The <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object created from the file indicated by the <see cref="M:Microsoft.DirectX.AudioVideoPlayback.Video.FromFile" /> parameter.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.FromFile(System.String,System.Boolean)">
+      <summary>Creates a <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object from a file.</summary>
+      <param name="filename">The path to the video file.</param>
+      <param name="autorun">Set to true to automatically start playback. Set to false to open the file but not play it.</param>
+      <returns>The <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object created from the file indicated by the <see cref="M:Microsoft.DirectX.AudioVideoPlayback.Video.FromFile" /> parameter.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.FromUrl(System.Uri)">
+      <summary>Creates a <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object from a <see cref="T:System.Uri" /> object.</summary>
+      <param name="address">A <see cref="T:System.Uri" /> that points to a video file to create the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object.</param>
+      <returns>The <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object created from the <see cref="T:System.Uri" /> indicated by the <see cref="M:Microsoft.DirectX.AudioVideoPlayback.Video.FromUrl" /> parameter.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.FromUrl(System.Uri,System.Boolean)">
+      <summary>Creates a <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object from a <see cref="T:System.Uri" /> object.</summary>
+      <param name="address">A <see cref="T:System.Uri" /> that points to a video file to create the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object.</param>
+      <param name="autorun">Set to true to automatically start playback. Set to false to open the file but not play it.</param>
+      <returns>The <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object created from the <see cref="T:System.Uri" /> indicated by the <see cref="M:Microsoft.DirectX.AudioVideoPlayback.Video.FromUrl" /> parameter.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.HideCursor">
+      <summary>Hides the cursor while playing video.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.Open(System.Uri)">
+      <summary>Loads a new file into the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object.</summary>
+      <param name="address">The <see cref="T:System.Uri" /> to open a file from.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.Open(System.Uri,System.Boolean)">
+      <summary>Loads a new file into the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object.</summary>
+      <param name="address">The <see cref="T:System.Uri" /> to open a file from.</param>
+      <param name="autoRun">Set to true to automatically start playback. Set to false to open the file but not play it.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.Open(System.String)">
+      <summary>Loads a new file into the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object.</summary>
+      <param name="fileName">The path to the video file.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.Open(System.String,System.Boolean)">
+      <summary>Loads a new file into the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object.</summary>
+      <param name="fileName">The path to the video file.</param>
+      <param name="autoRun">Set to true to automatically start playback. Set to false to open the file but not play it.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.Pause">
+      <summary>Pauses playback.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.Play">
+      <summary>Starts playback.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.raise_Disposing(System.Object,System.EventArgs)">
+      <summary>Raises the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Video.Disposing" /> event when called from within a derived class.</summary>
+      <param name="i1">Invoking object reference; should be this object.</param>
+      <param name="i2">Arguments to pass to the event handler.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.raise_Ending(System.Object,System.EventArgs)">
+      <summary>Raises the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Video.Ending" /> event when called from within a derived class.</summary>
+      <param name="i1">Invoking object reference; should be this object.</param>
+      <param name="i2">Arguments to pass to the event handler.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.raise_Pausing(System.Object,System.EventArgs)">
+      <summary>Raises the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Video.Pausing" /> event when called from within a derived class.</summary>
+      <param name="i1">Invoking object reference; should be this object.</param>
+      <param name="i2">Arguments to pass to the event handler.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.raise_Starting(System.Object,System.EventArgs)">
+      <summary>Raises the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Video.Starting" /> event when called from within a derived class.</summary>
+      <param name="i1">Invoking object reference; should be this object.</param>
+      <param name="i2">Arguments to pass to the event handler.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.raise_Stopping(System.Object,System.EventArgs)">
+      <summary>Raises the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Video.Stopping" /> event when called from within a derived class.</summary>
+      <param name="i1">Invoking object reference; should be this object.</param>
+      <param name="i2">Arguments to pass to the event handler.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.raise_TextureReadyToRender(System.Object,Microsoft.DirectX.AudioVideoPlayback.TextureRenderEventArgs)">
+      <summary>Raises the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Video.TextureReadyToRender" /> event when called from within a derived class.</summary>
+      <param name="i1">Invoking object reference; should be this object.</param>
+      <param name="i2">Arguments to pass to the event handler.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.RenderToTexture(Microsoft.DirectX.Direct3D.Device)">
+      <summary>Enables the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> to trigger the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Video.TextureReadyToRender" /> event to generate <see cref="T:Microsoft.DirectX.Direct3D.Texture" /> objects for rendering video in Microsoft Direct3D.</summary>
+      <param name="graphicsDevice">The parent <see cref="T:Microsoft.DirectX.Direct3D.Device" /> that renders the video textures.</param>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.SeekCurrentPosition(System.Double,Microsoft.DirectX.AudioVideoPlayback.SeekPositionFlags)">
+      <summary>Seeks to a specific playback postion.</summary>
+      <param name="time">Position to seek.</param>
+      <param name="flags">The position seek type to use.</param>
+      <returns>Returns the position after the seek.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.SeekStopPosition(System.Double,Microsoft.DirectX.AudioVideoPlayback.SeekPositionFlags)">
+      <summary>Sets a new stop postion in playback.</summary>
+      <param name="time">Position that is the new stop time for playback.</param>
+      <param name="flags">The position seek type to use to set the new stop position.</param>
+      <returns>Returns the new stop position.</returns>
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.ShowCursor">
+      <summary>Shows the cursor while playing video.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.Stop">
+      <summary>Stops playback.</summary>
+      <returns />
+    </member>
+    <member name="M:Microsoft.DirectX.AudioVideoPlayback.Video.StopWhenReady">
+      <summary>Stops playback when the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object is ready.</summary>
+      <returns />
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.Audio">
+      <summary>Retrieves the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> object the video is using for audio playback.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.AverageTimePerFrame">
+      <summary>Retrieves the average time per frame during playback.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.Caption">
+      <summary>Retrieves and sets the caption of the <see cref="T:System.Windows.Forms.Form" /> playing the video.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.CurrentPosition">
+      <summary>Retrieves and sets the current position of playback.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.DefaultSize">
+      <summary>Retrieves the default size of the video for playback.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.Disposed">
+      <summary>Retrieves a value that is true if the object is disposed; otherwise the value is false.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.Duration">
+      <summary>Retrieves the length, in seconds, of the video file.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.Fullscreen">
+      <summary>Retrieves and sets whether the video plays back in fullscreen mode.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.IsCursorHidden">
+      <summary>Retrieves whether the cursor is hidden for the video.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.MaximumIdealSize">
+      <summary>Retrieves the maximum ideal size of the video for playback.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.MinimumIdealSize">
+      <summary>Retrieves the minimum ideal size of the video for playback.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.Owner">
+      <summary>Retrieves or sets the <see cref="T:System.Windows.Forms.Control" /> where the video will be played.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.Paused">
+      <summary>Retrieves whether playback is currently paused.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.Playing">
+      <summary>Retrieves whether playback is currently playing.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.SeekingCaps">
+      <summary>Retrieves the seeking capabilities of playback.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.Size">
+      <summary>Retrieves and sets the size of the video for playback.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.State">
+      <summary>Retrieves the current state of playback.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.Stopped">
+      <summary>Retrieves whether playback is currently stopped.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.Video.StopPosition">
+      <summary>Retrieves the position where playback stopped.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.AudioVideoPlayback.TextureRenderEventHandler">
+      <summary>Represents the method that handles the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Video.TextureReadyToRender" /> event.</summary>
+      <param name="sender">The <see cref="T:System.Object" /> that is calling the event.</param>
+      <param name="e">A <see cref="T:Microsoft.DirectX.AudioVideoPlayback.TextureRenderEventArgs" /> object that allows you to pass an argument to the <see cref="E:Microsoft.DirectX.AudioVideoPlayback.Video.TextureReadyToRender" /> event.</param>
+    </member>
+    <member name="T:Microsoft.DirectX.AudioVideoPlayback.SeekPositionFlags">
+      <summary>Contains constants for specifiying the type of seek for the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> or <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> objects.</summary>
+    </member>
+    <member name="F:Microsoft.DirectX.AudioVideoPlayback.SeekPositionFlags.">
+      <summary>Do not flush</summary>
+    </member>
+    <member name="F:Microsoft.DirectX.AudioVideoPlayback.SeekPositionFlags.">
+      <summary>Seek to the nearest key frame. This might be faster, but less accurate.</summary>
+    </member>
+    <member name="F:Microsoft.DirectX.AudioVideoPlayback.SeekPositionFlags.">
+      <summary>The stop position is relative to the current position.</summary>
+    </member>
+    <member name="F:Microsoft.DirectX.AudioVideoPlayback.SeekPositionFlags.">
+      <summary>The specified position is relative to the previous value.</summary>
+    </member>
+    <member name="F:Microsoft.DirectX.AudioVideoPlayback.SeekPositionFlags.">
+      <summary>The specified position is absolute.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.AudioVideoPlayback.StateFlags">
+      <summary>Contains constants for specifiying the state of the <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> or <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> objects.</summary>
+    </member>
+    <member name="F:Microsoft.DirectX.AudioVideoPlayback.StateFlags.">
+      <summary>The <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> or <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object is running.</summary>
+    </member>
+    <member name="F:Microsoft.DirectX.AudioVideoPlayback.StateFlags.">
+      <summary>The <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> or <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object is paused.</summary>
+    </member>
+    <member name="F:Microsoft.DirectX.AudioVideoPlayback.StateFlags.">
+      <summary>The <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Audio" /> or <see cref="T:Microsoft.DirectX.AudioVideoPlayback.Video" /> object is stopped.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.AudioVideoPlayback.SeekingCaps">
+      <summary>Collection of properties that describe the capabilities of a media stream.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.SeekingCaps.CanGetCurrentPosition">
+      <summary>Retrieves whether the stream can report its current position.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.SeekingCaps.CanGetDuration">
+      <summary>Retrieves whether the stream can report its duration.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.SeekingCaps.CanGetStopPosition">
+      <summary>Retrieves whether the stream can report its stop position.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.SeekingCaps.CanSeekAbsolute">
+      <summary>Retrieves whether the stream can seek to an absolute position.</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.SeekingCaps.CanSeekBackwards">
+      <summary>Retrieves whether the stream can seek backward</summary>
+    </member>
+    <member name="P:Microsoft.DirectX.AudioVideoPlayback.SeekingCaps.CanSeekForwards">
+      <summary>Retrieves whether the stream can seek forward.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.PrivateImplementationDetails.IDirect3DDevice9">
+      <summary>Allows the managed application programming interface (API) to have access to the unmanaged portions of the Microsoft DirectXapplication programming interface (API). This is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.PrivateImplementationDetails.IDirect3DSurface9">
+      <summary>Allows the managed application programming interface (API) to have access to the unmanaged portions of the Microsoft DirectXapplication programming interface (API). This is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.PrivateImplementationDetails.IDirect3DTexture9">
+      <summary>Allows the managed application programming interface (API) to have access to the unmanaged portions of the Microsoft DirectXapplication programming interface (API). This is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="T:Microsoft.DirectX.PrivateImplementationDetails._D3DDISPLAYMODE">
+      <summary>Allows the managed application programming interface (API) to have access to the unmanaged portions of the Microsoft DirectXapplication programming interface (API). This is not intended to be used directly from your code.</summary>
+    </member>
+  </members>
+</doc>

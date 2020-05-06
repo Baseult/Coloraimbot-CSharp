@@ -21,7 +21,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Net;
 using System.Numerics;
 using System.Runtime.InteropServices;
@@ -40,10 +39,12 @@ namespace ValorantAimbotUI
 
 			this.InitializeComponent();
 
+			this.Text = Dice(6);
 			this.isTriggerbot = this.GetKey<bool>("isTriggerbot");
 			this.isAimbot = this.GetKey<bool>("isAimbot");
 			this.isEsp = this.GetKey<bool>("isEsp");
 			this.isPixel = this.GetKey<bool>("isPixel");
+			this.TriggerRage = this.GetKey<bool>("TriggerRage");
 			this.isCircle = this.GetKey<bool>("isCircle");
 			this.speed = this.GetKey<decimal>("speed");
 			this.speed3 = this.GetKey<decimal>("speed3");
@@ -87,6 +88,7 @@ namespace ValorantAimbotUI
 			this.AimbotBtt.Checked = this.isAimbot;
 			this.EspBtt.Checked = this.isEsp;
 			this.PixelBtt.Checked = this.isPixel;
+			this.RageBtt.Checked = this.TriggerRage;
 			this.CircleBtt.Checked = this.isCircle;
 			this.RecoilBtt.Checked = this.isRecoil;
 			this.Bhopbox.Checked = this.isBhop;
@@ -185,10 +187,14 @@ namespace ValorantAimbotUI
 			}
 		}
 
-		private static Random random = new Random(); //Randomize for further testing
+		private static Random random = new Random(); //Randomize Window Title
 		public static string Dice(int length){const string chars = "qwerasdfyxcv"; return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray()); } //Randomize for further autostrafe testing
 
-		private async void xDice() //Minigame incoming still debugging
+		public int dx;
+		public int df;
+
+
+		private async void xDice() //Change the Window Title name to something random
 		{
 			for (; ; )
 			{
@@ -211,13 +217,15 @@ namespace ValorantAimbotUI
 						pixel_Color = Color.FromArgb(this.GetColor(this.color));
 					}
 					Random rnd = new Random();
-					int dx = rnd.Next(2000000, 2700000);
-					int df = rnd.Next(200000, 270000);
+					dx = rnd.Next(1500000, 2500000);
+					df = rnd.Next(480000, 900000);
 					int pixelx = 10;
 					int pixely = 10;
 
 					if (this.PixelSearch(new Rectangle((this.xSize - pixelx) / 2, (this.ySize - pixely) / 2, pixelx, pixely), pixel_Color, this.colorVariation).Length != 0)
 					{
+						this.Text = Dice(6);
+						Update();
 						await Task.Delay(df);
 						SendKeys.SendWait("+{ENTER}");
 						await Task.Delay(5);
@@ -862,10 +870,24 @@ namespace ValorantAimbotUI
 											int x = Convert.ToInt32(this.delayx);
 											await Task.Delay(x);
 											this.Move((int)(vector.X * (float)this.speed3), (int)(vector.Y * (float)this.speed3), pressDown);
+											if(this.TriggerRage)
+                                            {
+												if (this.PixelSearch(new Rectangle((this.xSize - 20) / 2, (this.ySize - 20) / 2, 20, 20), pixel_Color, this.colorVariation).Length != 0)
+												{
+													this.Move(0, 0, true);
+												}
+											}
 										}
 										else
                                         {
 											this.Move((int)(vector.X * (float)this.speed), (int)(vector.Y * (float)this.speed), pressDown);
+											if(this.TriggerRage)
+                                            {
+												if (this.PixelSearch(new Rectangle((this.xSize - 20) / 2, (this.ySize - 20) / 2, 20, 20), pixel_Color, this.colorVariation).Length != 0)
+												{
+													this.Move(0, 0, true);
+												}
+                                            }
 										}
 										continue;
 									}
@@ -1111,6 +1133,9 @@ namespace ValorantAimbotUI
 
 		private void Main_load(object sender, EventArgs e)
 		{
+
+			MessageBox.Show("For increased Security change iBaseult.exe to another Name!" + "\n" + "\n" + "(Some Features may won't work in Fullscreen)");
+
 			this.mainThread = new Thread(delegate () {
 				this.xNoRecoil();
 				this.xBhop();
@@ -1279,6 +1304,8 @@ namespace ValorantAimbotUI
 		public bool isEsp;
 
 		public bool isPixel;
+
+		public bool TriggerRage;
 
 		public bool isCircle;
 
@@ -1550,9 +1577,15 @@ namespace ValorantAimbotUI
 			}
             catch { }
         }
+
+        private void checkBox1_CheckedChanged_2(object sender, EventArgs e)
+        {
+			this.TriggerRage = RageBtt.Checked;
+			this.SetKey("TriggerRage", this.TriggerRage);
+		}
     }
 
-	public struct MoveInfo
+    public struct MoveInfo
 	{
 		public int xAmount;
 		public int yAmount;
@@ -1595,3 +1628,4 @@ namespace ValorantAimbotUI
 		public static extern bool InjectMouseInput([MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)] MoveInfo[] inputs, int count);
 	}
 }
+

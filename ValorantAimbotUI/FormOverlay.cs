@@ -41,6 +41,8 @@ namespace ValorantAimbotUI
 			InitializeComponent();
 		}
 
+
+
 		private void FormOverlay_Load(object sender, EventArgs e)
 		{
 			try
@@ -61,6 +63,18 @@ namespace ValorantAimbotUI
 			catch
 			{
 				MessageBox.Show("Failure Code - 10 - There might be an issue with the FovCircle!");
+			}
+		}
+
+		protected override CreateParams CreateParams
+		{
+			get
+			{
+				const int csNoclose = 0x200;
+
+				var cp = base.CreateParams;
+				cp.ClassStyle |= csNoclose;
+				return cp;
 			}
 		}
 
