@@ -128,16 +128,6 @@ Use this if the Aimbot is too sticky for you.
 Higher Values are more legit.
 </value>
   </data>
-  <data name="SmoothY.ToolTip" xml:space="preserve">
-    <value>Imagine a square that lies around your Enemy. 
-You can enlarge this square with the "Pixel Y" function to up and down.
-
-As soon as your crosshair reaches this square, the conditions for "Aimbot-Target" will take effect. 
-That means your Aimbot Smoothnes will be switch from the "Aimbot-Searching" to the "Aimbot-Target".
-(Also your "Delay" will activate as soon as you reach that Square)
-
-Use this if you want to be able to move your crosshair freely on the Enemy as soon as you reach the opponent or this square with your crosshair.</value>
-  </data>
   <data name="SmoothX.ToolTip" xml:space="preserve">
     <value>Imagine a square that lies around your Enemy. 
 You can enlarge this square with the "Pixel X" function to up and down.
@@ -207,17 +197,6 @@ Use this if the Aimbot is too sticky for you.
 
 Lower Values are more legit.</value>
   </data>
-  <data name="label24.ToolTip" xml:space="preserve">
-    <value>Imagine a square that lies around your Enemy. 
-You can enlarge this square with the "Pixel Y" function to up and down.
-
-As soon as your crosshair reaches this square, the conditions for "Aimbot-Target" will take effect. 
-That means your Aimbot Smoothnes will be switch from the "Aimbot-Searching" to the "Aimbot-Target".
-(Also your "Delay" will activate as soon as you reach that Square)
-
-Use this if you want to be able to move your crosshair freely on the Enemy as soon as you reach the opponent or this square with your crosshair.
-</value>
-  </data>
   <data name="label25.ToolTip" xml:space="preserve">
     <value>Imagine a square that lies around your Enemy. 
 You can enlarge this square with the "Pixel X" function to up and down.
@@ -229,21 +208,37 @@ That means your Aimbot Smoothnes will be switch from the "Aimbot-Searching" to t
 Use this if you want to be able to move your crosshair freely on the Enemy as soon as you reach the opponent or this square with your crosshair.
 </value>
   </data>
+  <data name="label24.ToolTip" xml:space="preserve">
+    <value>Not a real Hitchance but works like it...
+
+100 = 100% = It only shoots if the chance is 100% to hit the Enemy (Probably won't shoot at all, the chance that it will 100% hit is low)
+
+10 = 10% = It shoots if the chance to hit the Enemy is 10 or higher (Will shoot fast and miss shots)
+
+70-90 is optimal</value>
+  </data>
+  <data name="label52.ToolTip" xml:space="preserve">
+    <value>Firerate of your Weapon in Triggerbotmode.
+
+Higher Value = Higher Delay = Slower Shooting
+Lower Value = Lower Delay = Faster Shooting
+
+(If your Triggerbot is still slow increase the Prefire Values)</value>
+  </data>
+  <data name="Firerage.ToolTip" xml:space="preserve">
+    <value>Firerate of your Weapon in Triggerbotmode.
+
+Higher Value = Higher Delay = Slower Shooting
+Lower Value = Lower Delay = Faster Shooting
+
+(If your Triggerbot is still slow increase the Prefire Values)</value>
+  </data>
   <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>269, 17</value>
   </metadata>
   <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>424, 17</value>
   </metadata>
-  <data name="RageBtt.ToolTip" xml:space="preserve">
-    <value>This will first Aim at your Target and then automatically shoot (more like a rage option).
-
-It should be smoother than using Aimbot and Triggerbot together on the same keybind.
-
-Enable Aimbot and Disable Triggerbot for this to work! - Use the Aimbot Keybind for this.
-
-Increase or Decrease the Shootingspeed with the Firerate from the Triggerbot Settings!</value>
-  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>68</value>
   </metadata>

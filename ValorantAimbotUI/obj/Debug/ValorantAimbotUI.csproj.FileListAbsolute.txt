@@ -30,7 +30,6 @@ E:\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\Valorant
 F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Debug\ValorantAimbotUI.exe.config
 F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Debug\ValorantAimbotUI.exe
 F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Debug\ValorantAimbotUI.pdb
-F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.csprojAssemblyReference.cache
 F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.FormOverlay.resources
 F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.Properties.Resources.resources
 F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\ValorantAimbotUI.Form1.resources

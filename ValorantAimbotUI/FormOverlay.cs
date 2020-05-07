@@ -89,7 +89,7 @@ namespace ValorantAimbotUI
 			}
 		}
 
-		public async void FormOverlay_Paint(object sender, PaintEventArgs e)
+		public void FormOverlay_Paint(object sender, PaintEventArgs e)
 		{
 		Now:
 
