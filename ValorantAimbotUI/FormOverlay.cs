@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Numerics;
 
-namespace ValorantAimbotUI
+namespace iBaseult
 {
 
 	public partial class FormOverlay : Form
@@ -89,7 +89,7 @@ namespace ValorantAimbotUI
 			}
 		}
 
-		public void FormOverlay_Paint(object sender, PaintEventArgs e)
+		public void FormOverlayPaint(object sender, PaintEventArgs e)
 		{
 		Now:
 

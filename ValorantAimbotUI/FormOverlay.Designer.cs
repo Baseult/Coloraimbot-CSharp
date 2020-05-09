@@ -1,4 +1,4 @@
-﻿namespace ValorantAimbotUI
+﻿namespace iBaseult
 {
     partial class FormOverlay
     {
@@ -38,7 +38,7 @@
             this.Name = "FormOverlay";
             this.Text = "Fov Circle";
             this.Load += new System.EventHandler(this.FormOverlay_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormOverlay_Paint);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormOverlayPaint);
             this.ResumeLayout(false);
 
         }

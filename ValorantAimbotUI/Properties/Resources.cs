@@ -6,7 +6,7 @@ using System.Globalization;
 using System.Resources;
 using System.Runtime.CompilerServices;
 
-namespace ValorantAimbotUI.Properties
+namespace iBaseult.Properties
 {
 	[GeneratedCode("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
 	[DebuggerNonUserCode]
@@ -24,7 +24,7 @@ namespace ValorantAimbotUI.Properties
 			{
 				if (Resources.resourceMan == null)
 				{
-					Resources.resourceMan = new ResourceManager("ValorantAimbotUI.Properties.Resources", typeof(Resources).Assembly);
+					Resources.resourceMan = new ResourceManager("iBaseult.Properties.Resources", typeof(Resources).Assembly);
 				}
 				return Resources.resourceMan;
 			}

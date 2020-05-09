@@ -1,0 +1,12 @@
+F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\iBaseult.csprojAssemblyReference.cache
+F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\iBaseult.Form2.resources
+F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\iBaseult.FormOverlay.resources
+F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\iBaseult.Properties.Resources.resources
+F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\iBaseult.Form1.resources
+F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\iBaseult.csproj.GenerateResource.cache
+F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\iBaseult.csproj.CoreCompileInputs.cache
+F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Debug\iBaseult.exe.config
+F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Debug\iBaseult.exe
+F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\bin\Debug\iBaseult.pdb
+F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\iBaseult.exe
+F:\Coding\Program Languages\visual studio\Projekte\Valorant-Coloraimbot-CSharp\ValorantAimbotUI\obj\Debug\iBaseult.pdb

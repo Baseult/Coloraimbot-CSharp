@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ValorantAimbotUI.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="iBaseult.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="isTriggerbot" Type="System.Boolean" Scope="User">
@@ -8,16 +8,10 @@
 	  <Setting Name="isPing" Type="System.Boolean" Scope="User">
 		  <Value Profile="(Default)">False</Value>
 	  </Setting>
-	  <Setting Name="isCall" Type="System.Boolean" Scope="User">
-		  <Value Profile="(Default)">False</Value>
-	  </Setting>
     <Setting Name="isAimbot" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
 	  <Setting Name="isEsp" Type="System.Boolean" Scope="User">
-		  <Value Profile="(Default)">False</Value>
-	  </Setting>
-	  <Setting Name="isPixel" Type="System.Boolean" Scope="User">
 		  <Value Profile="(Default)">False</Value>
 	  </Setting>
 	  <Setting Name="TriggerRage" Type="System.Boolean" Scope="User">

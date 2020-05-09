@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ValorantAimbotUI.Properties {
+namespace iBaseult.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -50,18 +50,6 @@ namespace ValorantAimbotUI.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool isCall {
-            get {
-                return ((bool)(this["isCall"]));
-            }
-            set {
-                this["isCall"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool isAimbot {
             get {
                 return ((bool)(this["isAimbot"]));
@@ -80,18 +68,6 @@ namespace ValorantAimbotUI.Properties {
             }
             set {
                 this["isEsp"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool isPixel {
-            get {
-                return ((bool)(this["isPixel"]));
-            }
-            set {
-                this["isPixel"] = value;
             }
         }
         
