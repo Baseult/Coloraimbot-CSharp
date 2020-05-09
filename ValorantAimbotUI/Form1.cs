@@ -1061,6 +1061,7 @@ namespace iBaseult
 				this.xBhop();
 				this.xDice();
 				this.xAimbot();
+				this.xUpdate();
 			});
 			this.mainThread.Start();
 		}
