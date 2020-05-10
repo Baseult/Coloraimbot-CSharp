@@ -21,7 +21,6 @@
             this.AimbotBtt = new System.Windows.Forms.CheckBox();
             this.Speed = new System.Windows.Forms.NumericUpDown();
             this.FovXNum = new System.Windows.Forms.NumericUpDown();
-            this.FovYNum = new System.Windows.Forms.NumericUpDown();
             this.offsetNum = new System.Windows.Forms.NumericUpDown();
             this.Speed3 = new System.Windows.Forms.NumericUpDown();
             this.Delayx = new System.Windows.Forms.NumericUpDown();
@@ -111,6 +110,7 @@
             this.Ragehuman = new System.Windows.Forms.NumericUpDown();
             this.label57 = new System.Windows.Forms.Label();
             this.Norecoilaimval = new System.Windows.Forms.NumericUpDown();
+            this.FovYNum = new System.Windows.Forms.NumericUpDown();
             this.label19 = new System.Windows.Forms.Label();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label23 = new System.Windows.Forms.Label();
@@ -124,7 +124,6 @@
             this.label51 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FovXNum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FovYNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.offsetNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Speed3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Delayx)).BeginInit();
@@ -156,6 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Ragex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ragehuman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Norecoilaimval)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FovYNum)).BeginInit();
             this.SuspendLayout();
             // 
             // AimbotBtt
@@ -164,6 +164,7 @@
             this.AimbotBtt.BackColor = System.Drawing.Color.Transparent;
             this.AimbotBtt.Cursor = System.Windows.Forms.Cursors.Default;
             this.AimbotBtt.ForeColor = System.Drawing.Color.White;
+            this.AimbotBtt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.AimbotBtt.Location = new System.Drawing.Point(22, 41);
             this.AimbotBtt.Margin = new System.Windows.Forms.Padding(2);
             this.AimbotBtt.Name = "AimbotBtt";
@@ -229,32 +230,6 @@
             0,
             0});
             this.FovXNum.ValueChanged += new System.EventHandler(this.FovX_changed);
-            // 
-            // FovYNum
-            // 
-            this.FovYNum.BackColor = System.Drawing.SystemColors.Window;
-            this.FovYNum.Cursor = System.Windows.Forms.Cursors.Default;
-            this.FovYNum.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.FovYNum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.FovYNum.InterceptArrowKeys = false;
-            this.FovYNum.Location = new System.Drawing.Point(22, 457);
-            this.FovYNum.Margin = new System.Windows.Forms.Padding(2);
-            this.FovYNum.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.FovYNum.Name = "FovYNum";
-            this.FovYNum.Size = new System.Drawing.Size(90, 20);
-            this.FovYNum.TabIndex = 7;
-            this.FovYNum.TabStop = false;
-            this.toolTip1.SetToolTip(this.FovYNum, "Your Y Fov for Up and Down.\r\n\r\nHigher Value will increase the Fov.\r\n");
-            this.FovYNum.Value = new decimal(new int[] {
-            150,
-            0,
-            0,
-            0});
-            this.FovYNum.ValueChanged += new System.EventHandler(this.FovY_changed);
             // 
             // offsetNum
             // 
@@ -362,6 +337,7 @@
             this.AimkeyBtt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.AimkeyBtt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AimkeyBtt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AimkeyBtt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.AimkeyBtt.Location = new System.Drawing.Point(22, 1527);
             this.AimkeyBtt.Margin = new System.Windows.Forms.Padding(2);
             this.AimkeyBtt.Name = "AimkeyBtt";
@@ -400,6 +376,7 @@
             this.RecoilBtt.BackColor = System.Drawing.Color.Transparent;
             this.RecoilBtt.Cursor = System.Windows.Forms.Cursors.Default;
             this.RecoilBtt.ForeColor = System.Drawing.Color.White;
+            this.RecoilBtt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.RecoilBtt.Location = new System.Drawing.Point(22, 104);
             this.RecoilBtt.Margin = new System.Windows.Forms.Padding(2);
             this.RecoilBtt.Name = "RecoilBtt";
@@ -418,6 +395,7 @@
             this.TriggerbotBtt.BackColor = System.Drawing.Color.Transparent;
             this.TriggerbotBtt.Cursor = System.Windows.Forms.Cursors.Default;
             this.TriggerbotBtt.ForeColor = System.Drawing.Color.White;
+            this.TriggerbotBtt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TriggerbotBtt.Location = new System.Drawing.Point(22, 83);
             this.TriggerbotBtt.Margin = new System.Windows.Forms.Padding(2);
             this.TriggerbotBtt.Name = "TriggerbotBtt";
@@ -435,6 +413,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Cursor = System.Windows.Forms.Cursors.Default;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(122, 411);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -450,6 +429,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Cursor = System.Windows.Forms.Cursors.Default;
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label2.Location = new System.Drawing.Point(122, 435);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
@@ -465,6 +445,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Cursor = System.Windows.Forms.Cursors.Default;
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label3.Location = new System.Drawing.Point(122, 459);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
@@ -479,6 +460,7 @@
             this.RedRadio.AutoSize = true;
             this.RedRadio.BackColor = System.Drawing.Color.Transparent;
             this.RedRadio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RedRadio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.RedRadio.Location = new System.Drawing.Point(22, 267);
             this.RedRadio.Margin = new System.Windows.Forms.Padding(0);
             this.RedRadio.Name = "RedRadio";
@@ -495,6 +477,7 @@
             this.PurpleRadio.AutoSize = true;
             this.PurpleRadio.BackColor = System.Drawing.Color.Transparent;
             this.PurpleRadio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PurpleRadio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.PurpleRadio.Location = new System.Drawing.Point(66, 267);
             this.PurpleRadio.Margin = new System.Windows.Forms.Padding(0);
             this.PurpleRadio.Name = "PurpleRadio";
@@ -511,6 +494,7 @@
             this.ChangeMonitorBtt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ChangeMonitorBtt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeMonitorBtt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ChangeMonitorBtt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.ChangeMonitorBtt.Location = new System.Drawing.Point(22, 1822);
             this.ChangeMonitorBtt.Margin = new System.Windows.Forms.Padding(2);
             this.ChangeMonitorBtt.Name = "ChangeMonitorBtt";
@@ -525,7 +509,10 @@
             // 
             this.AimKeyToggle.AutoSize = true;
             this.AimKeyToggle.BackColor = System.Drawing.Color.Transparent;
+            this.AimKeyToggle.Checked = true;
+            this.AimKeyToggle.CheckState = System.Windows.Forms.CheckState.Checked;
             this.AimKeyToggle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AimKeyToggle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.AimKeyToggle.Location = new System.Drawing.Point(22, 1798);
             this.AimKeyToggle.Margin = new System.Windows.Forms.Padding(2);
             this.AimKeyToggle.Name = "AimKeyToggle";
@@ -533,22 +520,27 @@
             this.AimKeyToggle.TabIndex = 12;
             this.AimKeyToggle.Text = "AimKey";
             this.AimKeyToggle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.AimKeyToggle, "Enables the Aimkey Keybind");
+            this.toolTip1.SetToolTip(this.AimKeyToggle, "Enables the Aimkey Keybind\r\n\r\nToggle the Features on and off with one Keybind pre" +
+        "ss instead of holding it down");
             this.AimKeyToggle.UseVisualStyleBackColor = false;
+            this.AimKeyToggle.CheckedChanged += new System.EventHandler(this.AimKeyToggle_CheckedChanged);
             this.AimKeyToggle.Click += new System.EventHandler(this.IsAimKeyChanged);
             // 
             // IsHoldToggle
             // 
             this.IsHoldToggle.AutoSize = true;
             this.IsHoldToggle.BackColor = System.Drawing.Color.Transparent;
+            this.IsHoldToggle.Checked = true;
+            this.IsHoldToggle.CheckState = System.Windows.Forms.CheckState.Checked;
             this.IsHoldToggle.ForeColor = System.Drawing.Color.Snow;
+            this.IsHoldToggle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.IsHoldToggle.Location = new System.Drawing.Point(84, 1798);
             this.IsHoldToggle.Margin = new System.Windows.Forms.Padding(2);
             this.IsHoldToggle.Name = "IsHoldToggle";
             this.IsHoldToggle.Size = new System.Drawing.Size(48, 17);
             this.IsHoldToggle.TabIndex = 13;
             this.IsHoldToggle.Text = "Hold";
-            this.toolTip1.SetToolTip(this.IsHoldToggle, "Press and Hold the Aimkey for Triggerbot and Aimbot");
+            this.toolTip1.SetToolTip(this.IsHoldToggle, "Press and Hold the Aimkey for Triggerbot and Aimbot and Ragebot");
             this.IsHoldToggle.UseVisualStyleBackColor = false;
             this.IsHoldToggle.CheckedChanged += new System.EventHandler(this.IsHold_changed);
             // 
@@ -557,6 +549,7 @@
             this.StartBtt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.StartBtt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartBtt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.StartBtt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.StartBtt.Location = new System.Drawing.Point(22, 1851);
             this.StartBtt.Margin = new System.Windows.Forms.Padding(2);
             this.StartBtt.Name = "StartBtt";
@@ -571,7 +564,6 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuStrip1_Opening);
             // 
             // label4
             // 
@@ -579,6 +571,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Cursor = System.Windows.Forms.Cursors.Default;
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label4.Location = new System.Drawing.Point(122, 483);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
@@ -593,6 +586,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label5.Location = new System.Drawing.Point(122, 928);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
@@ -600,7 +594,6 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "Firerate";
             this.toolTip1.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
-            this.label5.Click += new System.EventHandler(this.Label5_Click);
             // 
             // FireRateNum
             // 
@@ -628,8 +621,9 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Cursor = System.Windows.Forms.Cursors.Default;
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label6.Location = new System.Drawing.Point(17, 18);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 20);
@@ -640,8 +634,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label8.Location = new System.Drawing.Point(18, 243);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 20);
@@ -652,8 +647,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label9.Location = new System.Drawing.Point(18, 1505);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(154, 20);
@@ -665,6 +661,7 @@
             this.Customcolor.AutoSize = true;
             this.Customcolor.BackColor = System.Drawing.Color.Transparent;
             this.Customcolor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Customcolor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Customcolor.Location = new System.Drawing.Point(120, 266);
             this.Customcolor.Margin = new System.Windows.Forms.Padding(0);
             this.Customcolor.Name = "Customcolor";
@@ -681,6 +678,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label11.Location = new System.Drawing.Point(122, 290);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
@@ -736,6 +734,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label12.Location = new System.Drawing.Point(122, 314);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
@@ -749,6 +748,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label13.Location = new System.Drawing.Point(122, 338);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
@@ -761,8 +761,9 @@
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label14.Location = new System.Drawing.Point(18, 871);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(163, 20);
@@ -798,6 +799,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label15.Location = new System.Drawing.Point(122, 904);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
@@ -810,8 +812,9 @@
             // 
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label17.Location = new System.Drawing.Point(18, 1675);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(166, 20);
@@ -852,6 +855,7 @@
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label18.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label18.Location = new System.Drawing.Point(121, 1720);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
@@ -864,6 +868,7 @@
             this.ScreenY.AutoSize = true;
             this.ScreenY.BackColor = System.Drawing.Color.Transparent;
             this.ScreenY.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ScreenY.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.ScreenY.Location = new System.Drawing.Point(121, 1744);
             this.ScreenY.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ScreenY.Name = "ScreenY";
@@ -877,6 +882,7 @@
             this.CustomScreen.BackColor = System.Drawing.Color.Black;
             this.CustomScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CustomScreen.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CustomScreen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.CustomScreen.Location = new System.Drawing.Point(22, 1697);
             this.CustomScreen.Margin = new System.Windows.Forms.Padding(2);
             this.CustomScreen.Name = "CustomScreen";
@@ -900,6 +906,7 @@
             this.Bhopbox.BackColor = System.Drawing.Color.Transparent;
             this.Bhopbox.Cursor = System.Windows.Forms.Cursors.Default;
             this.Bhopbox.ForeColor = System.Drawing.Color.White;
+            this.Bhopbox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Bhopbox.Location = new System.Drawing.Point(22, 125);
             this.Bhopbox.Margin = new System.Windows.Forms.Padding(2);
             this.Bhopbox.Name = "Bhopbox";
@@ -939,6 +946,7 @@
             this.TriggerKeyBtt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TriggerKeyBtt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TriggerKeyBtt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.TriggerKeyBtt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TriggerKeyBtt.Location = new System.Drawing.Point(21, 1606);
             this.TriggerKeyBtt.Margin = new System.Windows.Forms.Padding(2);
             this.TriggerKeyBtt.Name = "TriggerKeyBtt";
@@ -954,6 +962,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label10.Location = new System.Drawing.Point(121, 1093);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(77, 13);
@@ -968,6 +977,7 @@
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Cursor = System.Windows.Forms.Cursors.Default;
             this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label20.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label20.Location = new System.Drawing.Point(121, 578);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
@@ -984,6 +994,7 @@
             this.label21.BackColor = System.Drawing.Color.Transparent;
             this.label21.Cursor = System.Windows.Forms.Cursors.Default;
             this.label21.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label21.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label21.Location = new System.Drawing.Point(121, 998);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
@@ -998,6 +1009,7 @@
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Cursor = System.Windows.Forms.Cursors.Default;
             this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label22.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label22.Location = new System.Drawing.Point(122, 626);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
@@ -1012,6 +1024,7 @@
             this.label25.BackColor = System.Drawing.Color.Transparent;
             this.label25.Cursor = System.Windows.Forms.Cursors.Default;
             this.label25.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label25.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label25.Location = new System.Drawing.Point(121, 602);
             this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
@@ -1027,6 +1040,7 @@
             this.EspBtt.BackColor = System.Drawing.Color.Transparent;
             this.EspBtt.Cursor = System.Windows.Forms.Cursors.Help;
             this.EspBtt.ForeColor = System.Drawing.Color.White;
+            this.EspBtt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.EspBtt.Location = new System.Drawing.Point(22, 202);
             this.EspBtt.Margin = new System.Windows.Forms.Padding(2);
             this.EspBtt.Name = "EspBtt";
@@ -1048,6 +1062,7 @@
             this.CircleBtt.BackColor = System.Drawing.Color.Transparent;
             this.CircleBtt.Cursor = System.Windows.Forms.Cursors.Default;
             this.CircleBtt.ForeColor = System.Drawing.Color.White;
+            this.CircleBtt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.CircleBtt.Location = new System.Drawing.Point(22, 181);
             this.CircleBtt.Margin = new System.Windows.Forms.Padding(2);
             this.CircleBtt.Name = "CircleBtt";
@@ -1058,13 +1073,14 @@
             this.toolTip1.SetToolTip(this.CircleBtt, "This Feature shows your Fov in a Circle\r\n\r\n(refreshtime 5 seconds)");
             this.CircleBtt.UseMnemonic = false;
             this.CircleBtt.UseVisualStyleBackColor = false;
-            this.CircleBtt.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged_1);
+            this.CircleBtt.CheckedChanged += new System.EventHandler(this.CheckBox3_CheckedChanged_1);
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.BackColor = System.Drawing.Color.Transparent;
             this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label28.Location = new System.Drawing.Point(121, 1117);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(62, 13);
@@ -1096,6 +1112,7 @@
             this.label30.AutoSize = true;
             this.label30.BackColor = System.Drawing.Color.Transparent;
             this.label30.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label30.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label30.Location = new System.Drawing.Point(122, 1262);
             this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label30.Name = "label30";
@@ -1109,6 +1126,7 @@
             this.label31.AutoSize = true;
             this.label31.BackColor = System.Drawing.Color.Transparent;
             this.label31.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label31.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label31.Location = new System.Drawing.Point(122, 1238);
             this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label31.Name = "label31";
@@ -1181,6 +1199,7 @@
             this.label32.AutoSize = true;
             this.label32.BackColor = System.Drawing.Color.Transparent;
             this.label32.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label32.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label32.Location = new System.Drawing.Point(122, 1214);
             this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label32.Name = "label32";
@@ -1194,6 +1213,7 @@
             this.label37.AutoSize = true;
             this.label37.BackColor = System.Drawing.Color.Transparent;
             this.label37.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label37.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label37.Location = new System.Drawing.Point(122, 1426);
             this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label37.Name = "label37";
@@ -1207,6 +1227,7 @@
             this.label38.AutoSize = true;
             this.label38.BackColor = System.Drawing.Color.Transparent;
             this.label38.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label38.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label38.Location = new System.Drawing.Point(122, 1400);
             this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label38.Name = "label38";
@@ -1267,6 +1288,7 @@
             this.label39.AutoSize = true;
             this.label39.BackColor = System.Drawing.Color.Transparent;
             this.label39.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label39.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label39.Location = new System.Drawing.Point(122, 1378);
             this.label39.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label39.Name = "label39";
@@ -1280,6 +1302,7 @@
             this.label41.AutoSize = true;
             this.label41.BackColor = System.Drawing.Color.Transparent;
             this.label41.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label41.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label41.Location = new System.Drawing.Point(122, 1354);
             this.label41.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label41.Name = "label41";
@@ -1331,6 +1354,7 @@
             this.label42.AutoSize = true;
             this.label42.BackColor = System.Drawing.Color.Transparent;
             this.label42.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label42.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label42.Location = new System.Drawing.Point(122, 1330);
             this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label42.Name = "label42";
@@ -1364,6 +1388,7 @@
             this.label48.AutoSize = true;
             this.label48.BackColor = System.Drawing.Color.Transparent;
             this.label48.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label48.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label48.Location = new System.Drawing.Point(122, 1190);
             this.label48.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label48.Name = "label48";
@@ -1396,6 +1421,7 @@
             this.label49.AutoSize = true;
             this.label49.BackColor = System.Drawing.Color.Transparent;
             this.label49.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label49.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label49.Location = new System.Drawing.Point(122, 1450);
             this.label49.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label49.Name = "label49";
@@ -1410,6 +1436,7 @@
             this.TargetCheck.BackColor = System.Drawing.Color.Transparent;
             this.TargetCheck.Cursor = System.Windows.Forms.Cursors.Help;
             this.TargetCheck.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TargetCheck.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TargetCheck.Location = new System.Drawing.Point(22, 554);
             this.TargetCheck.Name = "TargetCheck";
             this.TargetCheck.Size = new System.Drawing.Size(105, 17);
@@ -1451,6 +1478,7 @@
             this.label24.BackColor = System.Drawing.Color.Transparent;
             this.label24.Cursor = System.Windows.Forms.Cursors.Default;
             this.label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label24.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label24.Location = new System.Drawing.Point(122, 797);
             this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
@@ -1465,6 +1493,7 @@
             this.Ragebot.BackColor = System.Drawing.Color.Transparent;
             this.Ragebot.Cursor = System.Windows.Forms.Cursors.Default;
             this.Ragebot.ForeColor = System.Drawing.Color.White;
+            this.Ragebot.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Ragebot.Location = new System.Drawing.Point(22, 62);
             this.Ragebot.Margin = new System.Windows.Forms.Padding(2);
             this.Ragebot.Name = "Ragebot";
@@ -1476,13 +1505,14 @@
             this.toolTip1.SetToolTip(this.Ragebot, "Simple Ragebot. Aims at your Enemy and auto shoots like Triggerbot.\r\n\r\nOnly works" +
         " with Keybind!");
             this.Ragebot.UseVisualStyleBackColor = false;
-            this.Ragebot.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.Ragebot.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // label52
             // 
             this.label52.AutoSize = true;
             this.label52.BackColor = System.Drawing.Color.Transparent;
             this.label52.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label52.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label52.Location = new System.Drawing.Point(122, 821);
             this.label52.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label52.Name = "label52";
@@ -1513,7 +1543,7 @@
             0,
             0,
             0});
-            this.Firerage.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged_3);
+            this.Firerage.ValueChanged += new System.EventHandler(this.Firerage_ValueChanged_3);
             // 
             // label53
             // 
@@ -1521,6 +1551,7 @@
             this.label53.BackColor = System.Drawing.Color.Transparent;
             this.label53.Cursor = System.Windows.Forms.Cursors.Default;
             this.label53.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label53.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label53.Location = new System.Drawing.Point(122, 773);
             this.label53.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label53.Name = "label53";
@@ -1563,6 +1594,7 @@
             this.label54.BackColor = System.Drawing.Color.Transparent;
             this.label54.Cursor = System.Windows.Forms.Cursors.Default;
             this.label54.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label54.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label54.Location = new System.Drawing.Point(122, 749);
             this.label54.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label54.Name = "label54";
@@ -1604,6 +1636,7 @@
             this.label55.BackColor = System.Drawing.Color.Transparent;
             this.label55.Cursor = System.Windows.Forms.Cursors.Default;
             this.label55.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label55.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label55.Location = new System.Drawing.Point(122, 725);
             this.label55.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label55.Name = "label55";
@@ -1645,6 +1678,7 @@
             this.label56.BackColor = System.Drawing.Color.Transparent;
             this.label56.Cursor = System.Windows.Forms.Cursors.Default;
             this.label56.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label56.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label56.Location = new System.Drawing.Point(122, 701);
             this.label56.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label56.Name = "label56";
@@ -1680,7 +1714,7 @@
             0,
             0,
             131072});
-            this.Ragehuman.ValueChanged += new System.EventHandler(this.numericUpDown5_ValueChanged);
+            this.Ragehuman.ValueChanged += new System.EventHandler(this.Ragespeed_ValueChanged);
             // 
             // label57
             // 
@@ -1688,6 +1722,7 @@
             this.label57.BackColor = System.Drawing.Color.Transparent;
             this.label57.Cursor = System.Windows.Forms.Cursors.Default;
             this.label57.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label57.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label57.Location = new System.Drawing.Point(121, 1022);
             this.label57.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label57.Name = "label57";
@@ -1725,12 +1760,39 @@
             0,
             0});
             // 
+            // FovYNum
+            // 
+            this.FovYNum.BackColor = System.Drawing.SystemColors.Window;
+            this.FovYNum.Cursor = System.Windows.Forms.Cursors.Default;
+            this.FovYNum.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.FovYNum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.FovYNum.InterceptArrowKeys = false;
+            this.FovYNum.Location = new System.Drawing.Point(22, 457);
+            this.FovYNum.Margin = new System.Windows.Forms.Padding(2);
+            this.FovYNum.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.FovYNum.Name = "FovYNum";
+            this.FovYNum.Size = new System.Drawing.Size(90, 20);
+            this.FovYNum.TabIndex = 141;
+            this.FovYNum.TabStop = false;
+            this.toolTip1.SetToolTip(this.FovYNum, "Your X Fov for Left and Right.\r\n\r\nHigher Value will increase the Fov.");
+            this.FovYNum.Value = new decimal(new int[] {
+            350,
+            0,
+            0,
+            0});
+            this.FovYNum.ValueChanged += new System.EventHandler(this.FovYNum_ValueChanged);
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label19.Location = new System.Drawing.Point(18, 1584);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(96, 20);
@@ -1742,15 +1804,15 @@
             this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip2.Name = "contextMenuStrip1";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
-            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuStrip2_Opening);
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label23.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label23.Location = new System.Drawing.Point(18, 531);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(138, 20);
@@ -1762,8 +1824,9 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label7.Location = new System.Drawing.Point(18, 385);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(167, 20);
@@ -1774,8 +1837,9 @@
             // 
             this.label27.AutoSize = true;
             this.label27.BackColor = System.Drawing.Color.Transparent;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label27.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label27.Location = new System.Drawing.Point(18, 972);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(86, 20);
@@ -1786,8 +1850,9 @@
             // 
             this.label26.AutoSize = true;
             this.label26.BackColor = System.Drawing.Color.Transparent;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label26.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label26.Location = new System.Drawing.Point(18, 1067);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(56, 20);
@@ -1798,8 +1863,9 @@
             // 
             this.label29.AutoSize = true;
             this.label29.BackColor = System.Drawing.Color.Transparent;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label29.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label29.Location = new System.Drawing.Point(18, 1165);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(100, 20);
@@ -1810,8 +1876,9 @@
             // 
             this.label36.AutoSize = true;
             this.label36.BackColor = System.Drawing.Color.Transparent;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label36.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label36.Location = new System.Drawing.Point(18, 1306);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(96, 20);
@@ -1824,8 +1891,9 @@
             this.label50.BackColor = System.Drawing.Color.Transparent;
             this.label50.Cursor = System.Windows.Forms.Cursors.Default;
             this.label50.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label50.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label50.Location = new System.Drawing.Point(18, 158);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(72, 20);
@@ -1837,8 +1905,9 @@
             this.label51.AutoSize = true;
             this.label51.BackColor = System.Drawing.Color.Transparent;
             this.label51.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label51.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label51.Location = new System.Drawing.Point(18, 673);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(83, 20);
@@ -1855,7 +1924,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(282, 520);
+            this.ClientSize = new System.Drawing.Size(249, 231);
+            this.Controls.Add(this.FovYNum);
             this.Controls.Add(this.label57);
             this.Controls.Add(this.Norecoilaimval);
             this.Controls.Add(this.label53);
@@ -1949,7 +2019,6 @@
             this.Controls.Add(this.PurpleRadio);
             this.Controls.Add(this.RedRadio);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.FovYNum);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.FovXNum);
             this.Controls.Add(this.label1);
@@ -1959,6 +2028,7 @@
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(2000, 2000);
             this.MinimumSize = new System.Drawing.Size(200, 200);
@@ -1968,7 +2038,6 @@
             this.Load += new System.EventHandler(this.Main_load);
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FovXNum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FovYNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.offsetNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Speed3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Delayx)).EndInit();
@@ -2000,6 +2069,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Ragex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ragehuman)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Norecoilaimval)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FovYNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2082,7 +2152,6 @@
         public System.Windows.Forms.CheckBox AimbotBtt;
         public System.Windows.Forms.NumericUpDown Speed;
         public System.Windows.Forms.NumericUpDown FovXNum;
-        public System.Windows.Forms.NumericUpDown FovYNum;
         public System.Windows.Forms.NumericUpDown offsetNum;
         public System.Windows.Forms.NumericUpDown Speed3;
         public System.Windows.Forms.NumericUpDown Delayx;
@@ -2111,5 +2180,6 @@
         public System.Windows.Forms.NumericUpDown Ragehuman;
         public System.Windows.Forms.Label label57;
         public System.Windows.Forms.NumericUpDown Norecoilaimval;
+        public System.Windows.Forms.NumericUpDown FovYNum;
     }
 }

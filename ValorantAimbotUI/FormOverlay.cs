@@ -47,8 +47,8 @@ namespace iBaseult
 		{
 			try
 			{
-				this.BackColor = Color.Wheat;
-				this.TransparencyKey = Color.Wheat;
+				this.BackColor = Color.Fuchsia;
+				this.TransparencyKey = Color.Fuchsia;
 				this.TopMost = true;
 				this.MaximizeBox = true;
 				this.FormBorderStyle = FormBorderStyle.None;
@@ -120,7 +120,7 @@ namespace iBaseult
 								{
 									Width = form1.FovCircleWidth
 								};
-								e.Graphics.Clear(Color.Wheat);
+								e.Graphics.Clear(Color.Fuchsia);
 								g.DrawEllipse(New, 0, 0, form2.fovX, form2.fovY);
 								WaitNSeconds(5);
 								goto Now;

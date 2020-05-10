@@ -193,6 +193,18 @@ namespace iBaseult.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        public int fovY {
+            get {
+                return ((int)(this["fovY"]));
+            }
+            set {
+                this["fovY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int FovCircleRed {
             get {
@@ -248,18 +260,6 @@ namespace iBaseult.Properties {
             }
             set {
                 this["FovCircleWidth"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("200")]
-        public int fovY {
-            get {
-                return ((int)(this["fovY"]));
-            }
-            set {
-                this["fovY"] = value;
             }
         }
         

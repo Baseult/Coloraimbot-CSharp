@@ -27,7 +27,7 @@ namespace iBaseult
             Form1.CheckForIllegalCrossThreadCalls = false;
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			MessageBox.Show("Detection Status: Unknown (No reported Ban so far)." + "\n" + "\n" + "Use this Cheat at your own risk!" + "\n" + "\n" +  "For increased Security change iBaseult.exe to another Name!");
+			MessageBox.Show("Use this Cheat at your own risk!" + "\n" + "For increased Security change iBaseult.exe to another Name!" + "\n" + "\n" + "Visuals may won't work in Fullscreen!" + "\n" + "\n" + "Following Features might slow down your Aimbot:" + "\n" + "ColorESP and Aimbot - Target");
 			Application.Run(new Form2());
 			Application.Run(new Form1());
 		}

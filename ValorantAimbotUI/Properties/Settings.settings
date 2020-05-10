@@ -44,6 +44,9 @@
     <Setting Name="fovX" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">400</Value>
     </Setting>
+	  <Setting Name="fovY" Type="System.Int32" Scope="User">
+		  <Value Profile="(Default)">200</Value>
+	  </Setting>
 	  <Setting Name="FovCircleRed" Type="System.Int32" Scope="User">
 		  <Value Profile="(Default)">1</Value>
 	  </Setting>
@@ -59,9 +62,6 @@
 	  <Setting Name="FovCircleWidth" Type="System.Int32" Scope="User">
 		  <Value Profile="(Default)">1</Value>
 	  </Setting>
-    <Setting Name="fovY" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">200</Value>
-    </Setting>
     <Setting Name="color" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
