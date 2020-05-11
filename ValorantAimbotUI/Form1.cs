@@ -1048,6 +1048,7 @@ namespace iBaseult
                 TriggerbotBtt.Enabled = true;
                 FireRateNum.Enabled = true;
 			}
+
             this.TriggerRage = Ragebot.Checked;
             this.SetKey("TriggerRage", this.TriggerRage);
         }
@@ -1194,11 +1195,10 @@ namespace iBaseult
 
 		private void OffsetY_changed(object sender, EventArgs e)
 		{
-			if (!TriggerRage)
-			{
+			
 				this.offsetY = (int)this.offsetNum.Value;
 				this.SetKey("offsetY", this.offsetY);
-			}
+
 		}
 
 
