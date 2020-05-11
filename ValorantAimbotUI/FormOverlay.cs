@@ -113,15 +113,14 @@ namespace iBaseult
 						{
 							try
 							{
-								Form1 form2 = new Form1();
 								g = e.Graphics;
-								Color col = Color.FromArgb(form2.FovCircleRed, form2.FovCircleGreen, form2.FovCircleBlue);          //yes it is shit but it works do it better lel
+								Color col = Color.FromArgb(form1.FovCircleRed, form1.FovCircleGreen, form1.FovCircleBlue);          //yes it is shit but it works do it better lel
 								Pen New = new Pen(col)
 								{
 									Width = form1.FovCircleWidth
 								};
 								e.Graphics.Clear(Color.Fuchsia);
-								g.DrawEllipse(New, 0, 0, form2.fovX, form2.fovY);
+								g.DrawEllipse(New, 0, 0, form1.fovX, form1.fovY);
 								WaitNSeconds(5);
 								goto Now;
 							}

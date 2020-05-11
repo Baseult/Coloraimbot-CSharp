@@ -182,13 +182,11 @@ namespace iBaseult
 								{
 									if (keyState >= 0)
 									{
-										await Task.Delay(1).ConfigureAwait(false);
 										continue;
 									}
 								}
 								else if (keyState != 0)
 								{
-									await Task.Delay(1).ConfigureAwait(false);
 									continue;
 								}
 							}
@@ -233,6 +231,7 @@ namespace iBaseult
 											{
 												g.DrawRectangle(Red, array2[j].X - (sx / 2), array2[j].Y - 10, sx, sy);         //I know this is shitty drawing stop looking at it thanks xD
 											}
+
 										}
 
 										Vector2 current = new Vector2((float)array2[j].X, (float)array2[j].Y);
@@ -243,25 +242,6 @@ namespace iBaseult
 											{
 												break;
 											}
-										}
-									}
-
-									if (this.isAimKey)
-									{
-										int keyState2 = (int)Form1.GetKeyState((int)this.Bhopxkey);
-										int keyState = (int)Form1.GetKeyState((int)this.mainAimKey);
-										if (this.isHold)
-										{
-											if (keyState >= 0 && keyState2 >= 0)
-											{
-												await Task.Delay(1).ConfigureAwait(false);
-												continue;
-											}
-										}
-										else if (keyState != 0 && keyState2 != 0)
-										{
-											await Task.Delay(1).ConfigureAwait(false);
-											continue;
 										}
 									}
 
@@ -286,23 +266,36 @@ namespace iBaseult
 												{
 													if (keyState2 >= 0)
 													{
-														await Task.Delay(1).ConfigureAwait(false);
-														continue;
+													}
+													else
+													{
+														for (int i = 0; i < array.Length; i++)
+														{
+															if ((new Vector2((float)array[i].X, (float)array[i].Y) - new Vector2((float)(xSize / 2), (float)(ySize / 2))).Length() < toka)
+															{
+																pressDown = true;
+																antirecoilval = Convert.ToInt32(Norecoilaimval.Text);
+																this.Move(0, antirecoilval, true);
+																break;
+															}
+														}
 													}
 												}
 												else if (keyState2 != 0)
 												{
-													await Task.Delay(1).ConfigureAwait(false);
-													continue;
 												}
-											}
-											for (int i = 0; i < array.Length; i++)
-											{
-												if ((new Vector2((float)array[i].X, (float)array[i].Y) - new Vector2((float)(xSize / 2), (float)(ySize / 2))).Length() < toka)
+												else
 												{
-													pressDown = true;
-													antirecoilval = Convert.ToInt32(Norecoilaimval.Text);
-												break;
+													for (int i = 0; i < array.Length; i++)
+													{
+														if ((new Vector2((float)array[i].X, (float)array[i].Y) - new Vector2((float)(xSize / 2), (float)(ySize / 2))).Length() < toka)
+														{
+															pressDown = true;
+															antirecoilval = Convert.ToInt32(Norecoilaimval.Text);
+															this.Move(0, antirecoilval, true);
+															break;
+														}
+													}
 												}
 											}
 										}
@@ -329,13 +322,11 @@ namespace iBaseult
 												{
 													if (keyState >= 0)
 													{
-														await Task.Delay(1).ConfigureAwait(false);
 														continue;
 													}
 												}
 												else if (keyState != 0)
 												{
-													await Task.Delay(1).ConfigureAwait(false);
 													continue;
 												}
 											}
@@ -363,37 +354,50 @@ namespace iBaseult
 
 										if (slowmove)
                                         {
-											
-											if (this.isTriggerbot)
+
+										if (this.isTriggerbot)
+										{
+											if (this.isAimKey)
 											{
-												if (this.isAimKey)
+												int keyState2 = (int)Form1.GetKeyState((int)this.Bhopxkey);
+												if (this.isHold)
 												{
-													int keyState2 = (int)Form1.GetKeyState((int)this.Bhopxkey);
-													if (this.isHold)
+													if (keyState2 >= 0)
 													{
-														if (keyState2 >= 0)
+													}
+													else
+													{
+														for (int i = 0; i < array.Length; i++)
 														{
-															await Task.Delay(1).ConfigureAwait(false);
-															continue;
+															if ((new Vector2((float)array[i].X, (float)array[i].Y) - new Vector2((float)(xSize / 2), (float)(ySize / 2))).Length() < toka)
+															{
+																pressDown = true;
+																antirecoilval = Convert.ToInt32(Norecoilaimval.Text);
+																this.Move(0, antirecoilval, true);
+																break;
+															}
 														}
 													}
-													else if (keyState2 != 0)
-													{
-														await Task.Delay(1).ConfigureAwait(false);
-														continue;
-													}
 												}
-												for (int i = 0; i < array.Length; i++)
+												else if (keyState2 != 0)
 												{
-													if ((new Vector2((float)array[i].X, (float)array[i].Y) - new Vector2((float)(xSize / 2), (float)(ySize / 2))).Length() < toka)
+												}
+												else
+												{
+													for (int i = 0; i < array.Length; i++)
 													{
-													pressDown = true;
-													antirecoilval = Convert.ToInt32(Norecoilaimval.Text);
-													break;
+														if ((new Vector2((float)array[i].X, (float)array[i].Y) - new Vector2((float)(xSize / 2), (float)(ySize / 2))).Length() < toka)
+														{
+															pressDown = true;
+															antirecoilval = Convert.ToInt32(Norecoilaimval.Text);
+															this.Move(0, antirecoilval, true);
+															break;
+														}
 													}
 												}
 											}
-											if (this.TriggerRage)
+										}
+										if (this.TriggerRage)
 											{
 												for (int i = 0; i < array.Length; i++)
 												{
@@ -416,13 +420,11 @@ namespace iBaseult
 													{
 														if (keyState >= 0)
 														{
-															await Task.Delay(1).ConfigureAwait(false);
 															continue;
 														}
 													}
 													else if (keyState != 0)
 													{
-														await Task.Delay(1).ConfigureAwait(false);
 														continue;
 													}
 												}
@@ -451,8 +453,6 @@ namespace iBaseult
 									continue;
 								}
 							}
-
-						
 					}
 				}
 				catch
@@ -746,7 +746,7 @@ namespace iBaseult
 		private async void XUpdate()
 		{
 			await Task.Delay(15000).ConfigureAwait(false);
-			DialogResult dialogResult = MessageBox.Show("In order to check for detection status this cheat has to connect to your Internet. Do you allow it?", "iBaseult - Information", MessageBoxButtons.YesNo);
+			DialogResult dialogResult = MessageBox.Show("In order to check for detection this cheat needs Networkconnection." + "\n" + "Do you allow it?" + "\n" + "\n" + "This cheat does not collect or send any Data." + "\n" + "Connection is needed only for Requests!", "iBaseult - Information", MessageBoxButtons.YesNo);
 			if (dialogResult == DialogResult.Yes)
 			{
 				MessageBox.Show("Okay, this cheat will use network connection to check for detection status. If you don't receive any warnings this means your cheat is not detected right now!");
@@ -983,29 +983,26 @@ namespace iBaseult
 
 		private void Speed_changed(object sender, EventArgs e)
 		{
-			if (!TriggerRage)
-			{
+		
 				this.speed = this.Speed.Value;
 				this.SetKey("speed", this.speed);
-			}
+			
 		}
 		private void FovX_changed(object sender, EventArgs e)
 		{
-			if(!TriggerRage)
-			{
+	
+		
 				this.fovX = (int)this.FovXNum.Value;
 				this.SetKey("fovX", this.fovX);
-			}
+
 		}
 
 
 		private void FovYNum_ValueChanged(object sender, EventArgs e)
 		{
-			if (!TriggerRage)
-			{
 				this.fovY = (int)this.FovYNum.Value;
 				this.SetKey("fovY", this.fovY);
-			}
+
 		}
 
 		private void IsAimbot_changed(object sender, EventArgs e)
@@ -1013,44 +1010,16 @@ namespace iBaseult
 			if(AimbotBtt.Checked)
             {
 				Ragebot.Enabled = false;
-				Ragex.Enabled = false;
-				Ragey.Enabled = false; ;
-				Rageoff.Enabled = false;
-				Ragehuman.Enabled = false;
 				chanceval.Enabled = false;
 				Firerage.Enabled = false;
-				label51.Enabled = false;
-				label52.Enabled = false;
-				label53.Enabled = false;
-				label24.Enabled = false;
-				label54.Enabled = false;
-				label55.Enabled = false;
-				label56.Enabled = false;
 				Ragebot.Checked = false;
-
-				this.speed = this.Speed.Value;
-				this.fovX = (int)this.FovXNum.Value;
-				this.fovY = (int)this.FovYNum.Value;
-				this.offsetY = (int)this.offsetNum.Value;
 
 			}
 			else
             {
 				Ragebot.Enabled = true;
-				Ragex.Enabled = true;
-				Ragey.Enabled = true;
-				Rageoff.Enabled = true;
-				Ragehuman.Enabled = true;
 				chanceval.Enabled = true;
 				Firerage.Enabled = true;
-				label51.Enabled = true;
-				label52.Enabled = true;
-				label53.Enabled = true;
-				label24.Enabled = true;
-				label54.Enabled = true;
-				label55.Enabled = true;
-				label56.Enabled = true;
-
 			}
 
 			this.isAimbot = this.AimbotBtt.Checked;
@@ -1063,54 +1032,22 @@ namespace iBaseult
             if (Ragebot.Checked)
             {
                 AimbotBtt.Enabled = false;
-                Speed.Enabled = false;
-                FovXNum.Enabled = false;
-                FovYNum.Enabled = false;
-                offsetNum.Enabled = false;
                 TriggerbotBtt.Enabled = false;
-                Pingx.Enabled = false;
                 FireRateNum.Enabled = false;
-                label7.Enabled = false;
-                label14.Enabled = false;
-                label1.Enabled = false;
-                label2.Enabled = false;
-                label3.Enabled = false;
-                label4.Enabled = false;
-                label5.Enabled = false;
-                label15.Enabled = false;
                 AimbotBtt.Checked = false;
                 TriggerbotBtt.Checked = false;
 
-				this.speed = this.Ragehuman.Value;
-				this.offsetY = (int)this.Rageoff.Value;
 				this.msShootTime = (int)this.Firerage.Value;
 
 			}
             else
             {
                 AimbotBtt.Enabled = true;
-                Speed.Enabled = true;
-                FovXNum.Enabled = true;
-                FovYNum.Enabled = true;
-                offsetNum.Enabled = true;
                 TriggerbotBtt.Enabled = true;
-                Pingx.Enabled = true;
                 FireRateNum.Enabled = true;
-                label7.Enabled = true;
-                label14.Enabled = true;
-                label1.Enabled = true;
-                label2.Enabled = true;
-                label3.Enabled = true;
-                label4.Enabled = true;
-                label5.Enabled = true;
-                label15.Enabled = true;
-
 			}
-
-
             this.TriggerRage = Ragebot.Checked;
             this.SetKey("TriggerRage", this.TriggerRage);
-
         }
 
 		private void IsTriggerbot_changed(object sender, EventArgs e)
@@ -1403,43 +1340,6 @@ namespace iBaseult
 			{
 				this.msShootTime = (int)this.Firerage.Value;
 				this.SetKey("msShootTime", this.msShootTime);
-			}
-		}
-
-        private void Ragespeed_ValueChanged(object sender, EventArgs e)
-        {
-			if (!isAimbot)
-			{
-				this.speed = this.Ragehuman.Value;
-				this.SetKey("speed", this.speed);
-			}
-		}
-
-        private void Ragex_ValueChanged(object sender, EventArgs e)
-        {
-			if (!isAimbot)
-			{
-				this.fovX = (int)this.Ragex.Value;
-				this.SetKey("fovX", this.fovX);
-			}
-		}
-
-        private void Ragey_ValueChanged(object sender, EventArgs e)
-        {
-			if (!isAimbot)
-			{
-				this.fovY = (int)this.Ragey.Value;
-				this.SetKey("fovY", this.fovY);
-			}
-
-		}
-
-        private void Rageoff_ValueChanged(object sender, EventArgs e)
-        {
-			if (!isAimbot)
-			{
-				this.offsetY = (int)this.Rageoff.Value;
-				this.SetKey("offsetY", this.offsetY);
 			}
 		}
 

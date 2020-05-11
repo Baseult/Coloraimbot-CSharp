@@ -1968,6 +1968,7 @@
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.tut20d)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tut18h)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tut18f)).EndInit();

@@ -120,6 +120,9 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>172, 17</value>
   </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>172, 17</value>
+  </metadata>
   <data name="Delayx.ToolTip" xml:space="preserve">
     <value>If you want to disable your Aimbot while you are aiming at your target you can set a delay.
 For example if you put in 1000 = 1000ms = 1second it will disable the aimbot for 1 second if you aim at your target.
