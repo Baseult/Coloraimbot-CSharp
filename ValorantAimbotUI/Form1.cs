@@ -173,7 +173,7 @@ namespace iBaseult
 							PixelColor = Color.FromArgb(GetColor(this.color));
 						}
 
-						if (this.isTriggerbot && !this.isAimbot && !this.TriggerRage)
+						if (this.isTriggerbot && !this.isAimbot && !this.TriggerRage && !this.isEsp)
 						{
 							if (this.isAimKey)
 							{
@@ -182,11 +182,13 @@ namespace iBaseult
 								{
 									if (keyState >= 0)
 									{
+										await Task.Delay(1).ConfigureAwait(false);
 										continue;
 									}
 								}
 								else if (keyState != 0)
 								{
+									await Task.Delay(1).ConfigureAwait(false);
 									continue;
 								}
 							}
